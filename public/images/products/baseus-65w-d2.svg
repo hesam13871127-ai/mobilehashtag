@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="160 330 480 300" width="800" height="800" role="img">
+<defs>
+<linearGradient id="g42" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7F4EE"/><stop offset="1" stop-color="#ECE5D4"/></linearGradient>
+<radialGradient id="r43" cx="0.5" cy="0.38" r="0.55"><stop offset="0" stop-color="#B99552" stop-opacity="0.35"/><stop offset="1" stop-color="#B99552" stop-opacity="0"/></radialGradient>
+<radialGradient id="s44" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#222" stop-opacity="0.28"/><stop offset="1" stop-color="#222" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="800" height="800" fill="url(#g42)"/>
+<rect width="800" height="800" fill="url(#r43)"/>
+<g opacity="0.06" fill="none" stroke="#92703B" stroke-width="26" stroke-linecap="round"><path d="M610 560 L690 240 M500 560 L580 240 M470 430 L720 430 M450 340 L700 340" transform="translate(-40,60) scale(0.9)"/></g>
+<ellipse cx="400" cy="668" rx="220" ry="34" fill="url(#s44)"/>
+<defs><linearGradient id="c41c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2eee6"/><stop offset="1" stop-color="#cfc7b6"/></linearGradient></defs>
+  <g>
+    <path d="M470 470 C560 470 560 560 470 580 C380 600 360 480 470 470 Z" fill="none" stroke="#2b2b33" stroke-width="22" stroke-linecap="round"/>
+    <path d="M470 470 C560 470 560 560 470 580" fill="none" stroke="#2b2b33" stroke-width="22" stroke-linecap="round"/>
+    <circle cx="470" cy="520" r="46" fill="none" stroke="#2b2b33" stroke-width="22"/>
+    <rect x="470" y="430" width="70" height="30" rx="10" fill="#3c3c46"/>
+    <rect x="252" y="300" width="220" height="190" rx="40" fill="url(#c41c)" stroke="#b9b2a2" stroke-width="3"/>
+    <rect x="300" y="252" width="22" height="62" rx="8" fill="#8f897c"/>
+    <rect x="402" y="252" width="22" height="62" rx="8" fill="#8f897c"/>
+    <rect x="300" y="360" width="124" height="52" rx="14" fill="#2b2b33"/>
+    <rect x="312" y="372" width="44" height="14" rx="7" fill="#B99552"/>
+    <rect x="368" y="372" width="44" height="14" rx="7" fill="#B99552" opacity="0.6"/>
+    <text x="362" y="350" font-family="sans-serif" font-size="30" font-weight="bold" fill="#92703B" text-anchor="middle">65W</text>
+  </g>
+</svg>

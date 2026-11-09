@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" width="520" height="160">
+<g>
+<rect x="8" y="8" width="144" height="144" rx="38" fill="url(#lg)"/>
+<defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8D7B0"/><stop offset="1" stop-color="#B99552"/></linearGradient></defs>
+<g stroke="#222222" stroke-width="17" stroke-linecap="round">
+<path d="M66 34 L54 126"/><path d="M106 34 L94 126"/>
+<path d="M38 62 L122 62"/><path d="M38 98 L122 98"/>
+</g>
+<circle cx="122" cy="34" r="9" fill="#222222"/>
+</g>
+<text x="330" y="86" font-family="Tahoma,Verdana,sans-serif" font-size="52" font-weight="bold" fill="#FFFFFF" text-anchor="middle">موبایل هشتگ</text>
+<text x="330" y="122" font-family="Verdana,sans-serif" font-size="21" letter-spacing="6" fill="#E8D7B0" text-anchor="middle">MOBILE HASHTAG</text>
+</svg>

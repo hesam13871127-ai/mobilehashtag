@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="100 60 600 600" width="600" height="600" role="img">
+<defs>
+<linearGradient id="g132" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4F2FA"/><stop offset="1" stop-color="#DCD6EE"/></linearGradient>
+<radialGradient id="r133" cx="0.5" cy="0.38" r="0.55"><stop offset="0" stop-color="#5b4a8a" stop-opacity="0.35"/><stop offset="1" stop-color="#5b4a8a" stop-opacity="0"/></radialGradient>
+<radialGradient id="s134" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#222" stop-opacity="0.28"/><stop offset="1" stop-color="#222" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="800" height="800" fill="url(#g132)"/>
+<rect width="800" height="800" fill="url(#r133)"/>
+<g opacity="0.06" fill="none" stroke="#92703B" stroke-width="26" stroke-linecap="round"><path d="M610 560 L690 240 M500 560 L580 240 M470 430 L720 430 M450 340 L700 340" transform="translate(-40,60) scale(0.9)"/></g>
+<ellipse cx="400" cy="668" rx="220" ry="34" fill="url(#s134)"/>
+<defs><linearGradient id="w131s" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9b96a"/><stop offset="1" stop-color="#5b4a1f"/></linearGradient></defs>
+  <g>
+    <rect x="356" y="120" width="88" height="150" rx="24" fill="#7a2e2e"/>
+    <rect x="356" y="530" width="88" height="150" rx="24" fill="#7a2e2e"/>
+    <circle cx="400" cy="180" r="8" fill="#000" opacity="0.3"/><circle cx="400" cy="215" r="8" fill="#000" opacity="0.3"/>
+    <circle cx="400" cy="585" r="8" fill="#000" opacity="0.3"/><circle cx="400" cy="620" r="8" fill="#000" opacity="0.3"/>
+    <rect x="316" y="180" width="22" height="60" rx="10" fill="#3c3c46"/>
+    <rect x="462" y="180" width="22" height="60" rx="10" fill="#3c3c46"/>
+    <rect x="292" y="252" width="216" height="296" rx="56" fill="#101014"/>
+    <rect x="304" y="264" width="192" height="272" rx="46" fill="url(#w131s)"/>
+    <circle cx="400" cy="400" r="86" fill="#0b0b0e" opacity="0.85"/>
+    <text x="400" y="392" font-family="sans-serif" font-size="44" font-weight="bold" fill="#fff" text-anchor="middle">10:09</text>
+    <text x="400" y="428" font-family="sans-serif" font-size="22" fill="#d9b96a" text-anchor="middle">FRI 24</text>
+    <circle cx="400" cy="470" r="12" fill="#D94C4C"/>
+    <path d="M394 470 h5 l3 -8 4 14 3 -6 h5" stroke="#fff" stroke-width="3" fill="none"/>
+  </g>
+</svg>

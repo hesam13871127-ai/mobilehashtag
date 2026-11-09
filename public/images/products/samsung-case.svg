@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img">
+<defs>
+<linearGradient id="g61" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7F4EE"/><stop offset="1" stop-color="#ECE5D4"/></linearGradient>
+<radialGradient id="r62" cx="0.5" cy="0.38" r="0.55"><stop offset="0" stop-color="#B99552" stop-opacity="0.35"/><stop offset="1" stop-color="#B99552" stop-opacity="0"/></radialGradient>
+<radialGradient id="s63" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#222" stop-opacity="0.28"/><stop offset="1" stop-color="#222" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="800" height="800" fill="url(#g61)"/>
+<rect width="800" height="800" fill="url(#r62)"/>
+<g opacity="0.06" fill="none" stroke="#92703B" stroke-width="26" stroke-linecap="round"><path d="M610 560 L690 240 M500 560 L580 240 M470 430 L720 430 M450 340 L700 340" transform="translate(-40,60) scale(0.9)"/></g>
+<ellipse cx="400" cy="668" rx="220" ry="34" fill="url(#s63)"/>
+<defs><linearGradient id="k60c" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2c3a5c"/><stop offset="1" stop-color="#121a30"/></linearGradient></defs>
+  <g>
+    <rect x="272" y="170" width="220" height="452" rx="52" fill="url(#k60c)"/>
+    <rect x="272" y="170" width="220" height="452" rx="52" fill="none" stroke="#6f86c9" stroke-width="6" opacity="0.7"/>
+    <rect x="300" y="200" width="96" height="96" rx="26" fill="#000" opacity="0.35"/>
+    <circle cx="330" cy="230" r="14" fill="#101014" stroke="#55555f" stroke-width="4"/>
+    <circle cx="366" cy="230" r="14" fill="#101014" stroke="#55555f" stroke-width="4"/>
+    <circle cx="330" cy="266" r="14" fill="#101014" stroke="#55555f" stroke-width="4"/>
+    <circle cx="366" cy="266" r="6" fill="#f5e9c8"/>
+    <path d="M300 560 q50 -26 100 0 q34 18 64 0" stroke="#6f86c9" stroke-width="10" fill="none" stroke-linecap="round" opacity="0.8"/>
+    <path d="M300 520 q50 -26 100 0 q34 18 64 0" stroke="#6f86c9" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.5"/>
+    <rect x="512" y="300" width="120" height="230" rx="34" fill="url(#k60c)" opacity="0.55"/>
+  </g>
+</svg>
