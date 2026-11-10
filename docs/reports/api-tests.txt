@@ -1,0 +1,172 @@
+
+> mobile-hashtag@1.0.0 test
+> node --test tests/api.test.js
+
+TAP version 13
+# (node:3749) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: 01 server, database and health check
+ok 1 - 01 server, database and health check
+  ---
+  duration_ms: 41.962992
+  type: 'test'
+  ...
+# Subtest: 02 all 21 HTML routes, assets and 404
+ok 2 - 02 all 21 HTML routes, assets and 404
+  ---
+  duration_ms: 247.765202
+  type: 'test'
+  ...
+# Subtest: 03 session cookies and CSRF
+ok 3 - 03 session cookies and CSRF
+  ---
+  duration_ms: 17.278278
+  type: 'test'
+  ...
+# Subtest: 04 categories have hierarchy, unique pages and relevant products
+ok 4 - 04 categories have hierarchy, unique pages and relevant products
+  ---
+  duration_ms: 105.375961
+  type: 'test'
+  ...
+# Subtest: 05 search and parameterized injection safety
+ok 5 - 05 search and parameterized injection safety
+  ---
+  duration_ms: 7.844653
+  type: 'test'
+  ...
+# Subtest: 06 brand, price, availability and sale filters combine
+ok 6 - 06 brand, price, availability and sale filters combine
+  ---
+  duration_ms: 8.250583
+  type: 'test'
+  ...
+# Subtest: 07 all sort options and pagination
+ok 7 - 07 all sort options and pagination
+  ---
+  duration_ms: 18.846567
+  type: 'test'
+  ...
+# Subtest: 08 product details include structured fields, gallery and recent history
+ok 8 - 08 product details include structured fields, gallery and recent history
+  ---
+  duration_ms: 7.606347
+  type: 'test'
+  ...
+# Subtest: 09 server cart ignores client price, stores quantity and variant
+ok 9 - 09 server cart ignores client price, stores quantity and variant
+  ---
+  duration_ms: 6.790955
+  type: 'test'
+  ...
+# Subtest: 10 invalid quantities, stock and variants rejected
+ok 10 - 10 invalid quantities, stock and variants rejected
+  ---
+  duration_ms: 20.424406
+  type: 'test'
+  ...
+# Subtest: 11 update quantity and remove items; shipping calculation
+ok 11 - 11 update quantity and remove items; shipping calculation
+  ---
+  duration_ms: 10.860958
+  type: 'test'
+  ...
+# Subtest: 12 persistent wishlist and duplicate safety
+ok 12 - 12 persistent wishlist and duplicate safety
+  ---
+  duration_ms: 16.743171
+  type: 'test'
+  ...
+# Subtest: 13 registration validation, bcrypt hash and session rotation
+ok 13 - 13 registration validation, bcrypt hash and session rotation
+  ---
+  duration_ms: 308.6042
+  type: 'test'
+  ...
+# Subtest: 14 user validation, address save/delete and account isolation
+ok 14 - 14 user validation, address save/delete and account isolation
+  ---
+  duration_ms: 19.576555
+  type: 'test'
+  ...
+# Subtest: 15 logout/login preserves account cart and merges guest cart
+ok 15 - 15 logout/login preserves account cart and merges guest cart
+  ---
+  duration_ms: 634.510028
+  type: 'test'
+  ...
+# Subtest: 16 checkout authentication and address validation
+ok 16 - 16 checkout authentication and address validation
+  ---
+  duration_ms: 7.420417
+  type: 'test'
+  ...
+# Subtest: 17 atomic checkout, price tampering and duplicate protection
+ok 17 - 17 atomic checkout, price tampering and duplicate protection
+  ---
+  duration_ms: 8.846865
+  type: 'test'
+  ...
+# Subtest: 18 order history, ownership and tracking with phone verification
+ok 18 - 18 order history, ownership and tracking with phone verification
+  ---
+  duration_ms: 301.856998
+  type: 'test'
+  ...
+# Subtest: 19 stock races roll back order and inventory atomically
+ok 19 - 19 stock races roll back order and inventory atomically
+  ---
+  duration_ms: 13.914807
+  type: 'test'
+  ...
+# Subtest: 20 contact and newsletter validation and durable storage
+ok 20 - 20 contact and newsletter validation and durable storage
+  ---
+  duration_ms: 13.032997
+  type: 'test'
+  ...
+# Subtest: 21 blog and user reviews persist
+ok 21 - 21 blog and user reviews persist
+  ---
+  duration_ms: 10.279932
+  type: 'test'
+  ...
+# Subtest: 22 password change invalidates old password
+ok 22 - 22 password change invalidates old password
+  ---
+  duration_ms: 1475.06254
+  type: 'test'
+  ...
+# Subtest: 23 separate process can read persisted orders and sessions
+ok 23 - 23 separate process can read persisted orders and sessions
+  ---
+  duration_ms: 28.668712
+  type: 'test'
+  ...
+# Subtest: 24 security headers and unknown API
+ok 24 - 24 security headers and unknown API
+  ---
+  duration_ms: 5.022499
+  type: 'test'
+  ...
+# Subtest: 25 fresh server process restores signed session and database cart
+ok 25 - 25 fresh server process restores signed session and database cart
+  ---
+  duration_ms: 128.407596
+  type: 'test'
+  ...
+# Subtest: 26 body shape, bcrypt byte limit and authenticated registration are validated
+ok 26 - 26 body shape, bcrypt byte limit and authenticated registration are validated
+  ---
+  duration_ms: 11.451237
+  type: 'test'
+  ...
+1..26
+# tests 26
+# suites 0
+# pass 26
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4677.245764

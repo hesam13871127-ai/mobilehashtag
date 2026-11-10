@@ -1,0 +1,39 @@
+{
+  "name": "mobile-hashtag",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Persian RTL electronics store · Express / SQLite / Vanilla JavaScript",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node --watch backend/server.js",
+    "db:init": "node database/seed.js",
+    "test": "node --test tests/api.test.js",
+    "test:ui": "playwright test",
+    "assets": "node scripts/assets.js && node scripts/refine-assets.js",
+    "package": "node scripts/package.js",
+    "format": "prettier --write \"backend/**/*.js\" \"database/*.js\" \"frontend/**/*.html\" \"frontend/assets/js/*.js\" \"frontend/assets/css/*.css\" \"tests/*.js\" \"scripts/*.js\" \"*.json\" \"*.js\"",
+    "format:check": "prettier --check \"backend/**/*.js\" \"database/*.js\" \"frontend/**/*.html\" \"frontend/assets/js/*.js\" \"frontend/assets/css/*.css\" \"tests/*.js\" \"scripts/*.js\" \"*.json\" \"*.js\"",
+    "setup": "node scripts/setup.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
+    "express-session": "^1.18.2",
+    "helmet": "^8.1.0"
+  },
+  "devDependencies": {
+    "@fontsource/noto-sans-symbols-2": "^5.3.0",
+    "@playwright/test": "^1.56.1",
+    "@sparticuz/chromium": "^153.0.0",
+    "fflate": "^0.8.3",
+    "prettier": "^3.9.10",
+    "sharp": "^0.35.5",
+    "@fontsource/vazirmatn": "^5.2.8"
+  }
+}

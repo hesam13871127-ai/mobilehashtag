@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="موبایل هشتگ؛ فروشگاه نمایشی گوشی هوشمند، لوازم جانبی و گجت با تجربه خرید فارسی."
+    />
+    <meta name="theme-color" content="#c9a44c" />
+    <title>دسته‌بندی محصولات | موبایل هشتگ</title>
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link
+      rel="preload"
+      href="/assets/fonts/vazirmatn-arabic-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <script type="module" src="/assets/js/shop.js"></script>
+  </head>
+  <body data-page="category">
+    <a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
+    <header id="site-header"></header>
+    <main id="main">
+      <div class="container page-space">
+        <div id="listing-heading"></div>
+        <div class="shop-layout">
+          <aside id="shop-filters" class="filter-panel"></aside>
+          <section class="listing">
+            <div class="shop-toolbar">
+              <button class="button outline mobile-filter" id="filter-toggle">فیلتر محصولات</button
+              ><span id="product-count"></span
+              ><label
+                >مرتب‌سازی
+                <select id="sort">
+                  <option value="featured">منتخب هشتگ</option>
+                  <option value="newest">جدیدترین</option>
+                  <option value="bestselling">پرفروش‌ترین</option>
+                  <option value="price_asc">ارزان‌ترین</option>
+                  <option value="price_desc">گران‌ترین</option>
+                  <option value="popular">محبوب‌ترین</option>
+                </select></label
+              >
+            </div>
+            <div id="active-filters"></div>
+            <div id="shop-products" class="product-grid three"></div>
+            <nav class="pagination" id="pagination" aria-label="صفحات محصولات"></nav>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer id="site-footer"></footer>
+    <div id="toast-region" aria-live="polite" aria-atomic="true"></div>
+    <dialog id="app-dialog"></dialog>
+    <noscript><p>برای استفاده از امکانات فروشگاه، جاوااسکریپت مرورگر را فعال کنید.</p></noscript>
+  </body>
+</html>

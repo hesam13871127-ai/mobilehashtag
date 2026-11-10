@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="موبایل هشتگ؛ فروشگاه نمایشی گوشی هوشمند، لوازم جانبی و گجت با تجربه خرید فارسی."
+    />
+    <meta name="theme-color" content="#c9a44c" />
+    <title>تماس با ما | موبایل هشتگ</title>
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link
+      rel="preload"
+      href="/assets/fonts/vazirmatn-arabic-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <script type="module" src="/assets/js/pages.js"></script>
+  </head>
+  <body data-page="contact">
+    <a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
+    <header id="site-header"></header>
+    <main id="main">
+      <div class="container page-space">
+        <div class="page-heading">
+          <span class="overline">گفت‌وگو از اینجا شروع می‌شود</span>
+          <h1>صدای شما را می‌شنویم</h1>
+          <p>سؤال، پیشنهاد یا تجربه‌ای دارید؟ برایمان بنویسید.</p>
+        </div>
+        <div class="contact-layout">
+          <section class="panel">
+            <h2>ارسال پیام</h2>
+            <form id="contact-form" class="form-stack">
+              <div class="form-row">
+                <label
+                  >نام و نام خانوادگی<input
+                    name="name"
+                    required
+                    minlength="2"
+                    maxlength="100"
+                    autocomplete="name" /></label
+                ><label
+                  >ایمیل<input name="email" type="email" required dir="ltr" autocomplete="email"
+                /></label>
+              </div>
+              <label
+                >پیام شما<textarea
+                  name="message"
+                  rows="6"
+                  minlength="10"
+                  maxlength="5000"
+                  required
+                ></textarea>
+              </label>
+              <p class="form-error" role="alert"></p>
+              <button class="button dark">
+                ثبت پیام
+                <svg
+                  class="inline-arrow"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M20 12H4m6-6-6 6 6 6" />
+                </svg>
+              </button>
+            </form>
+          </section>
+          <aside class="contact-aside">
+            <span data-icon="headset"></span>
+            <h2>همراه یک انتخاب بهتر</h2>
+            <p>پیش از ارسال پیام، شاید پاسخ سؤال شما در بخش پرسش‌های متداول باشد.</p>
+            <a class="text-link" href="faq.html"
+              >پرسش‌های متداول
+              <svg
+                class="inline-arrow"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M20 12H4m6-6-6 6 6 6" /></svg
+            ></a>
+            <hr />
+            <h3>شفاف با شما</h3>
+            <p>
+              پیام‌ها در دیتابیس این محیط ذخیره می‌شوند. در نسخه نمایشی، تیم پاسخ‌گویی یا ارسال
+              ایمیل فعال نیست.
+            </p>
+            <p class="small muted">
+              شماره تماس، نشانی واقعی فروشگاه و ساعات پاسخ‌گویی پس از تأیید صاحب کسب‌وکار درج خواهد
+              شد.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </main>
+    <footer id="site-footer"></footer>
+    <div id="toast-region" aria-live="polite" aria-atomic="true"></div>
+    <dialog id="app-dialog"></dialog>
+    <noscript><p>برای استفاده از امکانات فروشگاه، جاوااسکریپت مرورگر را فعال کنید.</p></noscript>
+  </body>
+</html>

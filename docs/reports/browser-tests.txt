@@ -1,0 +1,19 @@
+
+> mobile-hashtag@1.0.0 test:ui
+> playwright test
+
+
+Running 10 tests using 1 worker
+
+  ✓   1 tests/ui.spec.js:45:3 › Responsive routes and all image assets at 1920px (6.8s)
+  ✓   2 tests/ui.spec.js:45:3 › Responsive routes and all image assets at 1366px (5.6s)
+  ✓   3 tests/ui.spec.js:45:3 › Responsive routes and all image assets at 768px (4.3s)
+  ✓   4 tests/ui.spec.js:45:3 › Responsive routes and all image assets at 390px (3.7s)
+  ✓   5 tests/ui.spec.js:45:3 › Responsive routes and all image assets at 360px (3.4s)
+  ✓   6 tests/ui.spec.js:63:1 › Mega menu, all category URLs, search, filters, pagination, slider (10.3s)
+  ✓   7 tests/ui.spec.js:105:1 › Mobile menu, filters and quick-view keyboard closing (1.2s)
+  ✓   8 tests/ui.spec.js:125:1 › Complete mobile commerce flow: gallery, wish, cart, auth, address, checkout, tracking, settings (7.0s)
+  ✓   9 tests/ui.spec.js:216:1 › Contact, newsletter and registration errors have actual responses (1.5s)
+  ✓  10 tests/ui.spec.js:234:1 › Authenticated cart, checkout and account layouts at all five widths (3.8s)
+
+  10 passed (48.6s)
