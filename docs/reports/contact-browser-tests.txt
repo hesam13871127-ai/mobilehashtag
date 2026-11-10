@@ -1,0 +1,23 @@
+
+> mobile-hashtag@1.0.0 test:ui
+> playwright test
+
+
+Running 14 tests using 1 worker
+
+  ✓   1 tests/ui.spec.js:45:3 › Responsive routes and all image assets at 1920px (11.3s)
+  ✓   2 tests/ui.spec.js:45:3 › Responsive routes and all image assets at 1366px (8.9s)
+  ✓   3 tests/ui.spec.js:45:3 › Responsive routes and all image assets at 768px (6.4s)
+  ✓   4 tests/ui.spec.js:45:3 › Responsive routes and all image assets at 390px (5.5s)
+  ✓   5 tests/ui.spec.js:45:3 › Responsive routes and all image assets at 360px (5.2s)
+  ✓   6 tests/ui.spec.js:63:1 › Mega menu, all category URLs, search, filters, pagination, slider (19.1s)
+  ✓   7 tests/ui.spec.js:105:1 › Mobile menu, filters and quick-view keyboard closing (2.0s)
+  ✓   8 tests/ui.spec.js:125:1 › Complete mobile commerce flow: gallery, wish, cart, auth, address, checkout, tracking, settings (7.5s)
+  ✓   9 tests/ui.spec.js:216:1 › Contact, newsletter and registration errors have actual responses (2.2s)
+  ✓  10 tests/ui.spec.js:234:1 › Authenticated cart, checkout and account layouts at all five widths (6.7s)
+  ✓  11 tests/ui.spec.js:269:1 › Contact polish: centralized demo details, hidden map, responsive homepage/footer and safe links (6.0s)
+  ✓  12 tests/ui.spec.js:345:1 › Contact form retains native validation and actual server-side persistence response (1.1s)
+  ✓  13 tests/ui.spec.js:368:1 › Live-contact rendering uses correct tel/wa.me destinations and safe external link attributes (1.5s)
+  ✓  14 tests/ui.spec.js:438:1 › Empty contact settings hide fields; configuration failure cannot break shopping or contact form (1.2s)
+
+  14 passed (1.4m)

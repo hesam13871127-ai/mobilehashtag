@@ -1,0 +1,16 @@
+{
+  "mode": "demo",
+  "storeName": "موبایل هشتگ",
+  "phone": "+1 202 555 0142",
+  "whatsapp": "+1 202 555 0143",
+  "address": "شهر نمونه، خیابان نمونه، ساختمان نمایشی هشتگ، طبقهٔ اول (نشانی غیرواقعی)",
+  "email": "hello@mobile-hashtag.example",
+  "workingHours": "شنبه تا پنجشنبه، ۱۰:۰۰ تا ۲۰:۰۰ — برنامهٔ نمونه",
+  "instagram": "https://instagram.example/mobilehashtag",
+  "telegram": "https://telegram.example/mobilehashtag",
+  "map": {
+    "verified": false,
+    "latitude": null,
+    "longitude": null
+  }
+}

@@ -1,3 +1,4 @@
+import { renderContact } from './contact.js';
 export const $ = (s, root = document) => root.querySelector(s);
 export const $$ = (s, root = document) => [...root.querySelectorAll(s)];
 export const esc = (s) =>
@@ -9,6 +10,14 @@ export const num = (n) => Number(n).toLocaleString('fa-IR');
 export const money = (n) => `${num(n)} <span class="currency">تومان</span>`;
 export const date = (s) => new Date(s.replace(' ', 'T') + 'Z').toLocaleDateString('fa-IR');
 const paths = {
+  phone:
+    '<path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 2a13 13 0 0 1-7-7l2-2-2-5Z"/>',
+  whatsapp:
+    '<path d="M20 11.5a8.5 8.5 0 0 1-12.8 7.4L3 21l1.8-4.4A8.5 8.5 0 1 1 20 11.5Z"/><path d="m8 7 2 2-1 2 3 3 2-1 2 2c-3 4-12-5-8-8Z"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  instagram:
+    '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".7"/>',
+  telegram: '<path d="m3 10 18-7-4 18-6-6-4 3 1-6 9-5-7 7-7-4Z"/>',
   search: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/>',
   cart: '<path d="M3 3h2l3 12h10l3-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/>',
   user: '<circle cx="12" cy="8" r="4"/><path d="M4 22v-2a8 8 0 0 1 16 0v2"/>',
@@ -143,7 +152,7 @@ export function bindForm(selector, callback) {
 function header() {
   const active = document.body.dataset.page;
   $('#site-header').innerHTML =
-    `<div class="announcement"><div class="container"><span>${icon('truck')} ارسال رایگان سفارش‌های بالای ۵ میلیون تومان</span><span class="announcement-left">انتخاب هوشمندانه، خرید مطمئن <i></i> نسخه نمایشی</span></div></div><div class="header-main container"><button class="icon-button mobile-menu" id="mobile-menu" aria-label="باز کردن منو" aria-expanded="false">${icon('menu')}</button><a href="index.html" class="brand" aria-label="موبایل هشتگ، صفحه اصلی"><img src="/assets/images/brand/symbol.svg" width="49" height="56" alt="نشان موبایل هشتگ"><span><strong>موبایل <b>هشتگ</b></strong><small>MOBILE HASHTAG</small></span></a><form class="header-search" action="search.html"><button aria-label="جست‌وجو">${icon('search')}</button><input type="search" name="q" placeholder="دنبال چه محصولی می‌گردید؟" aria-label="جست‌وجوی محصول" required><span>جست‌وجو در هشتگ</span></form><div class="header-actions"><a href="${state.user ? 'account' : 'login'}.html" class="account-link">${icon('user')}<span>${state.user ? esc(state.user.name.split(' ')[0]) : 'ورود / ثبت‌نام'}</span></a><i></i><a href="wishlist.html" class="icon-button" aria-label="علاقه‌مندی‌ها">${icon('heart')}</a><a href="cart.html" class="icon-button cart-link" aria-label="سبد خرید">${icon('cart')}<b id="cart-count">${num(state.cart.count)}</b></a></div></div><nav class="main-nav"><div class="container nav-inner"><div class="category-menu"><button id="mega-toggle" aria-expanded="false">${icon('grid')} دسته‌بندی محصولات <span class="chevron"><svg class="inline-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button><div id="mega-menu" class="mega-menu">${categories
+    `<div class="announcement"><div class="container"><span>${icon('truck')} ارسال رایگان سفارش‌های بالای ۵ میلیون تومان</span><span class="announcement-left"><span id="header-contact-shortcut"></span><i></i> نسخه نمایشی</span></div></div><div class="header-main container"><button class="icon-button mobile-menu" id="mobile-menu" aria-label="باز کردن منو" aria-expanded="false">${icon('menu')}</button><a href="index.html" class="brand" aria-label="موبایل هشتگ، صفحه اصلی"><img src="/assets/images/brand/symbol.svg" width="49" height="56" alt="نشان موبایل هشتگ"><span><strong>موبایل <b>هشتگ</b></strong><small>MOBILE HASHTAG</small></span></a><form class="header-search" action="search.html"><button aria-label="جست‌وجو">${icon('search')}</button><input type="search" name="q" placeholder="دنبال چه محصولی می‌گردید؟" aria-label="جست‌وجوی محصول" required><span>جست‌وجو در هشتگ</span></form><div class="header-actions"><a href="${state.user ? 'account' : 'login'}.html" class="account-link">${icon('user')}<span>${state.user ? esc(state.user.name.split(' ')[0]) : 'ورود / ثبت‌نام'}</span></a><i></i><a href="wishlist.html" class="icon-button" aria-label="علاقه‌مندی‌ها">${icon('heart')}</a><a href="cart.html" class="icon-button cart-link" aria-label="سبد خرید">${icon('cart')}<b id="cart-count">${num(state.cart.count)}</b></a></div></div><nav class="main-nav"><div class="container nav-inner"><div class="category-menu"><button id="mega-toggle" aria-expanded="false">${icon('grid')} دسته‌بندی محصولات <span class="chevron"><svg class="inline-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button><div id="mega-menu" class="mega-menu">${categories
       .filter((c) => !c.parent_id)
       .map(
         (parent) =>
@@ -180,7 +189,7 @@ function header() {
 }
 function footer() {
   $('#site-footer').innerHTML =
-    `<div class="newsletter"><div class="container newsletter-inner"><div class="newsletter-title">${icon('mail')}<div><h2>از دنیای هشتگ جا نمانید.</h2><p>خبرهای تازه و پیشنهادهای خوب، برای شما.</p></div></div><form id="newsletter-form"><label class="sr-only" for="newsletter-email">ایمیل شما</label><input id="newsletter-email" name="email" type="email" required dir="rtl" placeholder="ایمیل خود را وارد کنید"><button class="button dark">عضویت در خبرنامه <svg class="inline-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg></button></form></div></div><div class="container footer-main"><div class="footer-about"><a class="brand" href="index.html"><img src="/assets/images/brand/symbol.svg" width="49" height="56" alt="نشان هشتگ"><span><strong>موبایل <b>هشتگ</b></strong><small>MOBILE HASHTAG</small></span></a><p>همراه شما در دنیای تکنولوژی؛ مجموعه‌ای از گوشی‌های هوشمند و لوازم جانبی برای انتخابی آگاهانه و تجربه‌ای متفاوت.</p><a class="text-link" href="about.html">بیشتر درباره هشتگ <svg class="inline-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg></a></div><div><h3>دسترسی سریع</h3><a href="shop.html">فروشگاه</a><a href="category.html?slug=phones">گوشی موبایل</a><a href="category.html?slug=accessories">لوازم جانبی</a><a href="shop.html?sale=1">پیشنهادهای ویژه</a><a href="blog.html">مجله هشتگ</a></div><div><h3>همراه شما</h3><a href="account.html">حساب کاربری</a><a href="tracking.html">پیگیری سفارش</a><a href="faq.html">پرسش‌های متداول</a><a href="terms.html">شرایط خرید و بازگشت</a><a href="privacy.html">حریم خصوصی</a></div><div><h3>با هشتگ در ارتباط باشید</h3><p>یک سؤال، یک پیشنهاد، یک گفت‌وگوی خوب.</p><a href="contact.html" class="footer-contact">${icon('headset')} ارتباط با ما <svg class="inline-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg></a><div class="demo-tag">محیط نمایشی · بدون پرداخت واقعی</div><small>اطلاعات تماس تجاری پس از تأیید فروشگاه درج می‌شود.</small></div></div><div class="container footer-bottom"><span>© ${num(1405)} موبایل هشتگ. تمامی حقوق طراحی محفوظ است.</span><span>ساخته شده برای انتخاب‌های هوشمندانه <b>✦</b></span></div>`;
+    `<div class="newsletter"><div class="container newsletter-inner"><div class="newsletter-title">${icon('mail')}<div><h2>از دنیای هشتگ جا نمانید.</h2><p>خبرهای تازه و پیشنهادهای خوب، برای شما.</p></div></div><form id="newsletter-form"><label class="sr-only" for="newsletter-email">ایمیل شما</label><input id="newsletter-email" name="email" type="email" required dir="rtl" placeholder="ایمیل خود را وارد کنید"><button class="button dark">عضویت در خبرنامه <svg class="inline-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg></button></form></div></div><div class="container footer-main"><div class="footer-about"><a class="brand" href="index.html"><img src="/assets/images/brand/symbol.svg" width="49" height="56" alt="نشان هشتگ"><span><strong>موبایل <b>هشتگ</b></strong><small>MOBILE HASHTAG</small></span></a><p>همراه شما در دنیای تکنولوژی؛ مجموعه‌ای از گوشی‌های هوشمند و لوازم جانبی برای انتخابی آگاهانه و تجربه‌ای متفاوت.</p><a class="text-link" href="about.html">بیشتر درباره هشتگ <svg class="inline-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg></a></div><div><h3>دسترسی سریع</h3><a href="shop.html">فروشگاه</a><a href="category.html?slug=phones">گوشی موبایل</a><a href="category.html?slug=accessories">لوازم جانبی</a><a href="shop.html?sale=1">پیشنهادهای ویژه</a><a href="blog.html">مجله هشتگ</a></div><div><h3>همراه شما</h3><a href="account.html">حساب کاربری</a><a href="tracking.html">پیگیری سفارش</a><a href="faq.html">پرسش‌های متداول</a><a href="terms.html">شرایط خرید و بازگشت</a><a href="privacy.html">حریم خصوصی</a></div><div id="footer-contact-details"><h3>با هشتگ در ارتباط باشید</h3><a href="contact.html" class="footer-contact">ارتباط با ما</a></div></div><div class="container footer-bottom"><span>© ${num(1405)} موبایل هشتگ. تمامی حقوق طراحی محفوظ است.</span><span>ساخته شده برای انتخاب‌های هوشمندانه <b>✦</b></span></div>`;
   bindForm('#newsletter-form', async (data, form) => {
     const r = await api('/newsletter', { method: 'POST', body: data });
     toast(r.message);
@@ -241,9 +250,15 @@ async function events(e) {
 }
 export const ready = (async () => {
   try {
-    [state, categories] = await Promise.all([api('/session'), api('/categories')]);
+    const results = await Promise.all([
+      api('/session'),
+      api('/categories'),
+      api('/store/contact', { signal: AbortSignal.timeout(4000) }).catch(() => null),
+    ]);
+    [state, categories] = results;
     header();
     footer();
+    renderContact(results[2], { icon, esc });
     fillIcons();
     document.addEventListener('click', events);
     return state;

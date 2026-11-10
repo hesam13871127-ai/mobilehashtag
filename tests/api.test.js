@@ -536,3 +536,28 @@ test('26 body shape, bcrypt byte limit and authenticated registration are valida
     409
   );
 });
+
+test('27 centralized public contact endpoint has safe demo defaults and no effect on commerce', async () => {
+  const r = await guest.request('/store/contact');
+  assert.equal(r.status, 200);
+  assert.equal(r.data.demo, true);
+  assert.equal(r.data.map, null);
+  assert.match(r.data.notice, /آزمایشی/);
+  for (const field of ['phone', 'whatsapp', 'email', 'instagram', 'telegram'])
+    assert.equal(r.data[field].href, null);
+  assert.equal(r.headers.get('cache-control'), 'no-store');
+  assert.equal(db.prepare('SELECT COUNT(*) n FROM products').get().n, 28);
+  assert.equal(db.prepare('SELECT COUNT(*) n FROM categories').get().n, 47);
+  assert.equal((await fetch(base + '/backend/config/contact.json')).status, 404);
+});
+
+test('28 contact form rejects invalid email, name and message without inserting records', async () => {
+  const before = db.prepare('SELECT COUNT(*) n FROM contacts').get().n;
+  for (const body of [
+    { name: '', email: 'safe@example.com', message: 'پیام آزمایشی برای اعتبارسنجی' },
+    { name: 'کاربر نمونه', email: 'bad-email', message: 'پیام آزمایشی برای اعتبارسنجی' },
+    { name: 'کاربر نمونه', email: 'safe@example.com', message: 'کوتاه' },
+  ])
+    assert.equal((await guest.request('/contact', 'POST', body)).status, 400);
+  assert.equal(db.prepare('SELECT COUNT(*) n FROM contacts').get().n, before);
+});

@@ -131,3 +131,12 @@ const payload = {
 - 500 خطای غیرمنتظره؛ جزئیات فنی فقط در log سرور
 
 محدودیت‌ها در پنجره ۱۵ دقیقه‌ای و برای هر IP اعمال می‌شوند: ثبت‌نام ۱۵، ورود ۲۵، تغییر رمز ۱۰، سفارش ۳۰، پیگیری ۲۵، تماس ۱۰، خبرنامه ۱۵ و نظر ۱۵. در محیط چند process باید store مشترک استفاده شود.
+
+
+## تنظیمات عمومی تماس
+
+`GET /api/store/contact` فقط فیلدهای عمومی و اعتبارسنجی‌شدهٔ `backend/config/contact.json` را برمی‌گرداند. شکل خروجی: `demo`, `hasSamples`, `storeName`, `notice`, `phone`, `whatsapp`, `address`, `email`, `workingHours`, `instagram`, `telegram`, `map`.
+
+فیلدهای لینک‌پذیر یا `null` هستند یا `{ value, href, sample }`. در حالت demo یا برای مقادیر رزروشدهٔ نمایشی، `href=null` است؛ UI نباید برای این موارد لینک فعال بسازد. `map` بدون mode=live، مختصات عددی معتبر و verified=true مقدار null دارد. فیلدهای ناشناخته/محرمانه از config منتشر نمی‌شوند. JSON نامعتبر یا فایل تنظیمات غیرقابل‌خواندن پاسخ 503 می‌دهد؛ تماس fallback و فروشگاه قابل‌استفاده می‌مانند. فرایند POST /contact قبلی تغییری نکرده است.
+
+جزئیات قالب و نحوه فعال‌سازی در [CONTACT-SETTINGS.md](CONTACT-SETTINGS.md) است.

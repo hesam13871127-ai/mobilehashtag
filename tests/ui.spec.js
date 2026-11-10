@@ -265,3 +265,198 @@ test('Authenticated cart, checkout and account layouts at all five widths', asyn
   await page.locator('#confirm-yes').click();
   await expect(page.locator('#cart-content .empty-state')).toBeVisible();
 });
+
+test('Contact polish: centralized demo details, hidden map, responsive homepage/footer and safe links', async ({
+  page,
+}) => {
+  const settings = await (await page.request.get('/api/store/contact')).json();
+  const errors = [],
+    failed = [];
+  page.on('pageerror', (e) => errors.push(e.message));
+  page.on('response', (r) => {
+    if (r.status() >= 400) failed.push(r.url());
+  });
+  for (const width of [1920, 1366, 768, 390, 360]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/contact.html');
+    await ready(page);
+    await expect(page.locator('#contact-information .contact-info-card')).toHaveCount(6);
+    await expect(page.locator('#contact-information')).toContainText('اطلاعات آزمایشی');
+    for (const key of ['phone', 'whatsapp', 'email', 'instagram', 'telegram']) {
+      await expect(
+        page.locator(`#contact-information [data-contact-field="${key}"]`)
+      ).toContainText(settings[key].value);
+      await expect(
+        page.locator(`#footer-contact-details [data-contact-field="${key}"]`)
+      ).toContainText(settings[key].value);
+    }
+    for (const key of ['address', 'workingHours']) {
+      await expect(
+        page.locator(`#contact-information [data-contact-field="${key}"]`)
+      ).toContainText(settings[key]);
+      await expect(
+        page.locator(`#footer-contact-details [data-contact-field="${key}"]`)
+      ).toContainText(settings[key]);
+    }
+    await expect(page.locator('#store-map')).toBeHidden();
+    await expect(
+      page.locator('a[href^="tel:"], a[href^="mailto:"], a[href^="https://wa.me/"]')
+    ).toHaveCount(0);
+    await expect(
+      page.locator('a[href*="instagram.example"], a[href*="telegram.example"]')
+    ).toHaveCount(0);
+    await noOverflow(page);
+    if ([1366, 390].includes(width)) {
+      await page.screenshot({ path: `test-results/contact-polish-${width}.png`, fullPage: true });
+      await page
+        .locator('#site-footer')
+        .screenshot({ path: `test-results/contact-footer-${width}.png` });
+    }
+    await page.goto('/index.html');
+    await ready(page);
+    const home = page.locator('#home-contact');
+    for (const key of ['phone', 'whatsapp']) await expect(home).toContainText(settings[key].value);
+    await expect(home).toContainText(settings.address);
+    await expect(home).toContainText(settings.workingHours);
+    await expect(home.locator('button')).toBeDisabled();
+    await expect(home.locator('a.button')).toHaveAttribute('href', 'contact.html');
+    await noOverflow(page);
+    if ([1366, 390].includes(width))
+      await home.screenshot({ path: `test-results/home-contact-${width}.png` });
+  }
+  // Follow all distinct internal HTML destinations from the contact page without leaving the site.
+  await page.goto('/contact.html');
+  await ready(page);
+  const links = await page
+    .locator('a[href]')
+    .evaluateAll((as) => [
+      ...new Set(
+        as
+          .map((a) => a.getAttribute('href'))
+          .filter((h) => h && /\.html(?:\?|$)/.test(h) && !/^https?:/.test(h))
+      ),
+    ]);
+  for (const link of links)
+    expect((await page.request.get('/' + link.replace(/^\//, ''))).status(), link).toBe(200);
+  expect(errors).toEqual([]);
+  expect(failed).toEqual([]);
+});
+
+test('Contact form retains native validation and actual server-side persistence response', async ({
+  page,
+}) => {
+  await page.goto('/contact.html');
+  await ready(page);
+  const form = page.locator('#contact-form');
+  await form.locator('button').click();
+  expect(await form.evaluate((f) => f.checkValidity())).toBe(false);
+  await form.locator('[name=name]').fill('کاربر آزمایشی');
+  await form.locator('[name=email]').fill('not-an-email');
+  await form.locator('[name=message]').fill('کوتاه');
+  expect(await form.evaluate((f) => f.checkValidity())).toBe(false);
+  await form.locator('[name=email]').fill('contact-polish@example.com');
+  await form.locator('[name=message]').fill('این پیام برای آزمون فرم تماس نسخه نهایی است.');
+  const response = page.waitForResponse(
+    (r) => r.url().endsWith('/api/contact') && r.request().method() === 'POST'
+  );
+  await form.locator('button').click();
+  expect((await response).status()).toBe(201);
+  await expect(page.locator('#toast-region')).toContainText('پیام شما در پایگاه داده ثبت شد');
+  await expect(form.locator('[name=message]')).toHaveValue('');
+});
+
+test('Live-contact rendering uses correct tel/wa.me destinations and safe external link attributes', async ({
+  page,
+}) => {
+  // Mock only: reserved numbers remain disabled in the shipped configuration.
+  // No external destination, phone handler or WhatsApp account is contacted by this test.
+  const { readContactSettings, phoneLinks } =
+    await import('../backend/services/contact-settings.js');
+  const sample = readContactSettings();
+  const live = {
+    ...sample,
+    demo: false,
+    hasSamples: false,
+    notice: '',
+    phone: { value: sample.phone.value, href: phoneLinks(sample.phone.value).tel },
+    whatsapp: { value: sample.whatsapp.value, href: phoneLinks(sample.whatsapp.value).whatsapp },
+    email: { value: sample.email.value, href: 'mailto:' + sample.email.value },
+    instagram: {
+      value: 'https://www.instagram.com/mobilehashtag_test_fixture',
+      href: 'https://www.instagram.com/mobilehashtag_test_fixture',
+    },
+    telegram: {
+      value: 'https://t.me/mobilehashtag_test_fixture',
+      href: 'https://t.me/mobilehashtag_test_fixture',
+    },
+    address: 'نشانی آزمایشی <img src=x onerror=alert(1)>',
+    map: {
+      latitude: 0,
+      longitude: 0,
+      href: 'https://www.openstreetmap.org/?mlat=0&mlon=0#map=16/0/0',
+    },
+  };
+  await page.route('**/api/store/contact', (r) => r.fulfill({ json: live }));
+  await page.goto('/contact.html');
+  await ready(page);
+  await expect(page.locator('#contact-information [data-contact-field=phone] a')).toHaveAttribute(
+    'href',
+    'tel:+12025550142'
+  );
+  await expect(
+    page.locator('#contact-information [data-contact-field=whatsapp] a')
+  ).toHaveAttribute('href', 'https://wa.me/12025550143');
+  await expect(page.locator('#header-contact-shortcut a')).toHaveAttribute(
+    'href',
+    'tel:+12025550142'
+  );
+  await expect(
+    page.locator('#footer-contact-details [data-contact-field=email] a')
+  ).toHaveAttribute('href', 'mailto:hello@mobile-hashtag.example');
+  await expect(page.locator('#contact-information [data-contact-field=address] img')).toHaveCount(
+    0
+  );
+  await expect(page.locator('#contact-information [data-contact-field=address]')).toContainText(
+    '<img src=x onerror=alert(1)>'
+  );
+  await expect(page.locator('#store-map')).toBeVisible();
+  for (const link of await page
+    .locator(
+      '#contact-information a[target="_blank"], #store-map a, #footer-contact-details a[target="_blank"]'
+    )
+    .all())
+    await expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+  await page.goto('/index.html');
+  await ready(page);
+  await expect(page.locator('#home-contact [data-contact-field=whatsapp] a')).toHaveAttribute(
+    'href',
+    'https://wa.me/12025550143'
+  );
+  await expect(page.locator('#home-contact .contact-demo-label')).toHaveCount(0);
+});
+
+test('Empty contact settings hide fields; configuration failure cannot break shopping or contact form', async ({
+  page,
+}) => {
+  const { publicContactSettings } = await import('../backend/services/contact-settings.js');
+  await page.route('**/api/store/contact', (r) =>
+    r.fulfill({ json: publicContactSettings({ mode: 'live' }) })
+  );
+  await page.goto('/contact.html');
+  await ready(page);
+  await expect(page.locator('#contact-information .contact-info-card')).toHaveCount(0);
+  await expect(page.locator('#footer-contact-details [data-contact-field]')).toHaveCount(0);
+  await expect(page.locator('#contact-form')).toBeVisible();
+  await page.unroute('**/api/store/contact');
+  await page.route('**/api/store/contact', (r) =>
+    r.fulfill({ status: 503, json: { error: 'خطای آزمایشی تنظیمات' } })
+  );
+  await page.goto('/contact.html');
+  await ready(page);
+  await expect(page.locator('#contact-information')).toContainText('موقتاً در دسترس نیست');
+  await expect(page.locator('#contact-form')).toBeVisible();
+  await page.goto('/product.html?slug=iphone-silicone-case');
+  await ready(page);
+  await page.locator('#product-add').click();
+  await expect(page.locator('#cart-count')).toHaveText('۱');
+});

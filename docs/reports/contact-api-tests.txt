@@ -1,0 +1,226 @@
+
+> mobile-hashtag@1.0.0 test
+> node --test tests/api.test.js tests/contact.test.js
+
+TAP version 13
+# (node:5266) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: 01 server, database and health check
+ok 1 - 01 server, database and health check
+  ---
+  duration_ms: 57.619563
+  type: 'test'
+  ...
+# Subtest: 02 all 21 HTML routes, assets and 404
+ok 2 - 02 all 21 HTML routes, assets and 404
+  ---
+  duration_ms: 261.487248
+  type: 'test'
+  ...
+# Subtest: 03 session cookies and CSRF
+ok 3 - 03 session cookies and CSRF
+  ---
+  duration_ms: 22.366235
+  type: 'test'
+  ...
+# Subtest: 04 categories have hierarchy, unique pages and relevant products
+ok 4 - 04 categories have hierarchy, unique pages and relevant products
+  ---
+  duration_ms: 122.936489
+  type: 'test'
+  ...
+# Subtest: 05 search and parameterized injection safety
+ok 5 - 05 search and parameterized injection safety
+  ---
+  duration_ms: 9.311586
+  type: 'test'
+  ...
+# Subtest: 06 brand, price, availability and sale filters combine
+ok 6 - 06 brand, price, availability and sale filters combine
+  ---
+  duration_ms: 5.11446
+  type: 'test'
+  ...
+# Subtest: 07 all sort options and pagination
+ok 7 - 07 all sort options and pagination
+  ---
+  duration_ms: 29.375105
+  type: 'test'
+  ...
+# Subtest: 08 product details include structured fields, gallery and recent history
+ok 8 - 08 product details include structured fields, gallery and recent history
+  ---
+  duration_ms: 8.170166
+  type: 'test'
+  ...
+# Subtest: 09 server cart ignores client price, stores quantity and variant
+ok 9 - 09 server cart ignores client price, stores quantity and variant
+  ---
+  duration_ms: 6.89995
+  type: 'test'
+  ...
+# Subtest: 10 invalid quantities, stock and variants rejected
+ok 10 - 10 invalid quantities, stock and variants rejected
+  ---
+  duration_ms: 37.664075
+  type: 'test'
+  ...
+# Subtest: 11 update quantity and remove items; shipping calculation
+ok 11 - 11 update quantity and remove items; shipping calculation
+  ---
+  duration_ms: 22.718098
+  type: 'test'
+  ...
+# Subtest: 12 persistent wishlist and duplicate safety
+ok 12 - 12 persistent wishlist and duplicate safety
+  ---
+  duration_ms: 14.067834
+  type: 'test'
+  ...
+# Subtest: 13 registration validation, bcrypt hash and session rotation
+ok 13 - 13 registration validation, bcrypt hash and session rotation
+  ---
+  duration_ms: 366.781682
+  type: 'test'
+  ...
+# Subtest: 14 user validation, address save/delete and account isolation
+ok 14 - 14 user validation, address save/delete and account isolation
+  ---
+  duration_ms: 23.798587
+  type: 'test'
+  ...
+# Subtest: 15 logout/login preserves account cart and merges guest cart
+ok 15 - 15 logout/login preserves account cart and merges guest cart
+  ---
+  duration_ms: 691.420976
+  type: 'test'
+  ...
+# Subtest: 16 checkout authentication and address validation
+ok 16 - 16 checkout authentication and address validation
+  ---
+  duration_ms: 12.37556
+  type: 'test'
+  ...
+# Subtest: 17 atomic checkout, price tampering and duplicate protection
+ok 17 - 17 atomic checkout, price tampering and duplicate protection
+  ---
+  duration_ms: 13.064867
+  type: 'test'
+  ...
+# Subtest: 18 order history, ownership and tracking with phone verification
+ok 18 - 18 order history, ownership and tracking with phone verification
+  ---
+  duration_ms: 376.809082
+  type: 'test'
+  ...
+# Subtest: 19 stock races roll back order and inventory atomically
+ok 19 - 19 stock races roll back order and inventory atomically
+  ---
+  duration_ms: 18.807809
+  type: 'test'
+  ...
+# Subtest: 20 contact and newsletter validation and durable storage
+ok 20 - 20 contact and newsletter validation and durable storage
+  ---
+  duration_ms: 21.410091
+  type: 'test'
+  ...
+# Subtest: 21 blog and user reviews persist
+ok 21 - 21 blog and user reviews persist
+  ---
+  duration_ms: 13.792212
+  type: 'test'
+  ...
+# Subtest: 22 password change invalidates old password
+ok 22 - 22 password change invalidates old password
+  ---
+  duration_ms: 1731.385971
+  type: 'test'
+  ...
+# Subtest: 23 separate process can read persisted orders and sessions
+ok 23 - 23 separate process can read persisted orders and sessions
+  ---
+  duration_ms: 36.795029
+  type: 'test'
+  ...
+# Subtest: 24 security headers and unknown API
+ok 24 - 24 security headers and unknown API
+  ---
+  duration_ms: 5.677972
+  type: 'test'
+  ...
+# Subtest: 25 fresh server process restores signed session and database cart
+ok 25 - 25 fresh server process restores signed session and database cart
+  ---
+  duration_ms: 169.769761
+  type: 'test'
+  ...
+# Subtest: 26 body shape, bcrypt byte limit and authenticated registration are validated
+ok 26 - 26 body shape, bcrypt byte limit and authenticated registration are validated
+  ---
+  duration_ms: 12.864006
+  type: 'test'
+  ...
+# Subtest: 27 centralized public contact endpoint has safe demo defaults and no effect on commerce
+ok 27 - 27 centralized public contact endpoint has safe demo defaults and no effect on commerce
+  ---
+  duration_ms: 5.653219
+  type: 'test'
+  ...
+# Subtest: 28 contact form rejects invalid email, name and message without inserting records
+ok 28 - 28 contact form rejects invalid email, name and message without inserting records
+  ---
+  duration_ms: 7.806466
+  type: 'test'
+  ...
+# Subtest: Contact configuration uses labeled, reserved demo data and no location
+ok 29 - Contact configuration uses labeled, reserved demo data and no location
+  ---
+  duration_ms: 1.764963
+  type: 'test'
+  ...
+# Subtest: Phone normalization and wa.me destinations have the correct format
+ok 30 - Phone normalization and wa.me destinations have the correct format
+  ---
+  duration_ms: 0.998914
+  type: 'test'
+  ...
+# Subtest: Switching mode alone never activates the shipped fictional contacts
+ok 31 - Switching mode alone never activates the shipped fictional contacts
+  ---
+  duration_ms: 0.271505
+  type: 'test'
+  ...
+# Subtest: Blank or malformed fields are omitted; only public fields are returned
+ok 32 - Blank or malformed fields are omitted; only public fields are returned
+  ---
+  duration_ms: 0.20743
+  type: 'test'
+  ...
+# Subtest: Unsafe or misleading social and email destinations are rejected
+ok 33 - Unsafe or misleading social and email destinations are rejected
+  ---
+  duration_ms: 0.604354
+  type: 'test'
+  ...
+# Subtest: Live allowed social profile destinations pass validation
+ok 34 - Live allowed social profile destinations pass validation
+  ---
+  duration_ms: 0.194736
+  type: 'test'
+  ...
+# Subtest: Map requires live mode, explicit verification and exact finite coordinates
+ok 35 - Map requires live mode, explicit verification and exact finite coordinates
+  ---
+  duration_ms: 0.289552
+  type: 'test'
+  ...
+1..35
+# tests 35
+# suites 0
+# pass 35
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4375.720282

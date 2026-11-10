@@ -2,7 +2,15 @@ import { Router } from 'express';
 import { db } from '../config/db.js';
 import { text, email, fail } from '../middleware/security.js';
 import { limiter } from '../middleware/rate-limit.js';
+import { readContactSettings } from '../services/contact-settings.js';
 const api = Router();
+api.get('/store/contact', (req, res) => {
+  try {
+    res.json(readContactSettings());
+  } catch {
+    res.status(503).json({ error: 'اطلاعات تماس موقتاً در دسترس نیست.' });
+  }
+});
 api.post('/contact', limiter(10), (req, res) => {
   db.prepare('INSERT INTO contacts(name,email,message) VALUES(?,?,?)').run(
     text(req.body.name, 'نام', 2, 100),
