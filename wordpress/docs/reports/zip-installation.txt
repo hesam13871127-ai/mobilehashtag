@@ -1,0 +1,84 @@
+Creating PHP runtime
+Mounting WordPress files
+Defining WordPress constants
+Starting PHP
+Installing SQLite integration
+Checking database prerequisites
+Checking existing WordPress installation
+Validating database connection
+WordPress boot complete
+BOOT {"wordpress":"7.1.4","php":"8.3.36","plugins":["woocommerce\/woocommerce.php"]} 
+{
+    "scope": "Fresh isolated real WordPress installation; actual Theme_Upgrader \/ Plugin_Upgrader ZIP installation, activation, migration and persistent form management",
+    "passed": 12,
+    "failed": 0,
+    "packages": {
+        "theme_sha256": "1f2582a9886d6ea6355e0d2dc1c6e1da242681d6f87a371317b53c7f667152bd",
+        "plugin_sha256": "cdabb39a3372c5d04602f6a5ebed91521c747a853a18d77d41c7895cc4c9b2bb"
+    },
+    "tests": [
+        {
+            "name": "Plugin ZIP installed through actual WordPress Plugin_Upgrader",
+            "pass": true,
+            "detail": true
+        },
+        {
+            "name": "Theme ZIP installed through actual WordPress Theme_Upgrader",
+            "pass": true,
+            "detail": true
+        },
+        {
+            "name": "Installed Core activates",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "WordPress recognizes theme header\/version",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Installed theme activates",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Independent Core schema created",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Official WooCommerce present",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Fresh installed ZIP migrates all 93 jobs",
+            "pass": true,
+            "detail": []
+        },
+        {
+            "name": "Fresh installed ZIP creates 28 products \/ 47 categories",
+            "pass": true,
+            "detail": [
+                28,
+                47
+            ]
+        },
+        {
+            "name": "Installed Core actually stores contact message",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Installed Core management updates stored status",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Original local assets included",
+            "pass": true,
+            "detail": null
+        }
+    ]
+}

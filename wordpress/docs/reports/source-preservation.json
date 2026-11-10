@@ -1,0 +1,13 @@
+{
+  "source_files_verified": 174,
+  "changed_source_files": [],
+  "theme_assets_byte_identical": 129,
+  "source_counts_unchanged": {
+    "products": 28,
+    "categories": 47,
+    "product_categories": 91,
+    "posts": 3
+  },
+  "original_html_pages": 21,
+  "note": "Rechecked after official WooCommerce migration/build and installable package creation; original source catalog and assets remain unchanged."
+}

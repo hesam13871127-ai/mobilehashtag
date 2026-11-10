@@ -1,0 +1,17 @@
+{
+  "packages": [
+    {
+      "file": "packages/mobile-hashtag-wordpress-theme.zip",
+      "sha256": "708bc57fa1a5b53cb1eaac10f62311546ed95df46179aba0704dadb2cd814995",
+      "installed_files_byte_equal_to_zip": true,
+      "files": 178
+    },
+    {
+      "file": "packages/mobile-hashtag-core-plugin.zip",
+      "sha256": "ea1012f702a833f6a76663062f6fa699ac77cb12a835d9ee362d75454a96d495",
+      "installed_files_byte_equal_to_zip": true,
+      "files": 92
+    }
+  ],
+  "status": "PASS"
+}

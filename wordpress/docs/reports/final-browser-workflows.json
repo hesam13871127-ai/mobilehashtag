@@ -1,0 +1,106 @@
+{
+  "scope": "Real browser native registration/cart/COD order/account/tracking and Core dashboard search/status/CSV/CSRF/delete. QA-only generated customer/order; no real payment. Classic pending-order stock reservation disabled through official hold-stock setting because SQLite adapter cannot execute reservation SQL; product stock still managed and reduced by WC.",
+  "passed": 19,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Contact HTTP persists before success",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Native WC registration logs customer in",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Customer native cart",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Configured native shipping appears",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Real COD checkout creates thank-you order",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Order currency remains Toman",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Customer sees own order history",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Native tracking matches order plus billing email",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Customer cannot export messages",
+      "pass": true,
+      "detail": 403
+    },
+    {
+      "name": "Native customer login with generated test password",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Admin finds persisted message via search",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Admin detail contains full message/email",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Dashboard status/type/search filters find updated row",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Authorized filtered CSV contains saved record",
+      "pass": true,
+      "detail": {
+        "status": 200,
+        "type": "text/csv; charset=utf-8",
+        "containsEmail": true
+      }
+    },
+    {
+      "name": "Administrator still needs valid CSRF nonce",
+      "pass": true,
+      "detail": 403
+    },
+    {
+      "name": "Dashboard confirmed deletion removes saved record",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Central Store Settings editable in dashboard",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Native WC product dashboard lists imported products",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "No frontend script/transport errors",
+      "pass": true,
+      "detail": []
+    }
+  ]
+}

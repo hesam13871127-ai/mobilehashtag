@@ -1,0 +1,740 @@
+Creating PHP runtime
+Mounting WordPress files
+Defining WordPress constants
+Starting PHP
+Installing SQLite integration
+Checking database prerequisites
+Checking existing WordPress installation
+Validating database connection
+WordPress boot complete
+BOOT {"wordpress":"7.1.4","php":"8.3.36","plugins":["mobile-hashtag-core\/mobile-hashtag-core.php","woocommerce\/woocommerce.php"]} 
+{
+    "woocommerce": "11.2.2",
+    "passed": 11,
+    "failed": 0,
+    "results": [
+        {
+            "name": "Genuine WooCommerce initialized",
+            "pass": true,
+            "details": "11.2.2"
+        },
+        {
+            "name": "All 93 migration jobs completed",
+            "pass": true,
+            "details": []
+        },
+        {
+            "name": "28 native products",
+            "pass": true,
+            "details": 28
+        },
+        {
+            "name": "47 imported categories",
+            "pass": true,
+            "details": 47
+        },
+        {
+            "name": "Exact prices\/SKUs\/slugs\/stock\/descriptions\/relationships\/media preserved",
+            "pass": true,
+            "details": []
+        },
+        {
+            "name": "91 exact category relationships",
+            "pass": true,
+            "details": 91
+        },
+        {
+            "name": "Category hierarchy retained",
+            "pass": true,
+            "details": []
+        },
+        {
+            "name": "3 native editable posts with images",
+            "pass": true,
+            "details": [
+                105,
+                108,
+                111
+            ]
+        },
+        {
+            "name": "Retry produces no duplicate products\/media\/categories",
+            "pass": true,
+            "details": {
+                "before": {
+                    "products": 28,
+                    "media": 58,
+                    "terms": "48"
+                },
+                "after": {
+                    "products": 28,
+                    "media": 58,
+                    "terms": "48"
+                }
+            }
+        },
+        {
+            "name": "Retry preserves administrator edits",
+            "pass": true,
+            "details": null
+        },
+        {
+            "name": "Incompatible source unit blocks import",
+            "pass": true,
+            "details": null
+        }
+    ],
+    "migration_report": [
+        {
+            "type": "categories",
+            "source": "phones",
+            "time": "2026-11-10 14:38:19",
+            "id": 16,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "all-phones",
+            "time": "2026-11-10 14:38:19",
+            "id": 17,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "samsung",
+            "time": "2026-11-10 14:38:19",
+            "id": 18,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "apple",
+            "time": "2026-11-10 14:38:19",
+            "id": 19,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "xiaomi",
+            "time": "2026-11-10 14:38:19",
+            "id": 20,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "redmi",
+            "time": "2026-11-10 14:38:19",
+            "id": 21,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "poco",
+            "time": "2026-11-10 14:38:19",
+            "id": 22,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "honor",
+            "time": "2026-11-10 14:38:19",
+            "id": 23,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "budget",
+            "time": "2026-11-10 14:38:19",
+            "id": 24,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "midrange",
+            "time": "2026-11-10 14:38:19",
+            "id": 25,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "flagship",
+            "time": "2026-11-10 14:38:19",
+            "id": 26,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "gaming-phones",
+            "time": "2026-11-10 14:38:19",
+            "id": 27,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "accessories",
+            "time": "2026-11-10 14:38:19",
+            "id": 28,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "cases",
+            "time": "2026-11-10 14:38:19",
+            "id": 29,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "glass",
+            "time": "2026-11-10 14:38:19",
+            "id": 30,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "lens",
+            "time": "2026-11-10 14:38:19",
+            "id": 31,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "wall-chargers",
+            "time": "2026-11-10 14:38:19",
+            "id": 32,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "adapters",
+            "time": "2026-11-10 14:38:19",
+            "id": 33,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "cables",
+            "time": "2026-11-10 14:38:19",
+            "id": 34,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "type-c",
+            "time": "2026-11-10 14:38:19",
+            "id": 35,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "lightning",
+            "time": "2026-11-10 14:38:19",
+            "id": 36,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "powerbanks",
+            "time": "2026-11-10 14:38:19",
+            "id": 37,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "wired-earphones",
+            "time": "2026-11-10 14:38:19",
+            "id": 38,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "wireless-earphones",
+            "time": "2026-11-10 14:38:19",
+            "id": 39,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "airpods",
+            "time": "2026-11-10 14:38:20",
+            "id": 40,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "headphones",
+            "time": "2026-11-10 14:38:20",
+            "id": 41,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "headsets",
+            "time": "2026-11-10 14:38:20",
+            "id": 42,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "speakers",
+            "time": "2026-11-10 14:38:20",
+            "id": 43,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "holders",
+            "time": "2026-11-10 14:38:20",
+            "id": 44,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "stands",
+            "time": "2026-11-10 14:38:20",
+            "id": 45,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "converters",
+            "time": "2026-11-10 14:38:20",
+            "id": 46,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "memory-cards",
+            "time": "2026-11-10 14:38:20",
+            "id": 47,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "flash-drives",
+            "time": "2026-11-10 14:38:20",
+            "id": 48,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "iphone-accessories",
+            "time": "2026-11-10 14:38:20",
+            "id": 49,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "samsung-accessories",
+            "time": "2026-11-10 14:38:20",
+            "id": 50,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "gadgets",
+            "time": "2026-11-10 14:38:20",
+            "id": 51,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "smartwatches",
+            "time": "2026-11-10 14:38:20",
+            "id": 52,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "smartbands",
+            "time": "2026-11-10 14:38:20",
+            "id": 53,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "watch-straps",
+            "time": "2026-11-10 14:38:20",
+            "id": 54,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "watch-accessories",
+            "time": "2026-11-10 14:38:20",
+            "id": 55,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "trackers",
+            "time": "2026-11-10 14:38:20",
+            "id": 56,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "digital",
+            "time": "2026-11-10 14:38:20",
+            "id": 57,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "tablets",
+            "time": "2026-11-10 14:38:20",
+            "id": 58,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "stylus",
+            "time": "2026-11-10 14:38:20",
+            "id": 59,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "tablet-accessories",
+            "time": "2026-11-10 14:38:20",
+            "id": 60,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "gaming",
+            "time": "2026-11-10 14:38:20",
+            "id": 61,
+            "status": "skipped"
+        },
+        {
+            "type": "categories",
+            "source": "digital-equipment",
+            "time": "2026-11-10 14:38:20",
+            "id": 62,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "iphone-15-pro-max",
+            "time": "2026-11-10 14:38:20",
+            "id": 44,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "galaxy-s24-ultra",
+            "time": "2026-11-10 14:38:20",
+            "id": 46,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "redmi-note-13-pro",
+            "time": "2026-11-10 14:38:20",
+            "id": 49,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "airpods-pro-2",
+            "time": "2026-11-10 14:38:20",
+            "id": 52,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "sony-wh-1000xm5",
+            "time": "2026-11-10 14:38:20",
+            "id": 54,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "anker-powerbank-20k",
+            "time": "2026-11-10 14:38:20",
+            "id": 56,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "anker-charger-30w",
+            "time": "2026-11-10 14:38:20",
+            "id": 58,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "iphone-silicone-case",
+            "time": "2026-11-10 14:38:20",
+            "id": 60,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "apple-watch-s9",
+            "time": "2026-11-10 14:38:20",
+            "id": 62,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "jbl-flip-6",
+            "time": "2026-11-10 14:38:20",
+            "id": 64,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "poco-x6",
+            "time": "2026-11-10 14:38:20",
+            "id": 66,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "honor-x7",
+            "time": "2026-11-10 14:38:20",
+            "id": 69,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "redmi-a3",
+            "time": "2026-11-10 14:38:20",
+            "id": 72,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "tempered-glass",
+            "time": "2026-11-10 14:38:20",
+            "id": 75,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "lens-protector",
+            "time": "2026-11-10 14:38:20",
+            "id": 77,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "usb-c-cable",
+            "time": "2026-11-10 14:38:20",
+            "id": 79,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "lightning-cable",
+            "time": "2026-11-10 14:38:20",
+            "id": 81,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "wired-earphones",
+            "time": "2026-11-10 14:38:20",
+            "id": 82,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "desk-holder",
+            "time": "2026-11-10 14:38:20",
+            "id": 84,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "usb-hub",
+            "time": "2026-11-10 14:38:20",
+            "id": 86,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "memory-128",
+            "time": "2026-11-10 14:38:20",
+            "id": 88,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "flash-64",
+            "time": "2026-11-10 14:38:20",
+            "id": 90,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "smart-band",
+            "time": "2026-11-10 14:38:20",
+            "id": 92,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "watch-strap",
+            "time": "2026-11-10 14:38:20",
+            "id": 95,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "smart-tracker",
+            "time": "2026-11-10 14:38:20",
+            "id": 97,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "galaxy-tab",
+            "time": "2026-11-10 14:38:20",
+            "id": 99,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "stylus-pen",
+            "time": "2026-11-10 14:38:20",
+            "id": 101,
+            "status": "skipped"
+        },
+        {
+            "type": "products",
+            "source": "wireless-controller",
+            "time": "2026-11-10 14:38:20",
+            "id": 103,
+            "status": "skipped"
+        },
+        {
+            "type": "posts",
+            "source": "phone-buying-guide",
+            "time": "2026-11-10 14:38:20",
+            "id": 105,
+            "status": "skipped"
+        },
+        {
+            "type": "posts",
+            "source": "headphone-guide",
+            "time": "2026-11-10 14:38:20",
+            "id": 108,
+            "status": "skipped"
+        },
+        {
+            "type": "posts",
+            "source": "battery-care",
+            "time": "2026-11-10 14:38:20",
+            "id": 111,
+            "status": "skipped"
+        },
+        {
+            "type": "pages",
+            "source": "home",
+            "time": "2026-11-10 14:38:20",
+            "id": 4,
+            "status": "skipped-existing-page"
+        },
+        {
+            "type": "pages",
+            "source": "shop",
+            "time": "2026-11-10 14:38:20",
+            "id": 5,
+            "status": "skipped-existing-page"
+        },
+        {
+            "type": "pages",
+            "source": "cart",
+            "time": "2026-11-10 14:38:20",
+            "id": 6,
+            "status": "skipped-existing-page"
+        },
+        {
+            "type": "pages",
+            "source": "checkout",
+            "time": "2026-11-10 14:38:20",
+            "id": 7,
+            "status": "skipped-existing-page"
+        },
+        {
+            "type": "pages",
+            "source": "account",
+            "time": "2026-11-10 14:38:20",
+            "id": 8,
+            "status": "skipped-existing-page"
+        },
+        {
+            "type": "pages",
+            "source": "login",
+            "time": "2026-11-10 14:38:20",
+            "id": 9,
+            "status": "skipped-existing-page"
+        },
+        {
+            "type": "pages",
+            "source": "register",
+            "time": "2026-11-10 14:38:20",
+            "id": 10,
+            "status": "skipped-existing-page"
+        },
+        {
+            "type": "pages",
+            "source": "tracking",
+            "time": "2026-11-10 14:38:20",
+            "id": 11,
+            "status": "skipped-existing-page"
+        },
+        {
+            "type": "pages",
+            "source": "wishlist",
+            "time": "2026-11-10 14:38:20",
+            "id": 12,
+            "status": "skipped-existing-page"
+        },
+        {
+            "type": "pages",
+            "source": "contact",
+            "time": "2026-11-10 14:38:20",
+            "id": 13,
+            "status": "skipped-existing-page"
+        },
+        {
+            "type": "pages",
+            "source": "about",
+            "time": "2026-11-10 14:38:20",
+            "id": 14,
+            "status": "skipped-existing-page"
+        },
+        {
+            "type": "pages",
+            "source": "faq",
+            "time": "2026-11-10 14:38:20",
+            "id": 15,
+            "status": "skipped-existing-page"
+        },
+        {
+            "type": "pages",
+            "source": "privacy",
+            "time": "2026-11-10 14:38:20",
+            "id": 16,
+            "status": "skipped-existing-page"
+        },
+        {
+            "type": "pages",
+            "source": "terms",
+            "time": "2026-11-10 14:38:20",
+            "id": 17,
+            "status": "skipped-existing-page"
+        },
+        {
+            "type": "pages",
+            "source": "blog",
+            "time": "2026-11-10 14:38:20",
+            "id": 18,
+            "status": "skipped-existing-page"
+        }
+    ]
+}

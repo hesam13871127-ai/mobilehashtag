@@ -1,0 +1,128 @@
+Creating PHP runtime
+Mounting WordPress files
+Defining WordPress constants
+Starting PHP
+Installing SQLite integration
+Checking database prerequisites
+Checking existing WordPress installation
+Validating database connection
+WordPress boot complete
+BOOT {"wordpress":"7.1.4","php":"8.3.36","plugins":["mobile-hashtag-core\/mobile-hashtag-core.php","woocommerce\/woocommerce.php"]} 
+{
+    "passed": 28,
+    "failed": 0,
+    "results": [
+        {
+            "file": "\/wordpress\/wp-content\/plugins\/mobile-hashtag-core\/includes\/importer.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/plugins\/mobile-hashtag-core\/includes\/privacy.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/plugins\/mobile-hashtag-core\/includes\/settings.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/plugins\/mobile-hashtag-core\/includes\/submissions.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/plugins\/mobile-hashtag-core\/includes\/wishlist.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/plugins\/mobile-hashtag-core\/mobile-hashtag-core.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/404.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/archive.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/comments.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/footer.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/front-page.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/functions.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/header.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/home.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/inc\/commerce.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/inc\/customizer.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/inc\/icons.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/index.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/page.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/search.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/searchform.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/single.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/template-parts\/auth.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/template-parts\/shop-filters.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/woocommerce\/archive-product.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/woocommerce\/content-product.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/woocommerce\/content-single-product.php",
+            "pass": true
+        },
+        {
+            "file": "\/wordpress\/wp-content\/themes\/mobile-hashtag\/woocommerce\/single-product.php",
+            "pass": true
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+  "packages": [
+    {
+      "file": "packages/mobile-hashtag-wordpress-theme.zip",
+      "root": "mobile-hashtag/",
+      "entry_point": "mobile-hashtag/style.css",
+      "bytes": 15696907,
+      "sha256": "9fcc2f3d91001d4c5845f30b0188a663e5a307ca90eb9ac231b2d4f40738e3c4",
+      "files": 165,
+      "crc_check": "PASS",
+      "single_root": "PASS",
+      "source_byte_match": "PASS",
+      "no_runtime_core_or_secrets": "PASS",
+      "installation_test": "See separate zip-installation.txt; structural verification alone is not installation QA."
+    },
+    {
+      "file": "packages/mobile-hashtag-core-plugin.zip",
+      "root": "mobile-hashtag-core/",
+      "entry_point": "mobile-hashtag-core/mobile-hashtag-core.php",
+      "bytes": 649958,
+      "sha256": "8d554d025032e9f693404cdc9d448eaf59e5f1c249bc2ffde928c5d9e2d93b7c",
+      "files": 79,
+      "crc_check": "PASS",
+      "single_root": "PASS",
+      "source_byte_match": "PASS",
+      "no_runtime_core_or_secrets": "PASS",
+      "installation_test": "See separate zip-installation.txt; structural verification alone is not installation QA."
+    }
+  ]
+}

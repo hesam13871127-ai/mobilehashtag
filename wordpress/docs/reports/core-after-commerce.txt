@@ -1,0 +1,149 @@
+Creating PHP runtime
+Mounting WordPress files
+Defining WordPress constants
+Starting PHP
+Installing SQLite integration
+Checking database prerequisites
+Checking existing WordPress installation
+Validating database connection
+WordPress boot complete
+BOOT {"wordpress":"7.1.4","php":"8.3.36","plugins":["mobile-hashtag-core\/mobile-hashtag-core.php","woocommerce\/woocommerce.php"]} 
+{
+    "passed": 25,
+    "failed": 0,
+    "tests": [
+        {
+            "name": "Core activated",
+            "pass": true,
+            "details": null
+        },
+        {
+            "name": "Actual WordPress version",
+            "pass": true,
+            "details": "7.1.4"
+        },
+        {
+            "name": "PHP runtime",
+            "pass": true,
+            "details": "8.3.36"
+        },
+        {
+            "name": "Demo phone disabled",
+            "pass": true,
+            "details": null
+        },
+        {
+            "name": "Reserved phone disabled even live",
+            "pass": true,
+            "details": null
+        },
+        {
+            "name": "Reserved domain disabled even live",
+            "pass": true,
+            "details": null
+        },
+        {
+            "name": "Malformed telephone rejected",
+            "pass": true,
+            "details": null
+        },
+        {
+            "name": "Valid live telephone href",
+            "pass": true,
+            "details": null
+        },
+        {
+            "name": "Unauthorized migration fails gracefully",
+            "pass": true,
+            "details": null
+        },
+        {
+            "name": "Contact shortcode independent of theme",
+            "pass": true,
+            "details": null
+        },
+        {
+            "name": "Newsletter consent",
+            "pass": true,
+            "details": null
+        },
+        {
+            "name": "Invalid email rejected",
+            "pass": true,
+            "details": null
+        },
+        {
+            "name": "Short message rejected",
+            "pass": true,
+            "details": null
+        },
+        {
+            "name": "Honeypot rejected",
+            "pass": true,
+            "details": null
+        },
+        {
+            "name": "Missing consent rejected",
+            "pass": true,
+            "details": null
+        },
+        {
+            "name": "Submission inserted",
+            "pass": true,
+            "details": {
+                "id": 18,
+                "uuid": "4c02439d-0115-46bd-b3dc-0c592815c66e",
+                "mail_status": "disabled"
+            }
+        },
+        {
+            "name": "Actual persisted message",
+            "pass": true,
+            "details": null
+        },
+        {
+            "name": "Source query secrets removed",
+            "pass": true,
+            "details": null
+        },
+        {
+            "name": "Mail disabled without recipient",
+            "pass": true,
+            "details": null
+        },
+        {
+            "name": "Mail failure does not lose submission",
+            "pass": true,
+            "details": {
+                "id": 19,
+                "uuid": "c8f9c460-a33c-4af9-a55f-6508ddb8b053",
+                "mail_status": "failed"
+            }
+        },
+        {
+            "name": "Stored XSS stripped",
+            "pass": true,
+            "details": null
+        },
+        {
+            "name": "Prepared search escapes injection",
+            "pass": true,
+            "details": "1=1 AND status='completed' AND (name LIKE '{aa060ab837503cdaac7d2662f703021eea7ffa41d2d7754cc0bb4d6f9c81f711}\\' OR 1=1 --{aa060ab837503cdaac7d2662f703021eea7ffa41d2d7754cc0bb4d6f9c81f711}' OR email LIKE '{aa060ab837503cdaac7d2662f703021eea7ffa41d2d7754cc0bb4d6f9c81f711}\\' OR 1=1 --{aa060ab837503cdaac7d2662f703021eea7ffa41d2d7754cc0bb4d6f9c81f711}' OR phone LIKE '{aa060ab837503cdaac7d2662f703021eea7ffa41d2d7754cc0bb4d6f9c81f711}\\' OR 1=1 --{aa060ab837503cdaac7d2662f703021eea7ffa41d2d7754cc0bb4d6f9c81f711}' OR message LIKE '{aa060ab837503cdaac7d2662f703021eea7ffa41d2d7754cc0bb4d6f9c81f711}\\' OR 1=1 --{aa060ab837503cdaac7d2662f703021eea7ffa41d2d7754cc0bb4d6f9c81f711}' OR uuid LIKE '{aa060ab837503cdaac7d2662f703021eea7ffa41d2d7754cc0bb4d6f9c81f711}\\' OR 1=1 --{aa060ab837503cdaac7d2662f703021eea7ffa41d2d7754cc0bb4d6f9c81f711}') AND created_at >= '2026-10-31 20:30:00'"
+        },
+        {
+            "name": "Rate limit rejects ninth",
+            "pass": true,
+            "details": null
+        },
+        {
+            "name": "Woo unit registry independent of theme",
+            "pass": true,
+            "details": null
+        },
+        {
+            "name": "No silent currency conversion",
+            "pass": true,
+            "details": null
+        }
+    ]
+}

@@ -6,3 +6,5 @@ playwright-report/
 test-results/
 deliverables/
 *.log
+wordpress/.runtime/
+wordpress/test-results/

@@ -1,0 +1,23 @@
+{
+  "code_files_checked": 29,
+  "runtime_dependencies_in_shipped_code": [],
+  "php_entry_guards": "PASS",
+  "wordpress_headers": [
+    {
+      "package": "mobile-hashtag-wordpress-theme.zip",
+      "header": "PASS",
+      "version": "1.0.1",
+      "root": "mobile-hashtag/"
+    },
+    {
+      "package": "mobile-hashtag-core-plugin.zip",
+      "header": "PASS",
+      "version": "1.0.1",
+      "root": "mobile-hashtag-core/"
+    }
+  ],
+  "original_source_files_verified": 174,
+  "original_files_changed": [],
+  "native_php_mysql_test": "NOT RUN: system PHP/MySQL/MariaDB unavailable and Debian package downloads blocked; this is not a runtime dependency of the deliverables",
+  "note": "Runtime/tooling excluded; actual ZIP installation verified separately. Standard WordPress APIs/$wpdb and official WooCommerce APIs are used."
+}

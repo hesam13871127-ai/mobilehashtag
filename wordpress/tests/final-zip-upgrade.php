@@ -1,0 +1,10 @@
+<?php
+/** Only run with MHC_INSTALLED=1 on the isolated ZIP test site. */
+require '/wordpress/wp-load.php';require_once ABSPATH.'wp-admin/includes/plugin.php';require_once ABSPATH.'wp-admin/includes/file.php';require_once ABSPATH.'wp-admin/includes/misc.php';require_once ABSPATH.'wp-admin/includes/template.php';require_once ABSPATH.'wp-admin/includes/class-wp-upgrader.php';if(!defined('FS_METHOD'))define('FS_METHOD','direct');wp_set_current_user(1);
+$tests=[];function verify_zip($name,$pass,$detail=null){global $tests;$tests[]=['name'=>$name,'pass'=>(bool)$pass,'detail'=>$detail];}
+$before=wp_count_posts('product')->publish;
+$plugin=new Plugin_Upgrader(new Automatic_Upgrader_Skin());$r=$plugin->install('/packages/mobile-hashtag-core-plugin.zip',['overwrite_package'=>true]);verify_zip('Final plugin ZIP installs through WordPress overwrite installer',$r===true,is_wp_error($r)?$r->get_error_message():$r);
+$theme=new Theme_Upgrader(new Automatic_Upgrader_Skin());$r=$theme->install('/packages/mobile-hashtag-wordpress-theme.zip',['overwrite_package'=>true]);verify_zip('Final theme ZIP installs through WordPress overwrite installer',$r===true,is_wp_error($r)?$r->get_error_message():$r);
+activate_plugin('mobile-hashtag-core/mobile-hashtag-core.php');switch_theme('mobile-hashtag');
+verify_zip('Core remains active',is_plugin_active('mobile-hashtag-core/mobile-hashtag-core.php'));verify_zip('Theme remains active',get_stylesheet()==='mobile-hashtag');verify_zip('Catalog preserved during ZIP update',(int)wp_count_posts('product')->publish===(int)$before&&(int)$before>=28);
+$failed=count(array_filter($tests,fn($t)=>!$t['pass']));echo wp_json_encode(['scope'=>'Final ZIPs installed by actual WP upgraders on the isolated site previously installed from the initial ZIPs; no source directory mount for theme or Core','passed'=>count($tests)-$failed,'failed'=>$failed,'packages'=>['theme_sha256'=>hash_file('sha256','/packages/mobile-hashtag-wordpress-theme.zip'),'plugin_sha256'=>hash_file('sha256','/packages/mobile-hashtag-core-plugin.zip')],'tests'=>$tests],JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);exit($failed?1:0);

@@ -1,0 +1,19 @@
+{
+  "version": "11.2.2",
+  "source_repository": "https://github.com/woocommerce/woocommerce",
+  "tag": "11.2.2",
+  "commit": "8ab82808f207c420703863c8ecec62e2fdc834a4",
+  "provenance": "Local build of official source and exact locked dependencies; NOT a hash-identical official release ZIP",
+  "tracked_changes": [
+    "pnpm-workspace.yaml"
+  ],
+  "note": "Only pnpm Node-version pin removed to use available Node 24.18. No WooCommerce PHP/JS source altered. Webpack compilers run sequentially to fit 4GB RAM. Composer official 2.9.8 and Jetpack generated production autoloaders.",
+  "runtime_files": 5577,
+  "required_assets": {
+    "vendor/autoload_packages.php": "770c41e883eb530b83f14c2c4a12efa19c811dccafef0df8ff42f573b831296b",
+    "assets/js/frontend/checkout.min.js": "2935cb8fe8098425ea62624e75a2710a0d4956321dc8ecd18bab438c97b27007",
+    "assets/css/woocommerce.css": "3ea8603f94304d8ac70057b9fb575bf068d6ad9c496bc24c0e40e3c89816adf2",
+    "assets/client/admin/app/index.js": "79952ac3c2ccb5d89adce61e296daea18df2995b921bc753fe713221a8fd555a",
+    "assets/client/blocks/blocks-json.php": "08afb823180bd6ff882bf8f514817d74a90efc51e790d22deaf4c101937c220d"
+  }
+}

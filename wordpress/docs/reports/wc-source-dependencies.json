@@ -1,0 +1,246 @@
+{
+  "official_tag": "11.2.2",
+  "official_commit": "8ab82808f207c420703863c8ecec62e2fdc834a4",
+  "packages": [
+    {
+      "name": "automattic/block-delimiter",
+      "version": "v0.3.4",
+      "source": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Automattic/block-delimiter/zipball/f36d786abdd4e10cfec8b261796dac9cdd192457",
+        "reference": "f36d786abdd4e10cfec8b261796dac9cdd192457",
+        "shasum": ""
+      },
+      "archive_sha256": "bcc543d1f662a6bcd07b57e498cd6f7422194aa96eda5213751b0a9cc307c220"
+    },
+    {
+      "name": "automattic/jetpack-a8c-mc-stats",
+      "version": "v3.0.5",
+      "source": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Automattic/jetpack-a8c-mc-stats/zipball/60401a41c714d93f7a31e36493260ad6683ca4be",
+        "reference": "60401a41c714d93f7a31e36493260ad6683ca4be",
+        "shasum": ""
+      },
+      "archive_sha256": "51ef79cd93a60d1f544097d090fc023d14cc85a2a9af1dd55df97b5b2a5b9b25"
+    },
+    {
+      "name": "automattic/jetpack-admin-ui",
+      "version": "v0.5.11",
+      "source": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Automattic/jetpack-admin-ui/zipball/51268f256c821ebcdaaa769f3249d34e0106cfb2",
+        "reference": "51268f256c821ebcdaaa769f3249d34e0106cfb2",
+        "shasum": ""
+      },
+      "archive_sha256": "32702f5c324fad7b09e2a85a5d9f25f1eaf60eacb2443642af6d94b347b967b9"
+    },
+    {
+      "name": "automattic/jetpack-assets",
+      "version": "v4.3.11",
+      "source": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Automattic/jetpack-assets/zipball/02b14206e6f0713aea9c79af55b67422eaa17c39",
+        "reference": "02b14206e6f0713aea9c79af55b67422eaa17c39",
+        "shasum": ""
+      },
+      "archive_sha256": "4ee14d105f719a39cba4ab27441ef42cab487c4c0a70858673e35e62ee2d9e70"
+    },
+    {
+      "name": "automattic/jetpack-autoloader",
+      "version": "v5.0.0",
+      "source": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Automattic/jetpack-autoloader/zipball/eb6331a5c50a03afd9896ce012e66858de9c49c5",
+        "reference": "eb6331a5c50a03afd9896ce012e66858de9c49c5",
+        "shasum": ""
+      },
+      "archive_sha256": "11f5aa00410154d0a60e8571e2aeee442594f049db67d2bb8146353e19f816da"
+    },
+    {
+      "name": "automattic/jetpack-config",
+      "version": "v3.0.0",
+      "source": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Automattic/jetpack-config/zipball/fc719eff5073634b0c62793b05be913ca634e192",
+        "reference": "fc719eff5073634b0c62793b05be913ca634e192",
+        "shasum": ""
+      },
+      "archive_sha256": "046840aabf86fedcac1f90eb62e487033e45f5b1dfe472a78e0eb59ccd5a0230"
+    },
+    {
+      "name": "automattic/jetpack-connection",
+      "version": "v6.19.2",
+      "source": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Automattic/jetpack-connection/zipball/74ac48945c6de0283fd1f4a52324a17d5e9c0b43",
+        "reference": "74ac48945c6de0283fd1f4a52324a17d5e9c0b43",
+        "shasum": ""
+      },
+      "archive_sha256": "c0d5b654849b46bba142d7238f31af9e6b4d4572c32137a0680e56fceffab3c3"
+    },
+    {
+      "name": "automattic/jetpack-constants",
+      "version": "v3.0.8",
+      "source": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Automattic/jetpack-constants/zipball/f9bf00ab48956b8326209e7c0baf247a0ed721c4",
+        "reference": "f9bf00ab48956b8326209e7c0baf247a0ed721c4",
+        "shasum": ""
+      },
+      "archive_sha256": "a9bdb4412b6e1b89c6c63f32ae3cd5916499e6df76e712c683f54ef759ae5d01"
+    },
+    {
+      "name": "automattic/jetpack-redirect",
+      "version": "v3.0.9",
+      "source": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Automattic/jetpack-redirect/zipball/afb74d7c2ae46863c2af46b5703cf1c8728e6a5d",
+        "reference": "afb74d7c2ae46863c2af46b5703cf1c8728e6a5d",
+        "shasum": ""
+      },
+      "archive_sha256": "e90fa4f76fe219e3d9c7823509a1e56290a4949f01460e6ac6ae936b7f8545e2"
+    },
+    {
+      "name": "automattic/jetpack-roles",
+      "version": "v3.0.8",
+      "source": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Automattic/jetpack-roles/zipball/96e09fc813ccf5e691f46297875d6b85b859c669",
+        "reference": "96e09fc813ccf5e691f46297875d6b85b859c669",
+        "shasum": ""
+      },
+      "archive_sha256": "65dd53af81df4aee12872a5e4f0d054560a47f21cb7c442426e1f4a346adc717"
+    },
+    {
+      "name": "automattic/jetpack-status",
+      "version": "v6.1.0",
+      "source": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Automattic/jetpack-status/zipball/7dbcfff7f1005611a3d27e3553df9389c658b3a8",
+        "reference": "7dbcfff7f1005611a3d27e3553df9389c658b3a8",
+        "shasum": ""
+      },
+      "archive_sha256": "fecc4ab983842e6a3f7ddcbea228ec4fdc82fed427f95c1f30f79880fe831978"
+    },
+    {
+      "name": "automattic/tracks-shared-utils",
+      "version": "v1.0.0",
+      "source": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Automattic/tracks-shared-utils/zipball/6828997db5c76b1e810535c1d2729355b095aa91",
+        "reference": "6828997db5c76b1e810535c1d2729355b095aa91",
+        "shasum": ""
+      },
+      "archive_sha256": "887ef093ad1f339b8f87e93a762553f1b0e0cefe9529dbdd21c9019f12c339af"
+    },
+    {
+      "name": "composer/installers",
+      "version": "v1.12.0",
+      "source": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/composer/installers/zipball/d20a64ed3c94748397ff5973488761b22f6d3f19",
+        "reference": "d20a64ed3c94748397ff5973488761b22f6d3f19",
+        "shasum": ""
+      },
+      "archive_sha256": "c84737ba19ee800564f552b34da5b02b90b064883b8d6d7bb113abe1021e5938"
+    },
+    {
+      "name": "maxmind-db/reader",
+      "version": "v1.12.1",
+      "source": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/maxmind/MaxMind-DB-Reader-php/zipball/815939e006b7e68062b540ec9e86aaa8be2b6ce4",
+        "reference": "815939e006b7e68062b540ec9e86aaa8be2b6ce4",
+        "shasum": ""
+      },
+      "archive_sha256": "bb895d0f308394abe019d1b72516d7fc6f09de4f4129df89eb181812c716f4f5"
+    },
+    {
+      "name": "opis/json-schema",
+      "version": "2.6.0",
+      "source": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/opis/json-schema/zipball/8458763e0dd0b6baa310e04f1829fc73da4e8c8a",
+        "reference": "8458763e0dd0b6baa310e04f1829fc73da4e8c8a",
+        "shasum": ""
+      },
+      "archive_sha256": "ecb62207b8b5cf0cd48cfee56ffb188d56f6db48c23c8c0efae9a9bfc8058b56"
+    },
+    {
+      "name": "opis/string",
+      "version": "2.1.0",
+      "source": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/opis/string/zipball/3e4d2aaff518ac518530b89bb26ed40f4503635e",
+        "reference": "3e4d2aaff518ac518530b89bb26ed40f4503635e",
+        "shasum": ""
+      },
+      "archive_sha256": "69a8de236e1c0733fbbcd441a19fc1559bb4cbf8d60e1d6a3375fc7a33ed44fc"
+    },
+    {
+      "name": "opis/uri",
+      "version": "1.1.0",
+      "source": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/opis/uri/zipball/0f3ca49ab1a5e4a6681c286e0b2cc081b93a7d5a",
+        "reference": "0f3ca49ab1a5e4a6681c286e0b2cc081b93a7d5a",
+        "shasum": ""
+      },
+      "archive_sha256": "bc38a87760e05ad0c22dac98319e2a1bc2950bf6d4208c246599e57e525e9c0d"
+    },
+    {
+      "name": "woocommerce/action-scheduler",
+      "version": "4.1.0",
+      "source": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/woocommerce/action-scheduler/zipball/40a3df93a251590c58717b91b1049a13410e2ac4",
+        "reference": "40a3df93a251590c58717b91b1049a13410e2ac4",
+        "shasum": ""
+      },
+      "archive_sha256": "b44205cfc114c7da89884c82083f6653e1cc56d1ed1abcc14b05ce2fc226a545"
+    },
+    {
+      "name": "woocommerce/blueprint",
+      "version": "0.0.1",
+      "source": {
+        "type": "path",
+        "url": "../../packages/php/blueprint",
+        "reference": "f996d43977196b9670d783b58c167243950876d3"
+      },
+      "archive_sha256": "local official monorepo f996d43977196b9670d783b58c167243950876d3"
+    },
+    {
+      "name": "woocommerce/email-editor",
+      "version": "2.17.2",
+      "source": {
+        "type": "path",
+        "url": "../../packages/php/email-editor",
+        "reference": "642aa258cb1dd25b2e2829771446d5ad94064d46"
+      },
+      "archive_sha256": "local official monorepo 642aa258cb1dd25b2e2829771446d5ad94064d46"
+    },
+    {
+      "name": "wordpress/abilities-api",
+      "version": "v0.4.0",
+      "source": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/WordPress/abilities-api/zipball/0759075aed37c4247adbf273bdebec096d52e825",
+        "reference": "0759075aed37c4247adbf273bdebec096d52e825",
+        "shasum": ""
+      },
+      "archive_sha256": "17a2ec7268491e29431feaca3d342d0bf1cb5e3f8b6191a9bd3e3f81cb1c2d25"
+    },
+    {
+      "name": "wordpress/mcp-adapter",
+      "version": "v0.3.0",
+      "source": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/WordPress/mcp-adapter/zipball/653ca8d95180b25809b1a1dc489d8305ec5beb63",
+        "reference": "653ca8d95180b25809b1a1dc489d8305ec5beb63",
+        "shasum": ""
+      },
+      "archive_sha256": "40703c7c2c5c7b1c7e3c978c39c392f82203331371d2d1c62ff2551fdd78fb0c"
+    }
+  ]
+}

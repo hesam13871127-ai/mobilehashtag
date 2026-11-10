@@ -1,0 +1,493 @@
+{
+  "scope": "Genuine WordPress + official-source WooCommerce 11.2.2 browser checks",
+  "passed": 76,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Route /",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "h1": [
+          "یک قدم جلوتر،با دنیای تکنولوژی."
+        ]
+      }
+    },
+    {
+      "name": "Desktop width /",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Route /shop/",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "h1": [
+          "فروشگاه"
+        ]
+      }
+    },
+    {
+      "name": "Desktop width /shop/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Route /product/galaxy-s24-ultra/",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "h1": [
+          "گوشی سامسونگ گلکسی S24 Ultra، ۲۵۶ گیگابایت"
+        ]
+      }
+    },
+    {
+      "name": "Desktop width /product/galaxy-s24-ultra/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Route /product-category/phones/",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "h1": [
+          "گوشی موبایل"
+        ]
+      }
+    },
+    {
+      "name": "Desktop width /product-category/phones/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Route /cart/",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "h1": [
+          "سبد خرید"
+        ]
+      }
+    },
+    {
+      "name": "Desktop width /cart/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Route /checkout/",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "h1": [
+          "سبد خرید"
+        ]
+      }
+    },
+    {
+      "name": "Desktop width /checkout/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Route /account/",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "h1": [
+          "حساب کاربری"
+        ]
+      }
+    },
+    {
+      "name": "Desktop width /account/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Route /login/",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "h1": [
+          "ورود به حساب",
+          "انتخاب‌های خوب،از اینجا شروع می‌شوند."
+        ]
+      }
+    },
+    {
+      "name": "Desktop width /login/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Route /register/",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "h1": [
+          "ثبت‌نام",
+          "انتخاب‌های خوب،از اینجا شروع می‌شوند."
+        ]
+      }
+    },
+    {
+      "name": "Desktop width /register/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Route /wishlist/",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "h1": [
+          "علاقه‌مندی‌ها"
+        ]
+      }
+    },
+    {
+      "name": "Desktop width /wishlist/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Route /tracking/",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "h1": [
+          "پیگیری سفارش"
+        ]
+      }
+    },
+    {
+      "name": "Desktop width /tracking/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Route /contact/",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "h1": [
+          "تماس با ما"
+        ]
+      }
+    },
+    {
+      "name": "Desktop width /contact/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Route /about/",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "h1": [
+          "درباره هشتگ",
+          "تکنولوژی نزدیک‌تر،انتخاب‌ها هوشمندانه‌تر."
+        ]
+      }
+    },
+    {
+      "name": "Desktop width /about/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Route /faq/",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "h1": [
+          "پرسش‌های متداول",
+          "چطور می‌توانیم کمک کنیم؟"
+        ]
+      }
+    },
+    {
+      "name": "Desktop width /faq/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Route /privacy/",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "h1": [
+          "حریم خصوصی",
+          "حریم خصوصی شما"
+        ]
+      }
+    },
+    {
+      "name": "Desktop width /privacy/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Route /terms/",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "h1": [
+          "شرایط خرید و بازگشت",
+          "قوانین و شرایط استفاده"
+        ]
+      }
+    },
+    {
+      "name": "Desktop width /terms/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Route /blog/",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "h1": [
+          "مجله هشتگ"
+        ]
+      }
+    },
+    {
+      "name": "Desktop width /blog/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Route /phone-buying-guide/",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "h1": [
+          "راهنمای خرید گوشی؛ انتخابی که به شما می‌آید"
+        ]
+      }
+    },
+    {
+      "name": "Desktop width /phone-buying-guide/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Route /?s=Samsung&post_type=product",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "h1": [
+          "نتایج جستجو: “Samsung”"
+        ]
+      }
+    },
+    {
+      "name": "Desktop width /?s=Samsung&post_type=product",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 1920 /",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 1920 /shop/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 1920 /product/galaxy-s24-ultra/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 1920 /cart/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 1920 /login/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 1920 /contact/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 768 /",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 768 /shop/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 768 /product/galaxy-s24-ultra/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 768 /cart/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 768 /login/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 768 /contact/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 390 /",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 390 /shop/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 390 /product/galaxy-s24-ultra/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 390 /cart/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 390 /login/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 390 /contact/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 360 /",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 360 /shop/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 360 /product/galaxy-s24-ultra/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 360 /cart/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 360 /login/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Width 360 /contact/",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Native shop renders twelve products",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Native pagination exists",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Quick view opens",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Real brand filter",
+      "pass": true,
+      "details": [
+        "Samsung",
+        "Samsung"
+      ]
+    },
+    {
+      "name": "Price filter reduces catalog",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "WC Media Library gallery",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Persian WC add-to-cart",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Guest wishlist persisted",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Guest wishlist survives reload",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Native cart contains item",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Cart uses Toman",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "Native checkout form",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "No missing local assets",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "No JavaScript errors",
+      "pass": true,
+      "details": []
+    }
+  ],
+  "errors": [],
+  "failedAssets": []
+}

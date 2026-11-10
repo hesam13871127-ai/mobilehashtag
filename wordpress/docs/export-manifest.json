@@ -1,0 +1,242 @@
+{
+  "tables": {
+    "categories": 47,
+    "products": 28,
+    "product_categories": 91,
+    "posts": 3
+  },
+  "media": [
+    {
+      "source": "/assets/images/banners/hero-phone.webp",
+      "sha256": "cfec8af154f1d9b70b1295dcac09406509fb9ee882bf2109f5894eff833c2288"
+    },
+    {
+      "source": "/assets/images/blog/audio-guide.webp",
+      "sha256": "6774493498a8e5d33b862008ba0892c4666c49515191411cfcf4be340c138db3"
+    },
+    {
+      "source": "/assets/images/blog/battery-guide.webp",
+      "sha256": "8403fa1e49ca54ee11c1a74d31a146f195a79ce28bc71cc44394d33d308c60da"
+    },
+    {
+      "source": "/assets/images/blog/phone-guide.webp",
+      "sha256": "801a824270ed16d5efe4ad51ca8ba6c09ff72add73a04da0b25cca659f93008e"
+    },
+    {
+      "source": "/assets/images/products/adapter-detail.webp",
+      "sha256": "1d3923406e489a02db0e77f02bda197c2e228290f826128d78fedb07727a6e36"
+    },
+    {
+      "source": "/assets/images/products/adapter.webp",
+      "sha256": "56d42a37315d10b45ce61d1708d569b2d8af750cc6d5d243a642fe9f8c2e753c"
+    },
+    {
+      "source": "/assets/images/products/airpods-detail.webp",
+      "sha256": "098cec13820cc7d41e14219bf3f758d8aac2a73540404531fd5c8b400e2818d1"
+    },
+    {
+      "source": "/assets/images/products/airpods.webp",
+      "sha256": "58f375a911914a58e26ad47bc9ef5c6504289bc1ca00819317368da23b5d069f"
+    },
+    {
+      "source": "/assets/images/products/band-detail.webp",
+      "sha256": "2d247f41bd6bb3ea4010b15c72c86de11dd8f36f34576919261fe305393495d3"
+    },
+    {
+      "source": "/assets/images/products/band.webp",
+      "sha256": "7533e145c34e83c9f15d14700d4f052d3076bd40a0905da1cc27bbc52b95a970"
+    },
+    {
+      "source": "/assets/images/products/cable-detail.webp",
+      "sha256": "f2b31a2319e5169ac8e074f43bd7dde7eb50abab54d65881e9bd5f12d0d3206d"
+    },
+    {
+      "source": "/assets/images/products/cable.webp",
+      "sha256": "b59ffdf072deb2728e35fdb0364d7c4b1a5d970666d12d7767e42c593bfb1576"
+    },
+    {
+      "source": "/assets/images/products/case-detail.webp",
+      "sha256": "bea76020f34ba89b90b6cf271a55fc4e7c755eebd8c39fffe98069b7fef164fd"
+    },
+    {
+      "source": "/assets/images/products/case.webp",
+      "sha256": "07514bdadf29f5877ed5bc793bc1b07ca8075dafda2f8f1553c3ec5714f10b5a"
+    },
+    {
+      "source": "/assets/images/products/charger-detail.webp",
+      "sha256": "952d0c2d3971e1ae227ac989b33ad32ff20226ec70284b3eb4d7de9da71e5a6b"
+    },
+    {
+      "source": "/assets/images/products/charger.webp",
+      "sha256": "caf7cdaf2fd3ebc711824d35337ab74904c84e34e0a1d8bb0b6a7419cb2c86c4"
+    },
+    {
+      "source": "/assets/images/products/earbuds-detail.webp",
+      "sha256": "6d35e3ec77484857bfe8c18b7b3e063e6ca83e72f7e94d52b8f6128c61d2460c"
+    },
+    {
+      "source": "/assets/images/products/earbuds.webp",
+      "sha256": "3ae83ac35ef6e9ad3ea691d44c03bac9d9c28e236cb25ab0226c7636473faf1c"
+    },
+    {
+      "source": "/assets/images/products/flash-detail.webp",
+      "sha256": "6a186568921221bd77bcecc51e21fefd5250d398f1a3fb36628586cf4fbe8433"
+    },
+    {
+      "source": "/assets/images/products/flash.webp",
+      "sha256": "0ca1f4b67868908ea7fd891177a62410a3cd071a9d073605e370c080ff1d7e89"
+    },
+    {
+      "source": "/assets/images/products/gamepad-detail.webp",
+      "sha256": "47178d75a36cb981ae0b32518db4b7dfa3eb4829c58fe130bd815861b9e47a27"
+    },
+    {
+      "source": "/assets/images/products/gamepad.webp",
+      "sha256": "e02e9b44a01ac53c70cd51dfa687630706dff6bfc6dac60853423615a852cda2"
+    },
+    {
+      "source": "/assets/images/products/glass-detail.webp",
+      "sha256": "75d4c27584976cf08e5280acfe2ecdec01688811def44411d7faa6de5cf27b90"
+    },
+    {
+      "source": "/assets/images/products/glass.webp",
+      "sha256": "638366a2fa1cdb96a812221eee9a59f58830d557503cfa8dc89b2dc32d5cf1c2"
+    },
+    {
+      "source": "/assets/images/products/headphones-detail.webp",
+      "sha256": "770e3fbc36685aa6c46e279badd02472e64d557e92ef834b4900899de7ca40ec"
+    },
+    {
+      "source": "/assets/images/products/headphones.webp",
+      "sha256": "9060a680340a0f363e6fcaf2b34c7e05da96caa8e0b9d656fe2787ef6dad7927"
+    },
+    {
+      "source": "/assets/images/products/holder-detail.webp",
+      "sha256": "db45f75d8d56e1a52a277daa4d99e1646e4592e287c226f2bcb5417b75c035ce"
+    },
+    {
+      "source": "/assets/images/products/holder.webp",
+      "sha256": "1a17e75bcc216524f6d1722064837afa54372354223e5ab59b159a4ec430b6fa"
+    },
+    {
+      "source": "/assets/images/products/honor-detail.webp",
+      "sha256": "1837ca7404b7a1288b2f8355dd0edcce09763c65b014dac5456313709ff92172"
+    },
+    {
+      "source": "/assets/images/products/honor.webp",
+      "sha256": "4637c2a7816ea9d37af07557a12c3d85ffeed658d5ffbfc5a67f4bf2a1113251"
+    },
+    {
+      "source": "/assets/images/products/iphone-detail.webp",
+      "sha256": "bd7320fc223bd8a6d273e00f8b2b5127af0f5d406a420c19300b32e414017310"
+    },
+    {
+      "source": "/assets/images/products/iphone.webp",
+      "sha256": "cb81d7491e0460eda94f7eea60e190c2dc5092fea6cbaf1bc233f944b2c1d098"
+    },
+    {
+      "source": "/assets/images/products/lens-detail.webp",
+      "sha256": "1c30bb608c1d68a95045152d5d6dd75083933dc008ba41b5827d62797c130b8c"
+    },
+    {
+      "source": "/assets/images/products/lens.webp",
+      "sha256": "42b5b946defd86246969a1dd9cecc259acfcb2f87ee53a0519bb678d7494aecd"
+    },
+    {
+      "source": "/assets/images/products/memory-detail.webp",
+      "sha256": "8c71deb52d29b5b53a7f31935e23ee649800f80a5f73a806d1e7e2b3cdc7461c"
+    },
+    {
+      "source": "/assets/images/products/memory.webp",
+      "sha256": "edcc90f0a0964e6000f6582562a8634cfa668457a6364394b6a9afe2b962a612"
+    },
+    {
+      "source": "/assets/images/products/pen-detail.webp",
+      "sha256": "444d804bd5a4ca537be1d0305a7a1979e5a5e4533ca1510628fbb91478a941a5"
+    },
+    {
+      "source": "/assets/images/products/pen.webp",
+      "sha256": "5aa54f9ae88b094a4b06a8ffd2c62de43d61e50fe1adb7762443ceff875d86b5"
+    },
+    {
+      "source": "/assets/images/products/poco-detail.webp",
+      "sha256": "f72f78f01ad6824b61d1d6f941ce2425e5e89bf7fe47e39891c78a1928d4470b"
+    },
+    {
+      "source": "/assets/images/products/poco.webp",
+      "sha256": "c5e85b42a281a1d8039e73d0a5ade6185b3cbee2c46abee5bb6e007fad8d9624"
+    },
+    {
+      "source": "/assets/images/products/powerbank-detail.webp",
+      "sha256": "8e23447b167fa7b82464f91ac131ea2959eb1f5847698bd9502d4635187ce90e"
+    },
+    {
+      "source": "/assets/images/products/powerbank.webp",
+      "sha256": "973e0c137dc2749bd9f06ff4c3e432c2e31d4de3b2a4600cd08bbe8bc6947e72"
+    },
+    {
+      "source": "/assets/images/products/redmi-detail.webp",
+      "sha256": "59428079875be7968da2699be28d82a5e3cd5cc92c9fb9d96854f87c58b6b96a"
+    },
+    {
+      "source": "/assets/images/products/redmi.webp",
+      "sha256": "d5f4eb4b3e6b4b81c7e3229b8697f2f88b9756c8aa99fe4d191f648c1f70c92f"
+    },
+    {
+      "source": "/assets/images/products/samsung-detail.webp",
+      "sha256": "07aca93474c48450eb5b8182dd5ba680f5c9b76105fe545b618527649900a13b"
+    },
+    {
+      "source": "/assets/images/products/samsung.webp",
+      "sha256": "b4ef36a268dfd1587ebed24fb5ba9c837c836e3daa11e2a75dcd705e81f17c48"
+    },
+    {
+      "source": "/assets/images/products/speaker-detail.webp",
+      "sha256": "ae355641a14ecdd32e6ed88791f46b2c75b9f7f7af20c9344b66d7175f206d37"
+    },
+    {
+      "source": "/assets/images/products/speaker.webp",
+      "sha256": "c0b0499cb606e6a59dd559e82f59eecbe18f47c993b48eea08dda246001df7c4"
+    },
+    {
+      "source": "/assets/images/products/strap-detail.webp",
+      "sha256": "63d8e1e0d432b67b58b79ad6409269630af9872d8d96ac8b0556e96b0d86a652"
+    },
+    {
+      "source": "/assets/images/products/strap.webp",
+      "sha256": "37859dfaf46da59f41bb319f8a9859084c760e36a8a7137c707b88f6e1fcbf10"
+    },
+    {
+      "source": "/assets/images/products/tablet-detail.webp",
+      "sha256": "5e246e2fc35f62b8e9273c478d5009e17b46e28cd5233dc59e0a4387f60eab1a"
+    },
+    {
+      "source": "/assets/images/products/tablet.webp",
+      "sha256": "fb20078283ac39508b06a419dd21357379a496b1215fe8f7fd5464a0be26d639"
+    },
+    {
+      "source": "/assets/images/products/tracker-detail.webp",
+      "sha256": "9697ea2c292eb88e1a7de8b7d74a52040cc32c22fdaaa2bdc7847958bb3e245d"
+    },
+    {
+      "source": "/assets/images/products/tracker.webp",
+      "sha256": "7fc6d7d1a43231129bf9980ef34128f0d724d2b61608f2ecb2f28023fcfdfe83"
+    },
+    {
+      "source": "/assets/images/products/watch-detail.webp",
+      "sha256": "49b47bc1586752e78c289d3895c9af66345a810c6b5d50fce705548604a17631"
+    },
+    {
+      "source": "/assets/images/products/watch.webp",
+      "sha256": "ab85e565e6aab0d179e5086ac9fa467b3fb330b3846c96c21d7bc2aa3d038aef"
+    },
+    {
+      "source": "/assets/images/products/xiaomi-detail.webp",
+      "sha256": "46babf25f0dd3731ea4c23b07bde9cc54da9e4e0a56289113432a328adc9b13c"
+    },
+    {
+      "source": "/assets/images/products/xiaomi.webp",
+      "sha256": "b97f8673ddc9887ae02e9d81477b41c847fb3c6d76f7f53c390b2aad9e298dde"
+    }
+  ]
+}

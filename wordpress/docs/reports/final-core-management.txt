@@ -1,0 +1,118 @@
+Creating PHP runtime
+Mounting WordPress files
+Defining WordPress constants
+Starting PHP
+Installing SQLite integration
+Checking database prerequisites
+Checking existing WordPress installation
+Validating database connection
+WordPress boot complete
+BOOT {"wordpress":"7.1.4","php":"8.3.36","plugins":["mobile-hashtag-core\/mobile-hashtag-core.php","woocommerce\/woocommerce.php"]} 
+{
+    "passed": 20,
+    "failed": 0,
+    "tests": [
+        {
+            "name": "contact actual insert",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "inquiry actual insert",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "newsletter actual insert",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "UUID \/ UTC \/ complete submitted fields",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Anonymous cannot change record",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Invalid status rejected",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "New → contacted",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Contacted → completed",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Combined search\/type\/status\/site-timezone date filters",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "SQL injection does not broaden results",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "CSV formula and BOM prefix neutralized",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Delete requires explicit confirmation",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Privacy registration",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Verified-email export retrieves own records",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Other email cannot retrieve records",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Core form survives theme switch",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Stored data survives theme switch",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Confirmed record deletion",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Privacy eraser removes only requested email",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Database insert failure returns error, never success",
+            "pass": true,
+            "detail": {
+                "result": "database"
+            }
+        }
+    ]
+}

@@ -1,0 +1,167 @@
+{
+  "scope": "Initial theme and Core checks on WordPress 7.1.4 / PHP-WASM 8.3.36; WooCommerce not installed",
+  "passed": 32,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Home 1920: no horizontal overflow",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Home 1920: 17 original sections",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Home 1920: Persian RTL",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Contact 1920: no overflow",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Home 1366: no horizontal overflow",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Home 1366: 17 original sections",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Home 1366: Persian RTL",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Contact 1366: no overflow",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Home 768: no horizontal overflow",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Home 768: 17 original sections",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Home 768: Persian RTL",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Contact 768: no overflow",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Home 390: no horizontal overflow",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Home 390: 17 original sections",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Home 390: Persian RTL",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Contact 390: no overflow",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Home 360: no horizontal overflow",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Home 360: 17 original sections",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Home 360: Persian RTL",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Contact 360: no overflow",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Hero next slide operates",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Hero pause accessible label",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Mobile menu opens",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Escape closes menu",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Sample contacts never link out",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Real HTTP form save success",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "HTTP forged nonce rejected",
+      "pass": true,
+      "detail": 403
+    },
+    {
+      "name": "Anonymous CSV export denied",
+      "pass": true,
+      "detail": 400
+    },
+    {
+      "name": "WordPress 404 status",
+      "pass": true,
+      "detail": 404
+    },
+    {
+      "name": "Approved Persian 404 template",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "No JavaScript errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "No legacy Express API used",
+      "pass": true,
+      "detail": []
+    }
+  ]
+}

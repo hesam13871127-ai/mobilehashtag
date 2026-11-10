@@ -1,0 +1,16 @@
+{
+  "name": "mobile-hashtag-wordpress-test-tools",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Development-only genuine PHP-WASM/WordPress test harness; never distributed with the theme or plugin",
+  "scripts": {
+    "test:core": "node runtime.mjs --test core.php",
+    "test:lint": "node runtime.mjs --test lint.php"
+  },
+  "dependencies": {
+    "@php-wasm/node": "3.1.63",
+    "@wp-playground/wordpress": "3.1.63",
+    "node": "24.18.0"
+  }
+}

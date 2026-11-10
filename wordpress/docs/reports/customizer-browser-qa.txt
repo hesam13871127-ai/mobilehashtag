@@ -1,0 +1,85 @@
+MOBILE HASHTAG — WordPress Customizer browser QA
+Branch: arena/14ec9c21-mobilehashtag
+Overall result: BLOCKED — homepage customization NOT TESTED.
+Scope: Only the requested Customizer task. No other QA was started.
+
+TARGET AND PREREQUISITES
+Existing ZIP-installed staging directory:
+  wordpress/.runtime/zip-install-site/
+Installed theme: mobile-hashtag
+Installed Core: mobile-hashtag-core
+Registered home/siteurl (read-only SQLite inspection):
+  https://zip-install.example.test
+The existing running WordPress server uses source-directory mounts, not this
+ZIP-installed staging. It was NOT used as a substitute.
+No server was started/restarted and no installation/bootstrap script was run.
+The existing runtime bootstrap resets an administrator password and writes
+options; it was deliberately not used under the no-permanent-settings rule.
+
+ACTUAL BROWSER OBSERVATION
+Chromium launched successfully: YES.
+Attempted admin URL: https://zip-install.example.test/wp-admin/
+Navigation succeeded: NO.
+Observed Playwright/Chromium error:
+  page.goto: net::ERR_NAME_NOT_RESOLVED at https://zip-install.example.test/wp-admin/
+No WordPress admin document was loaded. No login, Customizer launch, setting
+mutation, save or publish request was performed. Stopped at this limitation,
+as instructed; no fallback to the source-mounted installation was attempted.
+
+STEP-BY-STEP RESULTS
+1. Open admin and Appearance > Customize: BLOCKED.
+   The configured staging hostname did not resolve. Customize was not opened.
+2. Locate homepage title; record original; temporarily change it: NOT TESTED.
+   No UI setting/value was observed. No title was guessed or changed.
+3. Locate section visibility; record original; toggle: NOT TESTED.
+   No UI setting/value was observed. No visibility was guessed or changed.
+4. Save/publish: NOT TESTED. No save was attempted.
+5. Verify both changes on public homepage: NOT TESTED.
+6. Refresh and verify persistence: NOT TESTED.
+7. Return and restore exact original values: NOT APPLICABLE.
+   No values were modified. This is NOT a successful restoration-cycle test.
+8. Save restored values: NOT APPLICABLE. No save was needed or attempted.
+9. Verify restored homepage appearance: NOT TESTED.
+   No visual restoration claim is made. Read-only preservation checks below
+   confirm original data remained unchanged, not that the UI cycle passed.
+
+ORIGINAL VALUES AND PRESERVATION
+Before navigation, a read-only baseline recorded the staging home/siteurl,
+show_on_front, page_on_front, template, stylesheet and stored theme-mods row,
+plus the complete staging database SHA-256. This is preservation evidence,
+not observation of title/visibility control values in Customizer.
+After the failed navigation:
+- Original stored settings exactly unchanged: YES.
+- Complete staging database byte-identical: YES.
+- Theme/plugin source, installed theme/plugin files and ZIPs unchanged: YES.
+- Number of protected files compared: 476.
+- Changed protected files: 0.
+- Database structure changed: NO.
+- Permanent settings changed: NO.
+- Original values needed restoration: NO; nothing was changed.
+
+PACKAGE SHA-256 (BEFORE = AFTER)
+mobile-hashtag-wordpress-theme.zip
+  9fcc2f3d91001d4c5845f30b0188a663e5a307ca90eb9ac231b2d4f40738e3c4
+mobile-hashtag-core-plugin.zip
+  8d554d025032e9f693404cdc9d448eaf59e5f1c249bc2ffde928c5d9e2d93b7c
+
+EVIDENCE
+The browser error above is the actual navigation result, not an inferred DNS
+failure. No screenshot of WordPress/Customizer exists for this attempt because
+no staging page rendered; a blank/error-page screenshot would not prove UI QA.
+Local raw evidence (development-only, not packaged):
+  wordpress/.runtime/customizer-qa/browser-access.json
+  wordpress/.runtime/customizer-qa/before.json
+  wordpress/.runtime/customizer-qa/browser-access.mjs
+
+ERROR CLASSIFICATION
+Staging availability limitation. No theme/plugin Customizer defect was
+established because its UI could not be reached. Source inspection does not
+count as finding or exercising a control in the browser.
+
+NEXT REQUIRED ACTION (NOT PERFORMED)
+Make this existing ZIP-installed staging reachable through a serving path that
+does not reset credentials or alter permanent settings. Then repeat this exact
+Customizer procedure, recording actual control values before any edit.
+No ZIP rebuild, source modification or unrelated QA is needed for this task.

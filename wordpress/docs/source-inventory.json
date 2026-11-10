@@ -1,0 +1,1568 @@
+{
+  "source_commit": "44e0ff3",
+  "files": [
+    {
+      "path": "frontend/favicon.png",
+      "bytes": 1205,
+      "sha256": "ee19456c19c2b71bb4fd52082fd80345d6c490a458366e45ec058e0d00d446ba"
+    },
+    {
+      "path": "frontend/index.html",
+      "bytes": 22850,
+      "sha256": "73d731911763638b8b217907aabe4c15ae9a222160b9d8ac1f85727af565a357"
+    },
+    {
+      "path": "frontend/shop.html",
+      "bytes": 2580,
+      "sha256": "0c7045761ff63f87c6f502159a93c1821b211d45a267b13063332b5a86fe00be"
+    },
+    {
+      "path": "frontend/category.html",
+      "bytes": 2604,
+      "sha256": "78c16edef27fc1b9742cb9f125e882787cd7a039e4fe0a3c82bb0eb1826cc4c2"
+    },
+    {
+      "path": "frontend/search.html",
+      "bytes": 2600,
+      "sha256": "d36f6905589064eb6ebbcfa00e79b83a5dd839d27c4fa6f2b5fc7ceb968c78b7"
+    },
+    {
+      "path": "frontend/product.html",
+      "bytes": 1481,
+      "sha256": "b7bd14d872d8d984a4fb2629c3b86152463ff69ad959fff59c50ae16c83b831c"
+    },
+    {
+      "path": "frontend/cart.html",
+      "bytes": 1565,
+      "sha256": "6eec4573fd4f066e2975d19d9cd101337457cb9cf2aaa99449ebaba54e928e0c"
+    },
+    {
+      "path": "frontend/checkout.html",
+      "bytes": 1767,
+      "sha256": "850ffa0f905a7c96db0bb6757b65ed057396d5a58cbcab72b733d2f118d797f6"
+    },
+    {
+      "path": "frontend/account.html",
+      "bytes": 1557,
+      "sha256": "e804660328cd06523ac14af204e957210e151d6d2bef914f7fcb79fbe9f70915"
+    },
+    {
+      "path": "frontend/login.html",
+      "bytes": 3710,
+      "sha256": "885f0e9234d1315140e5c80d4159e33c207153e43af46359c983af6534ab0afe"
+    },
+    {
+      "path": "frontend/register.html",
+      "bytes": 3977,
+      "sha256": "f3db226c928f816d3c5533c72451e4ad2c5989cca8930789d44a37ffbf2969b1"
+    },
+    {
+      "path": "frontend/wishlist.html",
+      "bytes": 1711,
+      "sha256": "970ac070c82fc125d0bf80cf8435cca7792ec405cf8c8c1d8d7ad3d671e3a2d2"
+    },
+    {
+      "path": "frontend/about.html",
+      "bytes": 4455,
+      "sha256": "2d89b68da40ac5afdfc890d1566fe9eccf7969333a2ce4814df3bd48468665bd"
+    },
+    {
+      "path": "frontend/contact.html",
+      "bytes": 5403,
+      "sha256": "428d1ed8d053d147cb51b5daa5fba16bc2826e5574939c2ac8c54772848631ce"
+    },
+    {
+      "path": "frontend/blog.html",
+      "bytes": 1738,
+      "sha256": "6086dad2f4620a69aa12e3b65b502e8b3cf81105082149952ba25422d7bd71d4"
+    },
+    {
+      "path": "frontend/article.html",
+      "bytes": 1366,
+      "sha256": "abe01d80d5a9d7d95370d0e4da27eb15128c5c709852acbf81f7b745a067a11e"
+    },
+    {
+      "path": "frontend/faq.html",
+      "bytes": 5699,
+      "sha256": "bd2d91241679b62651d9bdaebb4ecea5d6f74541b802eb64f1514f6dc040a210"
+    },
+    {
+      "path": "frontend/tracking.html",
+      "bytes": 2756,
+      "sha256": "467d312739fc4fdb85e237cc73490c940c4a43a15cdd30fc9bf92da97e2ee722"
+    },
+    {
+      "path": "frontend/privacy.html",
+      "bytes": 3713,
+      "sha256": "49ff8ad4314ddb5d917c83bc8d0002e4971c33903d3f80cf98f18d42dbba4951"
+    },
+    {
+      "path": "frontend/terms.html",
+      "bytes": 4345,
+      "sha256": "0d662cbeae3a85296f7a31d6734bdddeedeb63058f0b63dbea3b6a58c0a2b0db"
+    },
+    {
+      "path": "frontend/order.html",
+      "bytes": 1367,
+      "sha256": "873bbdf96b46895f9ec212a65acfba02b955e249ba21df8920dcee19a1f09fc6"
+    },
+    {
+      "path": "frontend/404.html",
+      "bytes": 2081,
+      "sha256": "dd6bf7092ca53b9141e675914626c10ee7bac718b39ab07b0694a93d2214103b"
+    },
+    {
+      "path": "frontend/assets/css/style.css",
+      "bytes": 82376,
+      "sha256": "936b5a0f776db1d6ebf6b4230910d71cf1bc84e44497c7cae0df31c67c689afb"
+    },
+    {
+      "path": "frontend/assets/js/common.js",
+      "bytes": 19372,
+      "sha256": "ffb5565b4dedf00d5cb729c471a850de128131212843ae9eb3c9fecba0a2b8db"
+    },
+    {
+      "path": "frontend/assets/js/home.js",
+      "bytes": 6640,
+      "sha256": "5cd824024b15258da27bfde4edad08b789892c117b676a288fe7f6e40f6becc6"
+    },
+    {
+      "path": "frontend/assets/js/shop.js",
+      "bytes": 6058,
+      "sha256": "9112b62fe9c70a2a1d7c776c8ac6c24b602a3bbd8ab6cea6f48ab97aaada81e5"
+    },
+    {
+      "path": "frontend/assets/js/product.js",
+      "bytes": 8701,
+      "sha256": "a6c5f349ec09c3586a2d8602a5ba65e2a00b70e297a79b8982584809b14a7ac9"
+    },
+    {
+      "path": "frontend/assets/js/pages.js",
+      "bytes": 19698,
+      "sha256": "6fab7043d580fe075ebb2da133a74a93f8b7e5cd53ffd42449d38e977dae7f71"
+    },
+    {
+      "path": "frontend/assets/js/contact.js",
+      "bytes": 7856,
+      "sha256": "7541a5f1ed9478e0a4a89a608a11bf8581f9c7515cc5118f5dbdbf6619459dc9"
+    },
+    {
+      "path": "frontend/assets/images/products/iphone.png",
+      "bytes": 1827266,
+      "sha256": "3e69fcc5766dee057bc576474650690e0b50579e6d9b1b043b28a1be23b3940c"
+    },
+    {
+      "path": "frontend/assets/images/products/samsung.png",
+      "bytes": 1789287,
+      "sha256": "d45b75e0869b9e08960afd8b0e8a5af9dcbde4ddbb59b9fa0c6305b01bb59a7a"
+    },
+    {
+      "path": "frontend/assets/images/products/case.png",
+      "bytes": 1010954,
+      "sha256": "23ff8a16d815c16af9128983cdf97076513375492ec1bf10a28199d7102570c1"
+    },
+    {
+      "path": "frontend/assets/images/products/airpods.png",
+      "bytes": 950125,
+      "sha256": "4de57b7ec13b3da6d9b70646b993a1d6349c965074e0fdc3336d2366ec25f22a"
+    },
+    {
+      "path": "frontend/assets/images/products/xiaomi.png",
+      "bytes": 1698920,
+      "sha256": "d1ecfeef43eddd9f9be476f5a450e0877ede849970d1d01d339d842425162d62"
+    },
+    {
+      "path": "frontend/assets/images/products/headphones.png",
+      "bytes": 1162975,
+      "sha256": "a20120cd3e56bdd2598ddea33668cecfa612e123190075235f0fec212b75b80a"
+    },
+    {
+      "path": "frontend/assets/images/products/powerbank.png",
+      "bytes": 1385714,
+      "sha256": "f5162e7ebad757de17b07203c15d50cb7ddf191161536b3e7954fdb3edaea401"
+    },
+    {
+      "path": "frontend/assets/images/products/charger.png",
+      "bytes": 914158,
+      "sha256": "2ebe18010f4889d8f583f71ffdafca838090b0a2ef4a503e5a2f251415acc447"
+    },
+    {
+      "path": "frontend/assets/images/products/watch.png",
+      "bytes": 1220263,
+      "sha256": "1bf31e2b64429046da044fc48af2eb9990a78a4bf33079ef2daa4be3553771b5"
+    },
+    {
+      "path": "frontend/assets/images/products/speaker.svg",
+      "bytes": 1119,
+      "sha256": "b1428e93d14df1ceebcd01e23023b1a4f111af672cc16b0687f283245e1df4dc"
+    },
+    {
+      "path": "frontend/assets/images/products/cable.svg",
+      "bytes": 1088,
+      "sha256": "65ad6d0858a8cc465396160b4b29b4bca66b3b690074eb82b0abaa0762eee8df"
+    },
+    {
+      "path": "frontend/assets/images/products/glass.svg",
+      "bytes": 977,
+      "sha256": "804f114d3a5552e7ded209009137075e6c57fe00007727be603030acbaffef17"
+    },
+    {
+      "path": "frontend/assets/images/products/lens.svg",
+      "bytes": 1348,
+      "sha256": "46b2aca71f4f3a53f97dbac5032555caeac4b7da71459b5183110dcebd97f491"
+    },
+    {
+      "path": "frontend/assets/images/products/holder.svg",
+      "bytes": 1009,
+      "sha256": "09956c05b18b8d9ef6499d3c4d933564ed70c45e4ef5bc87bfad63a459341ff8"
+    },
+    {
+      "path": "frontend/assets/images/products/memory.svg",
+      "bytes": 1390,
+      "sha256": "93180a765499741bbd489e05ca0d759fd4b634a5d2da113ed93524ecf5d5be26"
+    },
+    {
+      "path": "frontend/assets/images/products/flash.svg",
+      "bytes": 1042,
+      "sha256": "87c4c52897848b8453e7f231496de7d84ce38c282dca9f9f835d8f251d998faa"
+    },
+    {
+      "path": "frontend/assets/images/products/tablet.svg",
+      "bytes": 991,
+      "sha256": "77b85c16e8dd2df429d0a74be93f7b0721f59a5b71566b92beb085a37160ef00"
+    },
+    {
+      "path": "frontend/assets/images/products/pen.svg",
+      "bytes": 907,
+      "sha256": "9cef064071d6d42bd68a2261661f343fa5f362e094959b7eaee12f96d826d515"
+    },
+    {
+      "path": "frontend/assets/images/products/gamepad.svg",
+      "bytes": 1218,
+      "sha256": "272b462e64a464d4eaaccbafb26369c720b9a7634ce2284fb4ca4e6294bbf499"
+    },
+    {
+      "path": "frontend/assets/images/products/tracker.svg",
+      "bytes": 885,
+      "sha256": "b57d270e36fb0f9764bd6dbfa719e670f6744e272aa6e4d1ffbf9240af4b0735"
+    },
+    {
+      "path": "frontend/assets/images/products/strap.svg",
+      "bytes": 1240,
+      "sha256": "13734a1c65ccf3013a006e3317e58d7635e7ba275eb778cd9132d2588cde680b"
+    },
+    {
+      "path": "frontend/assets/images/products/earbuds.svg",
+      "bytes": 1053,
+      "sha256": "74e74f050c84f173320f5b94c6c8442eb4808d74113eadfd97d6c7c065f92e60"
+    },
+    {
+      "path": "frontend/assets/images/products/adapter.svg",
+      "bytes": 1125,
+      "sha256": "8b9b7c07bd48313a19ba241a7a3d5ab8ab8b92df32e54f2e98c8e86621f5f436"
+    },
+    {
+      "path": "frontend/assets/images/products/adapter.webp",
+      "bytes": 3066,
+      "sha256": "56d42a37315d10b45ce61d1708d569b2d8af750cc6d5d243a642fe9f8c2e753c"
+    },
+    {
+      "path": "frontend/assets/images/products/adapter-detail.webp",
+      "bytes": 3662,
+      "sha256": "1d3923406e489a02db0e77f02bda197c2e228290f826128d78fedb07727a6e36"
+    },
+    {
+      "path": "frontend/assets/images/products/airpods.webp",
+      "bytes": 5482,
+      "sha256": "58f375a911914a58e26ad47bc9ef5c6504289bc1ca00819317368da23b5d069f"
+    },
+    {
+      "path": "frontend/assets/images/products/airpods-detail.webp",
+      "bytes": 6782,
+      "sha256": "098cec13820cc7d41e14219bf3f758d8aac2a73540404531fd5c8b400e2818d1"
+    },
+    {
+      "path": "frontend/assets/images/products/cable.webp",
+      "bytes": 3536,
+      "sha256": "b59ffdf072deb2728e35fdb0364d7c4b1a5d970666d12d7767e42c593bfb1576"
+    },
+    {
+      "path": "frontend/assets/images/products/cable-detail.webp",
+      "bytes": 4100,
+      "sha256": "f2b31a2319e5169ac8e074f43bd7dde7eb50abab54d65881e9bd5f12d0d3206d"
+    },
+    {
+      "path": "frontend/assets/images/products/case.webp",
+      "bytes": 4778,
+      "sha256": "07514bdadf29f5877ed5bc793bc1b07ca8075dafda2f8f1553c3ec5714f10b5a"
+    },
+    {
+      "path": "frontend/assets/images/products/case-detail.webp",
+      "bytes": 4116,
+      "sha256": "bea76020f34ba89b90b6cf271a55fc4e7c755eebd8c39fffe98069b7fef164fd"
+    },
+    {
+      "path": "frontend/assets/images/products/charger.webp",
+      "bytes": 6430,
+      "sha256": "caf7cdaf2fd3ebc711824d35337ab74904c84e34e0a1d8bb0b6a7419cb2c86c4"
+    },
+    {
+      "path": "frontend/assets/images/products/charger-detail.webp",
+      "bytes": 7650,
+      "sha256": "952d0c2d3971e1ae227ac989b33ad32ff20226ec70284b3eb4d7de9da71e5a6b"
+    },
+    {
+      "path": "frontend/assets/images/products/earbuds.webp",
+      "bytes": 2508,
+      "sha256": "3ae83ac35ef6e9ad3ea691d44c03bac9d9c28e236cb25ab0226c7636473faf1c"
+    },
+    {
+      "path": "frontend/assets/images/products/earbuds-detail.webp",
+      "bytes": 2962,
+      "sha256": "6d35e3ec77484857bfe8c18b7b3e063e6ca83e72f7e94d52b8f6128c61d2460c"
+    },
+    {
+      "path": "frontend/assets/images/products/flash.webp",
+      "bytes": 3232,
+      "sha256": "0ca1f4b67868908ea7fd891177a62410a3cd071a9d073605e370c080ff1d7e89"
+    },
+    {
+      "path": "frontend/assets/images/products/flash-detail.webp",
+      "bytes": 3782,
+      "sha256": "6a186568921221bd77bcecc51e21fefd5250d398f1a3fb36628586cf4fbe8433"
+    },
+    {
+      "path": "frontend/assets/images/products/gamepad.webp",
+      "bytes": 4390,
+      "sha256": "e02e9b44a01ac53c70cd51dfa687630706dff6bfc6dac60853423615a852cda2"
+    },
+    {
+      "path": "frontend/assets/images/products/gamepad-detail.webp",
+      "bytes": 5188,
+      "sha256": "47178d75a36cb981ae0b32518db4b7dfa3eb4829c58fe130bd815861b9e47a27"
+    },
+    {
+      "path": "frontend/assets/images/products/glass.webp",
+      "bytes": 6492,
+      "sha256": "638366a2fa1cdb96a812221eee9a59f58830d557503cfa8dc89b2dc32d5cf1c2"
+    },
+    {
+      "path": "frontend/assets/images/products/glass-detail.webp",
+      "bytes": 6996,
+      "sha256": "75d4c27584976cf08e5280acfe2ecdec01688811def44411d7faa6de5cf27b90"
+    },
+    {
+      "path": "frontend/assets/images/products/headphones.webp",
+      "bytes": 8984,
+      "sha256": "9060a680340a0f363e6fcaf2b34c7e05da96caa8e0b9d656fe2787ef6dad7927"
+    },
+    {
+      "path": "frontend/assets/images/products/headphones-detail.webp",
+      "bytes": 9314,
+      "sha256": "770e3fbc36685aa6c46e279badd02472e64d557e92ef834b4900899de7ca40ec"
+    },
+    {
+      "path": "frontend/assets/images/products/holder.webp",
+      "bytes": 4330,
+      "sha256": "1a17e75bcc216524f6d1722064837afa54372354223e5ab59b159a4ec430b6fa"
+    },
+    {
+      "path": "frontend/assets/images/products/holder-detail.webp",
+      "bytes": 5102,
+      "sha256": "db45f75d8d56e1a52a277daa4d99e1646e4592e287c226f2bcb5417b75c035ce"
+    },
+    {
+      "path": "frontend/assets/images/products/iphone.webp",
+      "bytes": 20470,
+      "sha256": "cb81d7491e0460eda94f7eea60e190c2dc5092fea6cbaf1bc233f944b2c1d098"
+    },
+    {
+      "path": "frontend/assets/images/products/iphone-detail.webp",
+      "bytes": 30770,
+      "sha256": "bd7320fc223bd8a6d273e00f8b2b5127af0f5d406a420c19300b32e414017310"
+    },
+    {
+      "path": "frontend/assets/images/products/lens.webp",
+      "bytes": 5958,
+      "sha256": "42b5b946defd86246969a1dd9cecc259acfcb2f87ee53a0519bb678d7494aecd"
+    },
+    {
+      "path": "frontend/assets/images/products/lens-detail.webp",
+      "bytes": 7452,
+      "sha256": "1c30bb608c1d68a95045152d5d6dd75083933dc008ba41b5827d62797c130b8c"
+    },
+    {
+      "path": "frontend/assets/images/products/memory.webp",
+      "bytes": 9474,
+      "sha256": "edcc90f0a0964e6000f6582562a8634cfa668457a6364394b6a9afe2b962a612"
+    },
+    {
+      "path": "frontend/assets/images/products/memory-detail.webp",
+      "bytes": 11870,
+      "sha256": "8c71deb52d29b5b53a7f31935e23ee649800f80a5f73a806d1e7e2b3cdc7461c"
+    },
+    {
+      "path": "frontend/assets/images/products/pen.webp",
+      "bytes": 2938,
+      "sha256": "5aa54f9ae88b094a4b06a8ffd2c62de43d61e50fe1adb7762443ceff875d86b5"
+    },
+    {
+      "path": "frontend/assets/images/products/pen-detail.webp",
+      "bytes": 3644,
+      "sha256": "444d804bd5a4ca537be1d0305a7a1979e5a5e4533ca1510628fbb91478a941a5"
+    },
+    {
+      "path": "frontend/assets/images/products/powerbank.webp",
+      "bytes": 9768,
+      "sha256": "973e0c137dc2749bd9f06ff4c3e432c2e31d4de3b2a4600cd08bbe8bc6947e72"
+    },
+    {
+      "path": "frontend/assets/images/products/powerbank-detail.webp",
+      "bytes": 12404,
+      "sha256": "8e23447b167fa7b82464f91ac131ea2959eb1f5847698bd9502d4635187ce90e"
+    },
+    {
+      "path": "frontend/assets/images/products/samsung.webp",
+      "bytes": 11712,
+      "sha256": "b4ef36a268dfd1587ebed24fb5ba9c837c836e3daa11e2a75dcd705e81f17c48"
+    },
+    {
+      "path": "frontend/assets/images/products/samsung-detail.webp",
+      "bytes": 16026,
+      "sha256": "07aca93474c48450eb5b8182dd5ba680f5c9b76105fe545b618527649900a13b"
+    },
+    {
+      "path": "frontend/assets/images/products/speaker.webp",
+      "bytes": 19096,
+      "sha256": "c0b0499cb606e6a59dd559e82f59eecbe18f47c993b48eea08dda246001df7c4"
+    },
+    {
+      "path": "frontend/assets/images/products/speaker-detail.webp",
+      "bytes": 25180,
+      "sha256": "ae355641a14ecdd32e6ed88791f46b2c75b9f7f7af20c9344b66d7175f206d37"
+    },
+    {
+      "path": "frontend/assets/images/products/strap.webp",
+      "bytes": 4576,
+      "sha256": "37859dfaf46da59f41bb319f8a9859084c760e36a8a7137c707b88f6e1fcbf10"
+    },
+    {
+      "path": "frontend/assets/images/products/strap-detail.webp",
+      "bytes": 5056,
+      "sha256": "63d8e1e0d432b67b58b79ad6409269630af9872d8d96ac8b0556e96b0d86a652"
+    },
+    {
+      "path": "frontend/assets/images/products/tablet.webp",
+      "bytes": 7288,
+      "sha256": "fb20078283ac39508b06a419dd21357379a496b1215fe8f7fd5464a0be26d639"
+    },
+    {
+      "path": "frontend/assets/images/products/tablet-detail.webp",
+      "bytes": 9424,
+      "sha256": "5e246e2fc35f62b8e9273c478d5009e17b46e28cd5233dc59e0a4387f60eab1a"
+    },
+    {
+      "path": "frontend/assets/images/products/tracker.webp",
+      "bytes": 3564,
+      "sha256": "7fc6d7d1a43231129bf9980ef34128f0d724d2b61608f2ecb2f28023fcfdfe83"
+    },
+    {
+      "path": "frontend/assets/images/products/tracker-detail.webp",
+      "bytes": 4292,
+      "sha256": "9697ea2c292eb88e1a7de8b7d74a52040cc32c22fdaaa2bdc7847958bb3e245d"
+    },
+    {
+      "path": "frontend/assets/images/products/watch.webp",
+      "bytes": 13280,
+      "sha256": "ab85e565e6aab0d179e5086ac9fa467b3fb330b3846c96c21d7bc2aa3d038aef"
+    },
+    {
+      "path": "frontend/assets/images/products/watch-detail.webp",
+      "bytes": 16744,
+      "sha256": "49b47bc1586752e78c289d3895c9af66345a810c6b5d50fce705548604a17631"
+    },
+    {
+      "path": "frontend/assets/images/products/xiaomi.webp",
+      "bytes": 11350,
+      "sha256": "b97f8673ddc9887ae02e9d81477b41c847fb3c6d76f7f53c390b2aad9e298dde"
+    },
+    {
+      "path": "frontend/assets/images/products/xiaomi-detail.webp",
+      "bytes": 12914,
+      "sha256": "46babf25f0dd3731ea4c23b07bde9cc54da9e4e0a56289113432a328adc9b13c"
+    },
+    {
+      "path": "frontend/assets/images/products/poco.svg",
+      "bytes": 1448,
+      "sha256": "ccc3706fb8665ea02d8d347ea84e9057d17dced4252a2d05cdb1c583969997ea"
+    },
+    {
+      "path": "frontend/assets/images/products/poco.webp",
+      "bytes": 14330,
+      "sha256": "c5e85b42a281a1d8039e73d0a5ade6185b3cbee2c46abee5bb6e007fad8d9624"
+    },
+    {
+      "path": "frontend/assets/images/products/poco-detail.webp",
+      "bytes": 18324,
+      "sha256": "f72f78f01ad6824b61d1d6f941ce2425e5e89bf7fe47e39891c78a1928d4470b"
+    },
+    {
+      "path": "frontend/assets/images/products/honor.svg",
+      "bytes": 1240,
+      "sha256": "faa4e1d4ccb815ab4e7bed1e70e8969d95b18c67b71e686d30551b32fec3acc9"
+    },
+    {
+      "path": "frontend/assets/images/products/honor.webp",
+      "bytes": 12438,
+      "sha256": "4637c2a7816ea9d37af07557a12c3d85ffeed658d5ffbfc5a67f4bf2a1113251"
+    },
+    {
+      "path": "frontend/assets/images/products/honor-detail.webp",
+      "bytes": 15374,
+      "sha256": "1837ca7404b7a1288b2f8355dd0edcce09763c65b014dac5456313709ff92172"
+    },
+    {
+      "path": "frontend/assets/images/products/redmi.svg",
+      "bytes": 1323,
+      "sha256": "a36d8260fcb8426ac1c42f1dea403f49296ed22e57d55632064d0ada4391781c"
+    },
+    {
+      "path": "frontend/assets/images/products/redmi.webp",
+      "bytes": 12678,
+      "sha256": "d5f4eb4b3e6b4b81c7e3229b8697f2f88b9756c8aa99fe4d191f648c1f70c92f"
+    },
+    {
+      "path": "frontend/assets/images/products/redmi-detail.webp",
+      "bytes": 15784,
+      "sha256": "59428079875be7968da2699be28d82a5e3cd5cc92c9fb9d96854f87c58b6b96a"
+    },
+    {
+      "path": "frontend/assets/images/products/band.svg",
+      "bytes": 920,
+      "sha256": "0ec2a48f6144b13a81a83da5c6c4573c9c2e3e45fba60bd729e682cc0de48cdc"
+    },
+    {
+      "path": "frontend/assets/images/products/band.webp",
+      "bytes": 8692,
+      "sha256": "7533e145c34e83c9f15d14700d4f052d3076bd40a0905da1cc27bbc52b95a970"
+    },
+    {
+      "path": "frontend/assets/images/products/band-detail.webp",
+      "bytes": 10704,
+      "sha256": "2d247f41bd6bb3ea4010b15c72c86de11dd8f36f34576919261fe305393495d3"
+    },
+    {
+      "path": "frontend/assets/images/banners/hero-phone.png",
+      "bytes": 2327345,
+      "sha256": "e4ee04cb3bc2128215749cf9b12570ffe82d53a2d0c30a46d562db8227fd6e4d"
+    },
+    {
+      "path": "frontend/assets/images/banners/hero-phone.webp",
+      "bytes": 71756,
+      "sha256": "cfec8af154f1d9b70b1295dcac09406509fb9ee882bf2109f5894eff833c2288"
+    },
+    {
+      "path": "frontend/assets/images/banners/audio.webp",
+      "bytes": 12934,
+      "sha256": "f7ddc255fad56ca06ceb9db15b24254ddd1b496c5a52697416c38e493fbaa052"
+    },
+    {
+      "path": "frontend/assets/images/banners/watch.webp",
+      "bytes": 19080,
+      "sha256": "97176fc8b2d39fa09d0cb9469c0fbc32a572d98271c4c5838d9b06fbf9a786b7"
+    },
+    {
+      "path": "frontend/assets/images/banners/power.webp",
+      "bytes": 14020,
+      "sha256": "b1a77524846162af511129de1df67fcb056a9e2ed2b8bc48615f47386cea1599"
+    },
+    {
+      "path": "frontend/assets/images/banners/airpods.webp",
+      "bytes": 5764,
+      "sha256": "beddd7f97e71a77e4a5c9216111483e510c2db51bece1d6d5d6edea134d4bd4d"
+    },
+    {
+      "path": "frontend/assets/images/banners/case.webp",
+      "bytes": 5252,
+      "sha256": "8720a56e6052bff5805bf64621e5721cc054356805f818ed73de3446a539133f"
+    },
+    {
+      "path": "frontend/assets/images/banners/charger.webp",
+      "bytes": 6480,
+      "sha256": "dcd91988640f0d536bc3f1e1f00f0ba49cf836fe699269ad2a89aa7cc73b2a58"
+    },
+    {
+      "path": "frontend/assets/images/banners/speaker.webp",
+      "bytes": 14756,
+      "sha256": "ebdf0d99a58cb964fa4fbf5c7260e4afc3890960fcdc9e36a6d94e35d533e3e5"
+    },
+    {
+      "path": "frontend/assets/images/banners/hero-phone-wide.webp",
+      "bytes": 46200,
+      "sha256": "19013ab95619efa3435da73db39b1ef0bac6fbef025636a962fff34ea654f509"
+    },
+    {
+      "path": "frontend/assets/images/categories/iphone.webp",
+      "bytes": 3170,
+      "sha256": "c9fdb0e6ae18d67fa9fc41f83cdcdb722aad9bc8479025c55bf8857ab06c359a"
+    },
+    {
+      "path": "frontend/assets/images/categories/headphones.webp",
+      "bytes": 2226,
+      "sha256": "447d9ad9f4a363a61143c5a9f52ac65e633ccf72045c771711a7095c5f95b1e2"
+    },
+    {
+      "path": "frontend/assets/images/categories/watch.webp",
+      "bytes": 3444,
+      "sha256": "70348395d1f8c5b919b78b21a62ee51aa5e818871e1f904e253f8754f0a70314"
+    },
+    {
+      "path": "frontend/assets/images/categories/airpods.webp",
+      "bytes": 1442,
+      "sha256": "a09c4558cf12a5d29ca15506949457f86369edeb7cd6c5a03c678f41510956e7"
+    },
+    {
+      "path": "frontend/assets/images/categories/powerbank.webp",
+      "bytes": 2372,
+      "sha256": "571f17534bcd0e8f41cdfd605456a333a0ffbf4847b375c27134e7be1584e2a1"
+    },
+    {
+      "path": "frontend/assets/images/categories/charger.webp",
+      "bytes": 1598,
+      "sha256": "b2398d4c82c2b506b486824aacfe363e20147e1ab642ab5d0ddbbfa7b90ca9c3"
+    },
+    {
+      "path": "frontend/assets/images/categories/case.webp",
+      "bytes": 1224,
+      "sha256": "b8e745939dd185a028e5091b82cf377fbf510f4bdf6ec55d0f82176643f91062"
+    },
+    {
+      "path": "frontend/assets/images/categories/speaker.webp",
+      "bytes": 3480,
+      "sha256": "a6d826002e66ff5487af15543226ff160c61b936697da846e43ce2120db39042"
+    },
+    {
+      "path": "frontend/assets/images/categories/tablet.webp",
+      "bytes": 2100,
+      "sha256": "0b896a6bc676311296072c08bddf2a8d229a6cbf312ee63296630e73a62e9b8b"
+    },
+    {
+      "path": "frontend/assets/images/categories/cable.webp",
+      "bytes": 938,
+      "sha256": "c6cbd2d63c13b60db251340a76fb6b1be86bd02c03de58f5807059f045182141"
+    },
+    {
+      "path": "frontend/assets/images/categories/gamepad.webp",
+      "bytes": 1370,
+      "sha256": "1e1d2b600bb2d20f177d9158b42bfa6965d52acb48bcf4d8c781db1e26d6ddc3"
+    },
+    {
+      "path": "frontend/assets/images/categories/memory.webp",
+      "bytes": 2880,
+      "sha256": "276068f1a9cce45ecd15802e4ba6ee6067f3f9bcef23ff817680affa3cc34e43"
+    },
+    {
+      "path": "frontend/assets/images/brand/symbol.svg",
+      "bytes": 409,
+      "sha256": "3c592bdd620f2595c7b4ddeef78781cac830823cbf0466f92dfc252ef14ce490"
+    },
+    {
+      "path": "frontend/assets/images/brand/logo-horizontal.svg",
+      "bytes": 641,
+      "sha256": "6c411c93ef1b944b5f31784ba93ccc36bed401b8aad125d84eec450a77fcbf59"
+    },
+    {
+      "path": "frontend/assets/images/brand/mobile-logo.png",
+      "bytes": 3493,
+      "sha256": "c40c6192f77902fa38a057e73c3b33a88762eb4bda3bd6496c58bd32ef110af0"
+    },
+    {
+      "path": "frontend/assets/images/brand/apple.svg",
+      "bytes": 200,
+      "sha256": "527ecbe696758860d0ccb73c0509ec5ddabb436ccd49a121fedbf05ccb82c064"
+    },
+    {
+      "path": "frontend/assets/images/brand/samsung.svg",
+      "bytes": 202,
+      "sha256": "95ea892738f2fd9dbfe24c0a375507d3060f93f2e3f196e1d29f68927cc45c76"
+    },
+    {
+      "path": "frontend/assets/images/brand/xiaomi.svg",
+      "bytes": 201,
+      "sha256": "50572a70b01acdf3eaa0aebbdbfe2c8da24dc09ff204101131d8ce0f26c27f3b"
+    },
+    {
+      "path": "frontend/assets/images/brand/sony.svg",
+      "bytes": 199,
+      "sha256": "cd4a1755f2f2f7ced38164381fba5b0bec2e03d6b0a900370a160d6c067c4790"
+    },
+    {
+      "path": "frontend/assets/images/brand/anker.svg",
+      "bytes": 200,
+      "sha256": "94594e406906c18611eeb81e8f131fe76808fc5edc4624cababc55538cf1c292"
+    },
+    {
+      "path": "frontend/assets/images/brand/jbl.svg",
+      "bytes": 198,
+      "sha256": "65456c5b4beaa6ba32786bf2f5361dc9b68d4a6a7788d2fcb17afee1dfd9f915"
+    },
+    {
+      "path": "frontend/assets/images/blog/phone-guide.webp",
+      "bytes": 5696,
+      "sha256": "801a824270ed16d5efe4ad51ca8ba6c09ff72add73a04da0b25cca659f93008e"
+    },
+    {
+      "path": "frontend/assets/images/blog/audio-guide.webp",
+      "bytes": 4480,
+      "sha256": "6774493498a8e5d33b862008ba0892c4666c49515191411cfcf4be340c138db3"
+    },
+    {
+      "path": "frontend/assets/images/blog/battery-guide.webp",
+      "bytes": 5234,
+      "sha256": "8403fa1e49ca54ee11c1a74d31a146f195a79ce28bc71cc44394d33d308c60da"
+    },
+    {
+      "path": "frontend/assets/fonts/vazirmatn-arabic-400.woff2",
+      "bytes": 21088,
+      "sha256": "e31830d3a52e0259b176326385d82bc469581a9898046300de46e5c00f6b7064"
+    },
+    {
+      "path": "frontend/assets/fonts/OFL.txt",
+      "bytes": 4390,
+      "sha256": "e6f4ce7b6c830d5a25a4f8ac777c267cd7d3c180bc2a7150ca57cbb9b280c4b7"
+    },
+    {
+      "path": "frontend/assets/fonts/vazirmatn-latin-400.woff2",
+      "bytes": 16068,
+      "sha256": "a650d62e37f036d53367b383e7c723c2efd426baf74ee8ccb95b634974955f49"
+    },
+    {
+      "path": "frontend/assets/fonts/vazirmatn-arabic-500.woff2",
+      "bytes": 21792,
+      "sha256": "d3bc3b18900b56552fe1e02f899a22a4fc34203f6fb65218d482afaa6deb46a0"
+    },
+    {
+      "path": "frontend/assets/fonts/vazirmatn-latin-500.woff2",
+      "bytes": 16356,
+      "sha256": "2068010db5eca825c06ed04c20eb6f675f4903aa12a74815040b19934c93c1cf"
+    },
+    {
+      "path": "frontend/assets/fonts/vazirmatn-arabic-600.woff2",
+      "bytes": 21792,
+      "sha256": "98a9ca6ced63728b3b407877eda9896ccc9d88e3fc19a469e4e590cc40499605"
+    },
+    {
+      "path": "frontend/assets/fonts/vazirmatn-latin-600.woff2",
+      "bytes": 16328,
+      "sha256": "502567cbd09bcf7037b66e84ab84eb792d6cd95f3f351dfcade4c63ef678c300"
+    },
+    {
+      "path": "frontend/assets/fonts/vazirmatn-arabic-700.woff2",
+      "bytes": 21728,
+      "sha256": "aa79f9419fa0f5efcf301158b7405d188c4d434c86c32efad1e8669752feb344"
+    },
+    {
+      "path": "frontend/assets/fonts/vazirmatn-latin-700.woff2",
+      "bytes": 16420,
+      "sha256": "a1d13d1cf4cd1ec6af4623ccdacff9cc7beedd6d9cbc4944b56faf59da95478b"
+    },
+    {
+      "path": "frontend/assets/fonts/vazirmatn-arabic-800.woff2",
+      "bytes": 21816,
+      "sha256": "63d5a16d0e9741a61628af09df781d4419010ec098445c7b236d6ba4da300f16"
+    },
+    {
+      "path": "frontend/assets/fonts/vazirmatn-latin-800.woff2",
+      "bytes": 16360,
+      "sha256": "c2694ad9e553d900c5cc3b64a063cef42ce7714f3518ebb73fe9b82334f3194f"
+    },
+    {
+      "path": "frontend/assets/fonts/symbols.woff2",
+      "bytes": 382424,
+      "sha256": "9c07d511848c274b5430c75bf98d1f2582680ef5f967947bfbdd06b75ca177c2"
+    },
+    {
+      "path": "frontend/assets/fonts/SYMBOLS-OFL.txt",
+      "bytes": 4381,
+      "sha256": "83c38c8ecdf62ac46a0e2f940df20d8ac5984fdb55a88451bff94f78c3767e23"
+    },
+    {
+      "path": "backend/server.js",
+      "bytes": 2589,
+      "sha256": "4a0f0b6f3e8b1dc66658721f7128bb525ffd01068d98910704db4d56116e19ca"
+    },
+    {
+      "path": "backend/config/db.js",
+      "bytes": 925,
+      "sha256": "3ba36201243adbc1331ab9ccc6334827c0082d6125dfbbf00335a1ce9a88d9dc"
+    },
+    {
+      "path": "backend/config/contact.json",
+      "bytes": 620,
+      "sha256": "e220b581cdad6d462fa4b2e73a12f8abd080c6604947b5e6d90de835a918687e"
+    },
+    {
+      "path": "backend/routes/api.js",
+      "bytes": 1679,
+      "sha256": "d7bed59000320c1feb5cb94ff277e885866a2bc0a49729f6403cb3d302639182"
+    },
+    {
+      "path": "backend/routes/catalog.js",
+      "bytes": 4933,
+      "sha256": "e7f3cfeff36d6b8da74dc48dd972f6bfd1a0d7478403c5f79b17450c14e88bfa"
+    },
+    {
+      "path": "backend/routes/auth.js",
+      "bytes": 2741,
+      "sha256": "aebabba9e374f320c1ab88633086572ced68946655e5e06759adf6bd895b9265"
+    },
+    {
+      "path": "backend/routes/cart.js",
+      "bytes": 2259,
+      "sha256": "e386b0976db746bed5dc3c1e2a235712e4bbc330d8d23f42f4bc897ba2ffa2b7"
+    },
+    {
+      "path": "backend/routes/customer.js",
+      "bytes": 3047,
+      "sha256": "e395067afb02190d6f6b8278a85755b9344ea9664108e5fc0d6659c9e5cab1ae"
+    },
+    {
+      "path": "backend/routes/orders.js",
+      "bytes": 3247,
+      "sha256": "dfdb39244a04e99590b6e0afa5368a1ad39d34230eb704c81cfe612551523b58"
+    },
+    {
+      "path": "backend/routes/content.js",
+      "bytes": 1607,
+      "sha256": "ae798a40fecd949a237e4be894c194f47ed4809cc1776fc5b98ebb497fdbccfa"
+    },
+    {
+      "path": "backend/middleware/security.js",
+      "bytes": 2488,
+      "sha256": "bf1103e61f896e58cd648a274a8ed09d424e71e89ce0e5fad664e24dc6af8c2d"
+    },
+    {
+      "path": "backend/middleware/rate-limit.js",
+      "bytes": 320,
+      "sha256": "731211504e8cfbb42034d31845d94af07b531236522775eb56921c1659694b3e"
+    },
+    {
+      "path": "backend/services/session-store.js",
+      "bytes": 1043,
+      "sha256": "6f0b667335c8c9603dceaf0102e131976911179082562fa2a5dcbbca5a7203e8"
+    },
+    {
+      "path": "backend/services/commerce.js",
+      "bytes": 3712,
+      "sha256": "fc5ab4a4f363cf0646c0635661f76290ce92e014ecc9aaf23a3ef94fae657ddd"
+    },
+    {
+      "path": "backend/services/contact-settings.js",
+      "bytes": 4495,
+      "sha256": "36e418a24c9261e6cbb468538d79039a9db37fe1fae4558aeabeceb435061c70"
+    },
+    {
+      "path": "database/schema.sql",
+      "bytes": 3856,
+      "sha256": "7c07dcde7c28e9bcc30be92c04f76a8fa16d13b767546e122a1993ca460b6bd0"
+    },
+    {
+      "path": "database/seed.js",
+      "bytes": 21295,
+      "sha256": "96cfc421bbb5fc8a9ec2781d96a76d8b3159c4bf79324e4bc3326b5da0ce7472"
+    }
+  ],
+  "tables": [
+    "categories",
+    "products",
+    "product_categories",
+    "users",
+    "sessions",
+    "carts",
+    "cart_items",
+    "wishlist",
+    "addresses",
+    "orders",
+    "order_items",
+    "contacts",
+    "subscribers",
+    "reviews",
+    "posts"
+  ],
+  "counts": {
+    "products": 28,
+    "categories": 47,
+    "product_categories": 91,
+    "posts": 3,
+    "reviews": 28
+  },
+  "categories": [
+    {
+      "id": 1,
+      "slug": "phones",
+      "name": "گوشی موبایل",
+      "parent_id": null,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 2,
+      "slug": "all-phones",
+      "name": "همه گوشی‌ها",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 3,
+      "slug": "samsung",
+      "name": "گوشی سامسونگ",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 4,
+      "slug": "apple",
+      "name": "گوشی اپل",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 5,
+      "slug": "xiaomi",
+      "name": "گوشی شیائومی",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 6,
+      "slug": "redmi",
+      "name": "گوشی ردمی",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 7,
+      "slug": "poco",
+      "name": "گوشی پوکو",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 8,
+      "slug": "honor",
+      "name": "گوشی آنر",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 9,
+      "slug": "budget",
+      "name": "گوشی اقتصادی",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 10,
+      "slug": "midrange",
+      "name": "گوشی میان‌رده",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 11,
+      "slug": "flagship",
+      "name": "گوشی پرچمدار",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 12,
+      "slug": "gaming-phones",
+      "name": "گوشی گیمینگ",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 13,
+      "slug": "accessories",
+      "name": "لوازم جانبی",
+      "parent_id": null,
+      "image": "/assets/images/products/headphones.webp"
+    },
+    {
+      "id": 14,
+      "slug": "cases",
+      "name": "قاب و کاور",
+      "parent_id": 13,
+      "image": "/assets/images/products/case.webp"
+    },
+    {
+      "id": 15,
+      "slug": "glass",
+      "name": "گلس گوشی",
+      "parent_id": 13,
+      "image": "/assets/images/products/glass.webp"
+    },
+    {
+      "id": 16,
+      "slug": "lens",
+      "name": "محافظ لنز",
+      "parent_id": 13,
+      "image": "/assets/images/products/lens.webp"
+    },
+    {
+      "id": 17,
+      "slug": "wall-chargers",
+      "name": "شارژر دیواری",
+      "parent_id": 13,
+      "image": "/assets/images/products/charger.webp"
+    },
+    {
+      "id": 18,
+      "slug": "adapters",
+      "name": "آداپتور شارژ",
+      "parent_id": 13,
+      "image": "/assets/images/products/charger.webp"
+    },
+    {
+      "id": 19,
+      "slug": "cables",
+      "name": "کابل شارژ",
+      "parent_id": 13,
+      "image": "/assets/images/products/cable.webp"
+    },
+    {
+      "id": 20,
+      "slug": "type-c",
+      "name": "کابل Type-C",
+      "parent_id": 13,
+      "image": "/assets/images/products/cable.webp"
+    },
+    {
+      "id": 21,
+      "slug": "lightning",
+      "name": "کابل Lightning",
+      "parent_id": 13,
+      "image": "/assets/images/products/cable.webp"
+    },
+    {
+      "id": 22,
+      "slug": "powerbanks",
+      "name": "پاوربانک",
+      "parent_id": 13,
+      "image": "/assets/images/products/powerbank.webp"
+    },
+    {
+      "id": 23,
+      "slug": "wired-earphones",
+      "name": "هندزفری سیمی",
+      "parent_id": 13,
+      "image": "/assets/images/products/earbuds.webp"
+    },
+    {
+      "id": 24,
+      "slug": "wireless-earphones",
+      "name": "هندزفری بلوتوثی",
+      "parent_id": 13,
+      "image": "/assets/images/products/airpods.webp"
+    },
+    {
+      "id": 25,
+      "slug": "airpods",
+      "name": "ایرپاد",
+      "parent_id": 13,
+      "image": "/assets/images/products/airpods.webp"
+    },
+    {
+      "id": 26,
+      "slug": "headphones",
+      "name": "هدفون",
+      "parent_id": 13,
+      "image": "/assets/images/products/headphones.webp"
+    },
+    {
+      "id": 27,
+      "slug": "headsets",
+      "name": "هدست",
+      "parent_id": 13,
+      "image": "/assets/images/products/headphones.webp"
+    },
+    {
+      "id": 28,
+      "slug": "speakers",
+      "name": "اسپیکر بلوتوثی",
+      "parent_id": 13,
+      "image": "/assets/images/products/speaker.webp"
+    },
+    {
+      "id": 29,
+      "slug": "holders",
+      "name": "هولدر موبایل",
+      "parent_id": 13,
+      "image": "/assets/images/products/holder.webp"
+    },
+    {
+      "id": 30,
+      "slug": "stands",
+      "name": "پایه نگهدارنده",
+      "parent_id": 13,
+      "image": "/assets/images/products/holder.webp"
+    },
+    {
+      "id": 31,
+      "slug": "converters",
+      "name": "تبدیل و مبدل",
+      "parent_id": 13,
+      "image": "/assets/images/products/adapter.webp"
+    },
+    {
+      "id": 32,
+      "slug": "memory-cards",
+      "name": "کارت حافظه",
+      "parent_id": 13,
+      "image": "/assets/images/products/memory.webp"
+    },
+    {
+      "id": 33,
+      "slug": "flash-drives",
+      "name": "فلش مموری",
+      "parent_id": 13,
+      "image": "/assets/images/products/flash.webp"
+    },
+    {
+      "id": 34,
+      "slug": "iphone-accessories",
+      "name": "لوازم جانبی آیفون",
+      "parent_id": 13,
+      "image": "/assets/images/products/case.webp"
+    },
+    {
+      "id": 35,
+      "slug": "samsung-accessories",
+      "name": "لوازم جانبی سامسونگ",
+      "parent_id": 13,
+      "image": "/assets/images/products/charger.webp"
+    },
+    {
+      "id": 36,
+      "slug": "gadgets",
+      "name": "ساعت و گجت",
+      "parent_id": null,
+      "image": "/assets/images/products/watch.webp"
+    },
+    {
+      "id": 37,
+      "slug": "smartwatches",
+      "name": "ساعت هوشمند",
+      "parent_id": 36,
+      "image": "/assets/images/products/watch.webp"
+    },
+    {
+      "id": 38,
+      "slug": "smartbands",
+      "name": "مچ‌بند هوشمند",
+      "parent_id": 36,
+      "image": "/assets/images/products/watch.webp"
+    },
+    {
+      "id": 39,
+      "slug": "watch-straps",
+      "name": "بند ساعت",
+      "parent_id": 36,
+      "image": "/assets/images/products/strap.webp"
+    },
+    {
+      "id": 40,
+      "slug": "watch-accessories",
+      "name": "لوازم جانبی ساعت",
+      "parent_id": 36,
+      "image": "/assets/images/products/strap.webp"
+    },
+    {
+      "id": 41,
+      "slug": "trackers",
+      "name": "ردیاب هوشمند",
+      "parent_id": 36,
+      "image": "/assets/images/products/tracker.webp"
+    },
+    {
+      "id": 42,
+      "slug": "digital",
+      "name": "تجهیزات دیجیتال",
+      "parent_id": null,
+      "image": "/assets/images/products/tablet.webp"
+    },
+    {
+      "id": 43,
+      "slug": "tablets",
+      "name": "تبلت",
+      "parent_id": 42,
+      "image": "/assets/images/products/tablet.webp"
+    },
+    {
+      "id": 44,
+      "slug": "stylus",
+      "name": "قلم لمسی",
+      "parent_id": 42,
+      "image": "/assets/images/products/pen.webp"
+    },
+    {
+      "id": 45,
+      "slug": "tablet-accessories",
+      "name": "لوازم جانبی تبلت",
+      "parent_id": 42,
+      "image": "/assets/images/products/holder.webp"
+    },
+    {
+      "id": 46,
+      "slug": "gaming",
+      "name": "تجهیزات گیمینگ",
+      "parent_id": 42,
+      "image": "/assets/images/products/gamepad.webp"
+    },
+    {
+      "id": 47,
+      "slug": "digital-equipment",
+      "name": "تجهیزات دیجیتال",
+      "parent_id": 42,
+      "image": "/assets/images/products/adapter.webp"
+    }
+  ],
+  "product_summary": [
+    {
+      "id": 1,
+      "slug": "iphone-15-pro-max",
+      "sku": "MH-1001",
+      "name": "گوشی اپل آیفون ۱۵ پرو مکس، ۲۵۶ گیگابایت",
+      "type": "simple",
+      "brand": "Apple",
+      "price": 89900000,
+      "old_price": 94900000,
+      "stock": 12,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 2,
+      "slug": "galaxy-s24-ultra",
+      "sku": "MH-1002",
+      "name": "گوشی سامسونگ گلکسی S24 Ultra، ۲۵۶ گیگابایت",
+      "type": "simple",
+      "brand": "Samsung",
+      "price": 72900000,
+      "old_price": 78900000,
+      "stock": 13,
+      "image": "/assets/images/products/samsung.webp"
+    },
+    {
+      "id": 3,
+      "slug": "redmi-note-13-pro",
+      "sku": "MH-1003",
+      "name": "گوشی شیائومی ردمی Note 13 Pro، ۲۵۶ گیگابایت",
+      "type": "simple",
+      "brand": "Xiaomi",
+      "price": 18900000,
+      "old_price": 21500000,
+      "stock": 14,
+      "image": "/assets/images/products/xiaomi.webp"
+    },
+    {
+      "id": 4,
+      "slug": "airpods-pro-2",
+      "sku": "MH-1004",
+      "name": "هدفون بی‌سیم اپل AirPods Pro نسل دوم",
+      "type": "simple",
+      "brand": "Apple",
+      "price": 12490000,
+      "old_price": 13900000,
+      "stock": 15,
+      "image": "/assets/images/products/airpods.webp"
+    },
+    {
+      "id": 5,
+      "slug": "sony-wh-1000xm5",
+      "sku": "MH-1005",
+      "name": "هدفون بی‌سیم سونی WH-1000XM5",
+      "type": "simple",
+      "brand": "Sony",
+      "price": 18900000,
+      "old_price": 21500000,
+      "stock": 16,
+      "image": "/assets/images/products/headphones.webp"
+    },
+    {
+      "id": 6,
+      "slug": "anker-powerbank-20k",
+      "sku": "MH-1006",
+      "name": "پاوربانک انکر ۲۰۰۰۰ میلی‌آمپرساعت",
+      "type": "simple",
+      "brand": "Anker",
+      "price": 2490000,
+      "old_price": 2990000,
+      "stock": 17,
+      "image": "/assets/images/products/powerbank.webp"
+    },
+    {
+      "id": 7,
+      "slug": "anker-charger-30w",
+      "sku": "MH-1007",
+      "name": "شارژر دیواری انکر ۳۰ وات مدل Nano",
+      "type": "simple",
+      "brand": "Anker",
+      "price": 1290000,
+      "old_price": 1490000,
+      "stock": 18,
+      "image": "/assets/images/products/charger.webp"
+    },
+    {
+      "id": 8,
+      "slug": "iphone-silicone-case",
+      "sku": "MH-1008",
+      "name": "قاب سیلیکونی آیفون ۱۵ پرو، سبز زیتونی",
+      "type": "simple",
+      "brand": "Hashtag",
+      "price": 490000,
+      "old_price": 650000,
+      "stock": 19,
+      "image": "/assets/images/products/case.webp"
+    },
+    {
+      "id": 9,
+      "slug": "apple-watch-s9",
+      "sku": "MH-1009",
+      "name": "ساعت هوشمند اپل واچ سری ۹، ۴۵ میلی‌متر",
+      "type": "simple",
+      "brand": "Apple",
+      "price": 21900000,
+      "old_price": 24500000,
+      "stock": 20,
+      "image": "/assets/images/products/watch.webp"
+    },
+    {
+      "id": 10,
+      "slug": "jbl-flip-6",
+      "sku": "MH-1010",
+      "name": "اسپیکر بلوتوثی جی‌بی‌ال Flip 6",
+      "type": "simple",
+      "brand": "JBL",
+      "price": 6490000,
+      "old_price": 7200000,
+      "stock": 21,
+      "image": "/assets/images/products/speaker.webp"
+    },
+    {
+      "id": 11,
+      "slug": "poco-x6",
+      "sku": "MH-1011",
+      "name": "گوشی پوکو X6، ۲۵۶ گیگابایت",
+      "type": "simple",
+      "brand": "Poco",
+      "price": 16900000,
+      "old_price": 17900000,
+      "stock": 22,
+      "image": "/assets/images/products/poco.webp"
+    },
+    {
+      "id": 12,
+      "slug": "honor-x7",
+      "sku": "MH-1012",
+      "name": "گوشی آنر X7، ۱۲۸ گیگابایت",
+      "type": "simple",
+      "brand": "Honor",
+      "price": 10900000,
+      "old_price": null,
+      "stock": 23,
+      "image": "/assets/images/products/honor.webp"
+    },
+    {
+      "id": 13,
+      "slug": "redmi-a3",
+      "sku": "MH-1013",
+      "name": "گوشی شیائومی ردمی A3، ۱۲۸ گیگابایت",
+      "type": "simple",
+      "brand": "Xiaomi",
+      "price": 6490000,
+      "old_price": null,
+      "stock": 24,
+      "image": "/assets/images/products/redmi.webp"
+    },
+    {
+      "id": 14,
+      "slug": "tempered-glass",
+      "sku": "MH-1014",
+      "name": "گلس تمام‌صفحه سامسونگ S24 Ultra",
+      "type": "simple",
+      "brand": "Hashtag",
+      "price": 290000,
+      "old_price": 350000,
+      "stock": 25,
+      "image": "/assets/images/products/glass.webp"
+    },
+    {
+      "id": 15,
+      "slug": "lens-protector",
+      "sku": "MH-1015",
+      "name": "محافظ لنز دوربین آیفون ۱۵ پرو",
+      "type": "simple",
+      "brand": "Hashtag",
+      "price": 190000,
+      "old_price": null,
+      "stock": 26,
+      "image": "/assets/images/products/lens.webp"
+    },
+    {
+      "id": 16,
+      "slug": "usb-c-cable",
+      "sku": "MH-1016",
+      "name": "کابل شارژ Type-C انکر، یک متر",
+      "type": "simple",
+      "brand": "Anker",
+      "price": 390000,
+      "old_price": 490000,
+      "stock": 27,
+      "image": "/assets/images/products/cable.webp"
+    },
+    {
+      "id": 17,
+      "slug": "lightning-cable",
+      "sku": "MH-1017",
+      "name": "کابل شارژ Lightning، یک متر",
+      "type": "simple",
+      "brand": "Hashtag",
+      "price": 450000,
+      "old_price": null,
+      "stock": 28,
+      "image": "/assets/images/products/cable.webp"
+    },
+    {
+      "id": 18,
+      "slug": "wired-earphones",
+      "sku": "MH-1018",
+      "name": "هندزفری سیمی تایپ سی",
+      "type": "simple",
+      "brand": "Hashtag",
+      "price": 590000,
+      "old_price": null,
+      "stock": 29,
+      "image": "/assets/images/products/earbuds.webp"
+    },
+    {
+      "id": 19,
+      "slug": "desk-holder",
+      "sku": "MH-1019",
+      "name": "پایه و هولدر رومیزی موبایل",
+      "type": "simple",
+      "brand": "Hashtag",
+      "price": 690000,
+      "old_price": 790000,
+      "stock": 30,
+      "image": "/assets/images/products/holder.webp"
+    },
+    {
+      "id": 20,
+      "slug": "usb-hub",
+      "sku": "MH-1020",
+      "name": "هاب و مبدل سه‌درگاه USB-C",
+      "type": "simple",
+      "brand": "Anker",
+      "price": 1490000,
+      "old_price": null,
+      "stock": 31,
+      "image": "/assets/images/products/adapter.webp"
+    },
+    {
+      "id": 21,
+      "slug": "memory-128",
+      "sku": "MH-1021",
+      "name": "کارت حافظه سن‌دیسک ۱۲۸ گیگابایت",
+      "type": "simple",
+      "brand": "SanDisk",
+      "price": 790000,
+      "old_price": null,
+      "stock": 32,
+      "image": "/assets/images/products/memory.webp"
+    },
+    {
+      "id": 22,
+      "slug": "flash-64",
+      "sku": "MH-1022",
+      "name": "فلش مموری فلزی ۶۴ گیگابایت",
+      "type": "simple",
+      "brand": "SanDisk",
+      "price": 490000,
+      "old_price": null,
+      "stock": 33,
+      "image": "/assets/images/products/flash.webp"
+    },
+    {
+      "id": 23,
+      "slug": "smart-band",
+      "sku": "MH-1023",
+      "name": "مچ‌بند هوشمند شیائومی اسمارت بند",
+      "type": "simple",
+      "brand": "Xiaomi",
+      "price": 2290000,
+      "old_price": 2590000,
+      "stock": 34,
+      "image": "/assets/images/products/band.webp"
+    },
+    {
+      "id": 24,
+      "slug": "watch-strap",
+      "sku": "MH-1024",
+      "name": "بند سیلیکونی ساعت هوشمند ۴۵ میلی‌متر",
+      "type": "simple",
+      "brand": "Hashtag",
+      "price": 390000,
+      "old_price": null,
+      "stock": 35,
+      "image": "/assets/images/products/strap.webp"
+    },
+    {
+      "id": 25,
+      "slug": "smart-tracker",
+      "sku": "MH-1025",
+      "name": "ردیاب هوشمند بلوتوثی",
+      "type": "simple",
+      "brand": "Hashtag",
+      "price": 1290000,
+      "old_price": null,
+      "stock": 36,
+      "image": "/assets/images/products/tracker.webp"
+    },
+    {
+      "id": 26,
+      "slug": "galaxy-tab",
+      "sku": "MH-1026",
+      "name": "تبلت سامسونگ گلکسی Tab A9، ۶۴ گیگابایت",
+      "type": "simple",
+      "brand": "Samsung",
+      "price": 9990000,
+      "old_price": null,
+      "stock": 37,
+      "image": "/assets/images/products/tablet.webp"
+    },
+    {
+      "id": 27,
+      "slug": "stylus-pen",
+      "sku": "MH-1027",
+      "name": "قلم لمسی خازنی برای تبلت",
+      "type": "simple",
+      "brand": "Hashtag",
+      "price": 890000,
+      "old_price": null,
+      "stock": 38,
+      "image": "/assets/images/products/pen.webp"
+    },
+    {
+      "id": 28,
+      "slug": "wireless-controller",
+      "sku": "MH-1028",
+      "name": "دسته بازی بی‌سیم چندمنظوره",
+      "type": "simple",
+      "brand": "Hashtag",
+      "price": 2490000,
+      "old_price": 2790000,
+      "stock": 0,
+      "image": "/assets/images/products/gamepad.webp"
+    }
+  ]
+}

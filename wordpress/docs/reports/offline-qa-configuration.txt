@@ -1,0 +1,15 @@
+Creating PHP runtime
+Mounting WordPress files
+Defining WordPress constants
+Starting PHP
+Installing SQLite integration
+Checking database prerequisites
+Checking existing WordPress installation
+Validating database connection
+WordPress boot complete
+BOOT {"wordpress":"7.1.4","php":"8.3.36","plugins":["mobile-hashtag-core\/mobile-hashtag-core.php","woocommerce\/woocommerce.php"]} 
+{
+    "hold_stock_minutes": 0,
+    "manage_stock": "yes",
+    "reason": "SQLite adapter cannot execute INSERT SELECT with INTERVAL\/FOR UPDATE reservation SQL. Native COD tests proceed without pending-order reservation; concurrency\/stock reservation remains unverified."
+}
