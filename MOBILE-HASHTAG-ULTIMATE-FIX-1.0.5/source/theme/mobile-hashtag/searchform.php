@@ -1,0 +1,2 @@
+<?php if(!defined('ABSPATH')){exit;} ?>
+<form role="search" method="get" class="header-search" action="<?php echo esc_url(home_url('/')); ?>"><label class="sr-only" for="mht-search">جست‌وجو</label><input id="mht-search" type="search" name="s" required value="<?php echo esc_attr(get_search_query()); ?>" placeholder="دنبال چه محصولی می‌گردید؟"><input type="hidden" name="post_type" value="product"><button type="submit" aria-label="جست‌وجو"><?php echo mht_icon('search'); ?></button></form>

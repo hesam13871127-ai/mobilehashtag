@@ -13,9 +13,9 @@ add_action('after_setup_theme',function(){
     register_nav_menus(['primary'=>'منوی اصلی','footer_shop'=>'دسترسی سریع پابرگ','footer_help'=>'راهنمای مشتری پابرگ']);
 });
 add_action('wp_enqueue_scripts',function(){
-    wp_enqueue_style('mht-source',get_template_directory_uri().'/assets/css/style.css',[],'1.0.4');
-    wp_enqueue_style('mht-wp',get_template_directory_uri().'/assets/css/wordpress.css',['mht-source'],'1.0.4');
-    wp_enqueue_script('mht-interface',get_template_directory_uri().'/assets/js/interface.js',[],'1.0.4',['in_footer'=>true,'strategy'=>'defer']);
+    wp_enqueue_style('mht-source',get_template_directory_uri().'/assets/css/style.css',[],'1.0.5');
+    wp_enqueue_style('mht-wp',get_template_directory_uri().'/assets/css/wordpress.css',['mht-source'],'1.0.5');
+    wp_enqueue_script('mht-interface',get_template_directory_uri().'/assets/js/interface.js',[],'1.0.5',['in_footer'=>true,'strategy'=>'defer']);
     $gold=sanitize_hex_color(get_theme_mod('mht_gold','#c9a44c')) ?: '#c9a44c';
     wp_add_inline_style('mht-wp',':root{--gold:'.$gold.'}');
     if (is_singular() && comments_open() && get_option('thread_comments')) { wp_enqueue_script('comment-reply'); }

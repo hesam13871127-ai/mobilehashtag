@@ -1,0 +1,1324 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "slug": "phones",
+      "name": "گوشی موبایل",
+      "parent_id": null,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 2,
+      "slug": "all-phones",
+      "name": "همه گوشی‌ها",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 3,
+      "slug": "samsung",
+      "name": "گوشی سامسونگ",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 4,
+      "slug": "apple",
+      "name": "گوشی اپل",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 5,
+      "slug": "xiaomi",
+      "name": "گوشی شیائومی",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 6,
+      "slug": "redmi",
+      "name": "گوشی ردمی",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 7,
+      "slug": "poco",
+      "name": "گوشی پوکو",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 8,
+      "slug": "honor",
+      "name": "گوشی آنر",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 9,
+      "slug": "budget",
+      "name": "گوشی اقتصادی",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 10,
+      "slug": "midrange",
+      "name": "گوشی میان‌رده",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 11,
+      "slug": "flagship",
+      "name": "گوشی پرچمدار",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 12,
+      "slug": "gaming-phones",
+      "name": "گوشی گیمینگ",
+      "parent_id": 1,
+      "image": "/assets/images/products/iphone.webp"
+    },
+    {
+      "id": 13,
+      "slug": "accessories",
+      "name": "لوازم جانبی",
+      "parent_id": null,
+      "image": "/assets/images/products/headphones.webp"
+    },
+    {
+      "id": 14,
+      "slug": "cases",
+      "name": "قاب و کاور",
+      "parent_id": 13,
+      "image": "/assets/images/products/case.webp"
+    },
+    {
+      "id": 15,
+      "slug": "glass",
+      "name": "گلس گوشی",
+      "parent_id": 13,
+      "image": "/assets/images/products/glass.webp"
+    },
+    {
+      "id": 16,
+      "slug": "lens",
+      "name": "محافظ لنز",
+      "parent_id": 13,
+      "image": "/assets/images/products/lens.webp"
+    },
+    {
+      "id": 17,
+      "slug": "wall-chargers",
+      "name": "شارژر دیواری",
+      "parent_id": 13,
+      "image": "/assets/images/products/charger.webp"
+    },
+    {
+      "id": 18,
+      "slug": "adapters",
+      "name": "آداپتور شارژ",
+      "parent_id": 13,
+      "image": "/assets/images/products/charger.webp"
+    },
+    {
+      "id": 19,
+      "slug": "cables",
+      "name": "کابل شارژ",
+      "parent_id": 13,
+      "image": "/assets/images/products/cable.webp"
+    },
+    {
+      "id": 20,
+      "slug": "type-c",
+      "name": "کابل Type-C",
+      "parent_id": 13,
+      "image": "/assets/images/products/cable.webp"
+    },
+    {
+      "id": 21,
+      "slug": "lightning",
+      "name": "کابل Lightning",
+      "parent_id": 13,
+      "image": "/assets/images/products/cable.webp"
+    },
+    {
+      "id": 22,
+      "slug": "powerbanks",
+      "name": "پاوربانک",
+      "parent_id": 13,
+      "image": "/assets/images/products/powerbank.webp"
+    },
+    {
+      "id": 23,
+      "slug": "wired-earphones",
+      "name": "هندزفری سیمی",
+      "parent_id": 13,
+      "image": "/assets/images/products/earbuds.webp"
+    },
+    {
+      "id": 24,
+      "slug": "wireless-earphones",
+      "name": "هندزفری بلوتوثی",
+      "parent_id": 13,
+      "image": "/assets/images/products/airpods.webp"
+    },
+    {
+      "id": 25,
+      "slug": "airpods",
+      "name": "ایرپاد",
+      "parent_id": 13,
+      "image": "/assets/images/products/airpods.webp"
+    },
+    {
+      "id": 26,
+      "slug": "headphones",
+      "name": "هدفون",
+      "parent_id": 13,
+      "image": "/assets/images/products/headphones.webp"
+    },
+    {
+      "id": 27,
+      "slug": "headsets",
+      "name": "هدست",
+      "parent_id": 13,
+      "image": "/assets/images/products/headphones.webp"
+    },
+    {
+      "id": 28,
+      "slug": "speakers",
+      "name": "اسپیکر بلوتوثی",
+      "parent_id": 13,
+      "image": "/assets/images/products/speaker.webp"
+    },
+    {
+      "id": 29,
+      "slug": "holders",
+      "name": "هولدر موبایل",
+      "parent_id": 13,
+      "image": "/assets/images/products/holder.webp"
+    },
+    {
+      "id": 30,
+      "slug": "stands",
+      "name": "پایه نگهدارنده",
+      "parent_id": 13,
+      "image": "/assets/images/products/holder.webp"
+    },
+    {
+      "id": 31,
+      "slug": "converters",
+      "name": "تبدیل و مبدل",
+      "parent_id": 13,
+      "image": "/assets/images/products/adapter.webp"
+    },
+    {
+      "id": 32,
+      "slug": "memory-cards",
+      "name": "کارت حافظه",
+      "parent_id": 13,
+      "image": "/assets/images/products/memory.webp"
+    },
+    {
+      "id": 33,
+      "slug": "flash-drives",
+      "name": "فلش مموری",
+      "parent_id": 13,
+      "image": "/assets/images/products/flash.webp"
+    },
+    {
+      "id": 34,
+      "slug": "iphone-accessories",
+      "name": "لوازم جانبی آیفون",
+      "parent_id": 13,
+      "image": "/assets/images/products/case.webp"
+    },
+    {
+      "id": 35,
+      "slug": "samsung-accessories",
+      "name": "لوازم جانبی سامسونگ",
+      "parent_id": 13,
+      "image": "/assets/images/products/charger.webp"
+    },
+    {
+      "id": 36,
+      "slug": "gadgets",
+      "name": "ساعت و گجت",
+      "parent_id": null,
+      "image": "/assets/images/products/watch.webp"
+    },
+    {
+      "id": 37,
+      "slug": "smartwatches",
+      "name": "ساعت هوشمند",
+      "parent_id": 36,
+      "image": "/assets/images/products/watch.webp"
+    },
+    {
+      "id": 38,
+      "slug": "smartbands",
+      "name": "مچ‌بند هوشمند",
+      "parent_id": 36,
+      "image": "/assets/images/products/watch.webp"
+    },
+    {
+      "id": 39,
+      "slug": "watch-straps",
+      "name": "بند ساعت",
+      "parent_id": 36,
+      "image": "/assets/images/products/strap.webp"
+    },
+    {
+      "id": 40,
+      "slug": "watch-accessories",
+      "name": "لوازم جانبی ساعت",
+      "parent_id": 36,
+      "image": "/assets/images/products/strap.webp"
+    },
+    {
+      "id": 41,
+      "slug": "trackers",
+      "name": "ردیاب هوشمند",
+      "parent_id": 36,
+      "image": "/assets/images/products/tracker.webp"
+    },
+    {
+      "id": 42,
+      "slug": "digital",
+      "name": "تجهیزات دیجیتال",
+      "parent_id": null,
+      "image": "/assets/images/products/tablet.webp"
+    },
+    {
+      "id": 43,
+      "slug": "tablets",
+      "name": "تبلت",
+      "parent_id": 42,
+      "image": "/assets/images/products/tablet.webp"
+    },
+    {
+      "id": 44,
+      "slug": "stylus",
+      "name": "قلم لمسی",
+      "parent_id": 42,
+      "image": "/assets/images/products/pen.webp"
+    },
+    {
+      "id": 45,
+      "slug": "tablet-accessories",
+      "name": "لوازم جانبی تبلت",
+      "parent_id": 42,
+      "image": "/assets/images/products/holder.webp"
+    },
+    {
+      "id": 46,
+      "slug": "gaming",
+      "name": "تجهیزات گیمینگ",
+      "parent_id": 42,
+      "image": "/assets/images/products/gamepad.webp"
+    },
+    {
+      "id": 47,
+      "slug": "digital-equipment",
+      "name": "تجهیزات دیجیتال",
+      "parent_id": 42,
+      "image": "/assets/images/products/adapter.webp"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "slug": "iphone-15-pro-max",
+      "name": "گوشی اپل آیفون ۱۵ پرو مکس، ۲۵۶ گیگابایت",
+      "brand": "Apple",
+      "sku": "MH-1001",
+      "price": 89900000,
+      "old_price": 94900000,
+      "stock": 12,
+      "type": "simple",
+      "image": "/assets/images/products/iphone.webp",
+      "gallery": "[\"/assets/images/products/iphone.webp\",\"/assets/images/products/iphone-detail.webp\"]",
+      "short_description": "گوشی اپل آیفون ۱۵ پرو مکس، ۲۵۶ گیگابایت؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "گوشی اپل آیفون ۱۵ پرو مکس، ۲۵۶ گیگابایت با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"حافظه داخلی\":\"۲۵۶ گیگابایت\",\"حافظه رم\":\"۸ گیگابایت\",\"نمایشگر\":\"۶.۷ اینچ Super Retina XDR\",\"پردازنده\":\"Apple A17 Pro\",\"دوربین اصلی\":\"۴۸ مگاپیکسل\",\"وضعیت رجیستری\":\"نمونه نمایشی؛ نیازمند تأیید فروشنده\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"تیتانیوم طبیعی\",\"تیتانیوم مشکی\"]",
+      "rating": 4.6,
+      "sales": 350,
+      "featured": 1,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 2,
+      "slug": "galaxy-s24-ultra",
+      "name": "گوشی سامسونگ گلکسی S24 Ultra، ۲۵۶ گیگابایت",
+      "brand": "Samsung",
+      "sku": "MH-1002",
+      "price": 72900000,
+      "old_price": 78900000,
+      "stock": 13,
+      "type": "simple",
+      "image": "/assets/images/products/samsung.webp",
+      "gallery": "[\"/assets/images/products/samsung.webp\",\"/assets/images/products/samsung-detail.webp\"]",
+      "short_description": "گوشی سامسونگ گلکسی S24 Ultra، ۲۵۶ گیگابایت؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "گوشی سامسونگ گلکسی S24 Ultra، ۲۵۶ گیگابایت با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"حافظه داخلی\":\"۲۵۶ گیگابایت\",\"حافظه رم\":\"۱۲ گیگابایت\",\"نمایشگر\":\"۶.۸ اینچ Dynamic AMOLED\",\"پردازنده\":\"Snapdragon 8 Gen 3\",\"دوربین اصلی\":\"۲۰۰ مگاپیکسل\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"خاکستری تیتانیومی\",\"مشکی\"]",
+      "rating": 4.699999999999999,
+      "sales": 341,
+      "featured": 1,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 3,
+      "slug": "redmi-note-13-pro",
+      "name": "گوشی شیائومی ردمی Note 13 Pro، ۲۵۶ گیگابایت",
+      "brand": "Xiaomi",
+      "sku": "MH-1003",
+      "price": 18900000,
+      "old_price": 21500000,
+      "stock": 14,
+      "type": "simple",
+      "image": "/assets/images/products/xiaomi.webp",
+      "gallery": "[\"/assets/images/products/xiaomi.webp\",\"/assets/images/products/xiaomi-detail.webp\"]",
+      "short_description": "گوشی شیائومی ردمی Note 13 Pro، ۲۵۶ گیگابایت؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "گوشی شیائومی ردمی Note 13 Pro، ۲۵۶ گیگابایت با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"حافظه داخلی\":\"۲۵۶ گیگابایت\",\"حافظه رم\":\"۸ گیگابایت\",\"نمایشگر\":\"۶.۶۷ اینچ AMOLED\",\"باتری\":\"۵۱۰۰ میلی‌آمپرساعت\",\"دوربین اصلی\":\"۲۰۰ مگاپیکسل\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"یاسی\",\"مشکی\"]",
+      "rating": 4.8,
+      "sales": 332,
+      "featured": 1,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 4,
+      "slug": "airpods-pro-2",
+      "name": "هدفون بی‌سیم اپل AirPods Pro نسل دوم",
+      "brand": "Apple",
+      "sku": "MH-1004",
+      "price": 12490000,
+      "old_price": 13900000,
+      "stock": 15,
+      "type": "simple",
+      "image": "/assets/images/products/airpods.webp",
+      "gallery": "[\"/assets/images/products/airpods.webp\",\"/assets/images/products/airpods-detail.webp\"]",
+      "short_description": "هدفون بی‌سیم اپل AirPods Pro نسل دوم؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "هدفون بی‌سیم اپل AirPods Pro نسل دوم با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"نوع اتصال\":\"بلوتوث ۵.۳\",\"حذف نویز\":\"فعال (ANC)\",\"درگاه شارژ\":\"USB-C\",\"شارژدهی با کیس\":\"تا ۳۰ ساعت\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"سفید\"]",
+      "rating": 4.8999999999999995,
+      "sales": 323,
+      "featured": 1,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 5,
+      "slug": "sony-wh-1000xm5",
+      "name": "هدفون بی‌سیم سونی WH-1000XM5",
+      "brand": "Sony",
+      "sku": "MH-1005",
+      "price": 18900000,
+      "old_price": 21500000,
+      "stock": 16,
+      "type": "simple",
+      "image": "/assets/images/products/headphones.webp",
+      "gallery": "[\"/assets/images/products/headphones.webp\",\"/assets/images/products/headphones-detail.webp\"]",
+      "short_description": "هدفون بی‌سیم سونی WH-1000XM5؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "هدفون بی‌سیم سونی WH-1000XM5 با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"نوع اتصال\":\"بلوتوث و کابل\",\"حذف نویز\":\"فعال (ANC)\",\"شارژدهی\":\"تا ۳۰ ساعت\",\"وزن\":\"۲۵۰ گرم\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"نقره‌ای شنی\",\"مشکی\"]",
+      "rating": 4.6,
+      "sales": 314,
+      "featured": 1,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 6,
+      "slug": "anker-powerbank-20k",
+      "name": "پاوربانک انکر ۲۰۰۰۰ میلی‌آمپرساعت",
+      "brand": "Anker",
+      "sku": "MH-1006",
+      "price": 2490000,
+      "old_price": 2990000,
+      "stock": 17,
+      "type": "simple",
+      "image": "/assets/images/products/powerbank.webp",
+      "gallery": "[\"/assets/images/products/powerbank.webp\",\"/assets/images/products/powerbank-detail.webp\"]",
+      "short_description": "پاوربانک انکر ۲۰۰۰۰ میلی‌آمپرساعت؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "پاوربانک انکر ۲۰۰۰۰ میلی‌آمپرساعت با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"ظرفیت\":\"۲۰۰۰۰ میلی‌آمپرساعت\",\"توان خروجی\":\"۲۲.۵ وات\",\"درگاه\":\"USB-C و USB-A\",\"نمایشگر\":\"میزان شارژ\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"مشکی\"]",
+      "rating": 4.699999999999999,
+      "sales": 305,
+      "featured": 1,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 7,
+      "slug": "anker-charger-30w",
+      "name": "شارژر دیواری انکر ۳۰ وات مدل Nano",
+      "brand": "Anker",
+      "sku": "MH-1007",
+      "price": 1290000,
+      "old_price": 1490000,
+      "stock": 18,
+      "type": "simple",
+      "image": "/assets/images/products/charger.webp",
+      "gallery": "[\"/assets/images/products/charger.webp\",\"/assets/images/products/charger-detail.webp\"]",
+      "short_description": "شارژر دیواری انکر ۳۰ وات مدل Nano؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "شارژر دیواری انکر ۳۰ وات مدل Nano با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"توان\":\"۳۰ وات\",\"درگاه\":\"USB-C\",\"فناوری\":\"Power Delivery\",\"نوع دوشاخه\":\"اروپایی\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"سفید\"]",
+      "rating": 4.8,
+      "sales": 296,
+      "featured": 1,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 8,
+      "slug": "iphone-silicone-case",
+      "name": "قاب سیلیکونی آیفون ۱۵ پرو، سبز زیتونی",
+      "brand": "Hashtag",
+      "sku": "MH-1008",
+      "price": 490000,
+      "old_price": 650000,
+      "stock": 19,
+      "type": "simple",
+      "image": "/assets/images/products/case.webp",
+      "gallery": "[\"/assets/images/products/case.webp\",\"/assets/images/products/case-detail.webp\"]",
+      "short_description": "قاب سیلیکونی آیفون ۱۵ پرو، سبز زیتونی؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "قاب سیلیکونی آیفون ۱۵ پرو، سبز زیتونی با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"جنس\":\"سیلیکون نرم\",\"سازگاری\":\"iPhone 15 Pro\",\"پوشش داخلی\":\"میکروفایبر\",\"محافظت\":\"لبه برجسته دوربین\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"سبز زیتونی\"]",
+      "rating": 4.8999999999999995,
+      "sales": 287,
+      "featured": 1,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 9,
+      "slug": "apple-watch-s9",
+      "name": "ساعت هوشمند اپل واچ سری ۹، ۴۵ میلی‌متر",
+      "brand": "Apple",
+      "sku": "MH-1009",
+      "price": 21900000,
+      "old_price": 24500000,
+      "stock": 20,
+      "type": "simple",
+      "image": "/assets/images/products/watch.webp",
+      "gallery": "[\"/assets/images/products/watch.webp\",\"/assets/images/products/watch-detail.webp\"]",
+      "short_description": "ساعت هوشمند اپل واچ سری ۹، ۴۵ میلی‌متر؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "ساعت هوشمند اپل واچ سری ۹، ۴۵ میلی‌متر با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"اندازه\":\"۴۵ میلی‌متر\",\"نمایشگر\":\"Retina همیشه روشن\",\"بدنه\":\"آلومینیوم\",\"سازگاری\":\"آیفون با iOS 17 یا جدیدتر\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"نقره‌ای\"]",
+      "rating": 4.6,
+      "sales": 278,
+      "featured": 1,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 10,
+      "slug": "jbl-flip-6",
+      "name": "اسپیکر بلوتوثی جی‌بی‌ال Flip 6",
+      "brand": "JBL",
+      "sku": "MH-1010",
+      "price": 6490000,
+      "old_price": 7200000,
+      "stock": 21,
+      "type": "simple",
+      "image": "/assets/images/products/speaker.webp",
+      "gallery": "[\"/assets/images/products/speaker.webp\",\"/assets/images/products/speaker-detail.webp\"]",
+      "short_description": "اسپیکر بلوتوثی جی‌بی‌ال Flip 6؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "اسپیکر بلوتوثی جی‌بی‌ال Flip 6 با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"توان خروجی\":\"۳۰ وات\",\"شارژدهی\":\"تا ۱۲ ساعت\",\"مقاومت\":\"IP67\",\"نوع اتصال\":\"بلوتوث ۵.۱\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"مشکی\"]",
+      "rating": 4.699999999999999,
+      "sales": 269,
+      "featured": 1,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 11,
+      "slug": "poco-x6",
+      "name": "گوشی پوکو X6، ۲۵۶ گیگابایت",
+      "brand": "Poco",
+      "sku": "MH-1011",
+      "price": 16900000,
+      "old_price": 17900000,
+      "stock": 22,
+      "type": "simple",
+      "image": "/assets/images/products/poco.webp",
+      "gallery": "[\"/assets/images/products/poco.webp\",\"/assets/images/products/poco-detail.webp\"]",
+      "short_description": "گوشی پوکو X6، ۲۵۶ گیگابایت؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "گوشی پوکو X6، ۲۵۶ گیگابایت با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"حافظه داخلی\":\"۲۵۶ گیگابایت\",\"حافظه رم\":\"۱۲ گیگابایت\",\"نمایشگر\":\"AMOLED\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"مشکی\"]",
+      "rating": 4.8,
+      "sales": 260,
+      "featured": 0,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 12,
+      "slug": "honor-x7",
+      "name": "گوشی آنر X7، ۱۲۸ گیگابایت",
+      "brand": "Honor",
+      "sku": "MH-1012",
+      "price": 10900000,
+      "old_price": null,
+      "stock": 23,
+      "type": "simple",
+      "image": "/assets/images/products/honor.webp",
+      "gallery": "[\"/assets/images/products/honor.webp\",\"/assets/images/products/honor-detail.webp\"]",
+      "short_description": "گوشی آنر X7، ۱۲۸ گیگابایت؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "گوشی آنر X7، ۱۲۸ گیگابایت با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"حافظه داخلی\":\"۱۲۸ گیگابایت\",\"حافظه رم\":\"۴ گیگابایت\",\"نمایشگر\":\"۶.۷۴ اینچ\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"مشکی\"]",
+      "rating": 4.8999999999999995,
+      "sales": 251,
+      "featured": 0,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 13,
+      "slug": "redmi-a3",
+      "name": "گوشی شیائومی ردمی A3، ۱۲۸ گیگابایت",
+      "brand": "Xiaomi",
+      "sku": "MH-1013",
+      "price": 6490000,
+      "old_price": null,
+      "stock": 24,
+      "type": "simple",
+      "image": "/assets/images/products/redmi.webp",
+      "gallery": "[\"/assets/images/products/redmi.webp\",\"/assets/images/products/redmi-detail.webp\"]",
+      "short_description": "گوشی شیائومی ردمی A3، ۱۲۸ گیگابایت؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "گوشی شیائومی ردمی A3، ۱۲۸ گیگابایت با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"حافظه داخلی\":\"۱۲۸ گیگابایت\",\"حافظه رم\":\"۴ گیگابایت\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"مشکی\"]",
+      "rating": 4.6,
+      "sales": 242,
+      "featured": 0,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 14,
+      "slug": "tempered-glass",
+      "name": "گلس تمام‌صفحه سامسونگ S24 Ultra",
+      "brand": "Hashtag",
+      "sku": "MH-1014",
+      "price": 290000,
+      "old_price": 350000,
+      "stock": 25,
+      "type": "simple",
+      "image": "/assets/images/products/glass.webp",
+      "gallery": "[\"/assets/images/products/glass.webp\",\"/assets/images/products/glass-detail.webp\"]",
+      "short_description": "گلس تمام‌صفحه سامسونگ S24 Ultra؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "گلس تمام‌صفحه سامسونگ S24 Ultra با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"جنس\":\"شیشه حرارت‌دیده\",\"سختی\":\"9H\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[]",
+      "rating": 4.699999999999999,
+      "sales": 233,
+      "featured": 0,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 15,
+      "slug": "lens-protector",
+      "name": "محافظ لنز دوربین آیفون ۱۵ پرو",
+      "brand": "Hashtag",
+      "sku": "MH-1015",
+      "price": 190000,
+      "old_price": null,
+      "stock": 26,
+      "type": "simple",
+      "image": "/assets/images/products/lens.webp",
+      "gallery": "[\"/assets/images/products/lens.webp\",\"/assets/images/products/lens-detail.webp\"]",
+      "short_description": "محافظ لنز دوربین آیفون ۱۵ پرو؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "محافظ لنز دوربین آیفون ۱۵ پرو با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"جنس\":\"شیشه و آلومینیوم\",\"تعداد\":\"یک مجموعه\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[]",
+      "rating": 4.8,
+      "sales": 224,
+      "featured": 0,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 16,
+      "slug": "usb-c-cable",
+      "name": "کابل شارژ Type-C انکر، یک متر",
+      "brand": "Anker",
+      "sku": "MH-1016",
+      "price": 390000,
+      "old_price": 490000,
+      "stock": 27,
+      "type": "simple",
+      "image": "/assets/images/products/cable.webp",
+      "gallery": "[\"/assets/images/products/cable.webp\",\"/assets/images/products/cable-detail.webp\"]",
+      "short_description": "کابل شارژ Type-C انکر، یک متر؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "کابل شارژ Type-C انکر، یک متر با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"طول\":\"۱ متر\",\"توان\":\"۶۰ وات\",\"اتصال\":\"USB-C به USB-C\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"سفید\"]",
+      "rating": 4.8999999999999995,
+      "sales": 215,
+      "featured": 0,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 17,
+      "slug": "lightning-cable",
+      "name": "کابل شارژ Lightning، یک متر",
+      "brand": "Hashtag",
+      "sku": "MH-1017",
+      "price": 450000,
+      "old_price": null,
+      "stock": 28,
+      "type": "simple",
+      "image": "/assets/images/products/cable.webp",
+      "gallery": "[\"/assets/images/products/cable.webp\",\"/assets/images/products/cable-detail.webp\"]",
+      "short_description": "کابل شارژ Lightning، یک متر؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "کابل شارژ Lightning، یک متر با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"طول\":\"۱ متر\",\"اتصال\":\"USB-A به Lightning\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"سفید\"]",
+      "rating": 4.6,
+      "sales": 206,
+      "featured": 0,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 18,
+      "slug": "wired-earphones",
+      "name": "هندزفری سیمی تایپ سی",
+      "brand": "Hashtag",
+      "sku": "MH-1018",
+      "price": 590000,
+      "old_price": null,
+      "stock": 29,
+      "type": "simple",
+      "image": "/assets/images/products/earbuds.webp",
+      "gallery": "[\"/assets/images/products/earbuds.webp\",\"/assets/images/products/earbuds-detail.webp\"]",
+      "short_description": "هندزفری سیمی تایپ سی؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "هندزفری سیمی تایپ سی با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"درگاه\":\"USB-C\",\"میکروفون\":\"دارد\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"سفید\"]",
+      "rating": 4.699999999999999,
+      "sales": 197,
+      "featured": 0,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 19,
+      "slug": "desk-holder",
+      "name": "پایه و هولدر رومیزی موبایل",
+      "brand": "Hashtag",
+      "sku": "MH-1019",
+      "price": 690000,
+      "old_price": 790000,
+      "stock": 30,
+      "type": "simple",
+      "image": "/assets/images/products/holder.webp",
+      "gallery": "[\"/assets/images/products/holder.webp\",\"/assets/images/products/holder-detail.webp\"]",
+      "short_description": "پایه و هولدر رومیزی موبایل؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "پایه و هولدر رومیزی موبایل با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"جنس\":\"آلومینیوم\",\"تنظیم زاویه\":\"دارد\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"نقره‌ای\"]",
+      "rating": 4.8,
+      "sales": 188,
+      "featured": 0,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 20,
+      "slug": "usb-hub",
+      "name": "هاب و مبدل سه‌درگاه USB-C",
+      "brand": "Anker",
+      "sku": "MH-1020",
+      "price": 1490000,
+      "old_price": null,
+      "stock": 31,
+      "type": "simple",
+      "image": "/assets/images/products/adapter.webp",
+      "gallery": "[\"/assets/images/products/adapter.webp\",\"/assets/images/products/adapter-detail.webp\"]",
+      "short_description": "هاب و مبدل سه‌درگاه USB-C؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "هاب و مبدل سه‌درگاه USB-C با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"تعداد درگاه\":\"۳\",\"جنس بدنه\":\"آلومینیوم\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"نقره‌ای\"]",
+      "rating": 4.8999999999999995,
+      "sales": 179,
+      "featured": 0,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 21,
+      "slug": "memory-128",
+      "name": "کارت حافظه سن‌دیسک ۱۲۸ گیگابایت",
+      "brand": "SanDisk",
+      "sku": "MH-1021",
+      "price": 790000,
+      "old_price": null,
+      "stock": 32,
+      "type": "simple",
+      "image": "/assets/images/products/memory.webp",
+      "gallery": "[\"/assets/images/products/memory.webp\",\"/assets/images/products/memory-detail.webp\"]",
+      "short_description": "کارت حافظه سن‌دیسک ۱۲۸ گیگابایت؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "کارت حافظه سن‌دیسک ۱۲۸ گیگابایت با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"ظرفیت\":\"۱۲۸ گیگابایت\",\"کلاس\":\"Class 10\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[]",
+      "rating": 4.6,
+      "sales": 170,
+      "featured": 0,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 22,
+      "slug": "flash-64",
+      "name": "فلش مموری فلزی ۶۴ گیگابایت",
+      "brand": "SanDisk",
+      "sku": "MH-1022",
+      "price": 490000,
+      "old_price": null,
+      "stock": 33,
+      "type": "simple",
+      "image": "/assets/images/products/flash.webp",
+      "gallery": "[\"/assets/images/products/flash.webp\",\"/assets/images/products/flash-detail.webp\"]",
+      "short_description": "فلش مموری فلزی ۶۴ گیگابایت؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "فلش مموری فلزی ۶۴ گیگابایت با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"ظرفیت\":\"۶۴ گیگابایت\",\"رابط\":\"USB 3.0\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"نقره‌ای\"]",
+      "rating": 4.699999999999999,
+      "sales": 161,
+      "featured": 0,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 23,
+      "slug": "smart-band",
+      "name": "مچ‌بند هوشمند شیائومی اسمارت بند",
+      "brand": "Xiaomi",
+      "sku": "MH-1023",
+      "price": 2290000,
+      "old_price": 2590000,
+      "stock": 34,
+      "type": "simple",
+      "image": "/assets/images/products/band.webp",
+      "gallery": "[\"/assets/images/products/band.webp\",\"/assets/images/products/band-detail.webp\"]",
+      "short_description": "مچ‌بند هوشمند شیائومی اسمارت بند؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "مچ‌بند هوشمند شیائومی اسمارت بند با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"نمایشگر\":\"AMOLED\",\"پایش\":\"ضربان قلب و فعالیت\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"مشکی\"]",
+      "rating": 4.8,
+      "sales": 152,
+      "featured": 0,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 24,
+      "slug": "watch-strap",
+      "name": "بند سیلیکونی ساعت هوشمند ۴۵ میلی‌متر",
+      "brand": "Hashtag",
+      "sku": "MH-1024",
+      "price": 390000,
+      "old_price": null,
+      "stock": 35,
+      "type": "simple",
+      "image": "/assets/images/products/strap.webp",
+      "gallery": "[\"/assets/images/products/strap.webp\",\"/assets/images/products/strap-detail.webp\"]",
+      "short_description": "بند سیلیکونی ساعت هوشمند ۴۵ میلی‌متر؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "بند سیلیکونی ساعت هوشمند ۴۵ میلی‌متر با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"جنس\":\"سیلیکون\",\"سایز\":\"۴۵ میلی‌متر\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"شنی\"]",
+      "rating": 4.8999999999999995,
+      "sales": 143,
+      "featured": 0,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 25,
+      "slug": "smart-tracker",
+      "name": "ردیاب هوشمند بلوتوثی",
+      "brand": "Hashtag",
+      "sku": "MH-1025",
+      "price": 1290000,
+      "old_price": null,
+      "stock": 36,
+      "type": "simple",
+      "image": "/assets/images/products/tracker.webp",
+      "gallery": "[\"/assets/images/products/tracker.webp\",\"/assets/images/products/tracker-detail.webp\"]",
+      "short_description": "ردیاب هوشمند بلوتوثی؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "ردیاب هوشمند بلوتوثی با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"اتصال\":\"بلوتوث\",\"باتری\":\"قابل تعویض\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"سفید\"]",
+      "rating": 4.6,
+      "sales": 134,
+      "featured": 0,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 26,
+      "slug": "galaxy-tab",
+      "name": "تبلت سامسونگ گلکسی Tab A9، ۶۴ گیگابایت",
+      "brand": "Samsung",
+      "sku": "MH-1026",
+      "price": 9990000,
+      "old_price": null,
+      "stock": 37,
+      "type": "simple",
+      "image": "/assets/images/products/tablet.webp",
+      "gallery": "[\"/assets/images/products/tablet.webp\",\"/assets/images/products/tablet-detail.webp\"]",
+      "short_description": "تبلت سامسونگ گلکسی Tab A9، ۶۴ گیگابایت؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "تبلت سامسونگ گلکسی Tab A9، ۶۴ گیگابایت با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"حافظه داخلی\":\"۶۴ گیگابایت\",\"نمایشگر\":\"۸.۷ اینچ\",\"حافظه رم\":\"۴ گیگابایت\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"نقره‌ای\"]",
+      "rating": 4.699999999999999,
+      "sales": 125,
+      "featured": 0,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 27,
+      "slug": "stylus-pen",
+      "name": "قلم لمسی خازنی برای تبلت",
+      "brand": "Hashtag",
+      "sku": "MH-1027",
+      "price": 890000,
+      "old_price": null,
+      "stock": 38,
+      "type": "simple",
+      "image": "/assets/images/products/pen.webp",
+      "gallery": "[\"/assets/images/products/pen.webp\",\"/assets/images/products/pen-detail.webp\"]",
+      "short_description": "قلم لمسی خازنی برای تبلت؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "قلم لمسی خازنی برای تبلت با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"نوع\":\"خازنی\",\"سازگاری\":\"نمایشگر لمسی خازنی\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"سفید\"]",
+      "rating": 4.8,
+      "sales": 116,
+      "featured": 0,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 28,
+      "slug": "wireless-controller",
+      "name": "دسته بازی بی‌سیم چندمنظوره",
+      "brand": "Hashtag",
+      "sku": "MH-1028",
+      "price": 2490000,
+      "old_price": 2790000,
+      "stock": 0,
+      "type": "simple",
+      "image": "/assets/images/products/gamepad.webp",
+      "gallery": "[\"/assets/images/products/gamepad.webp\",\"/assets/images/products/gamepad-detail.webp\"]",
+      "short_description": "دسته بازی بی‌سیم چندمنظوره؛ انتخابی کاربردی برای تجربه‌ای بهتر از تکنولوژی.",
+      "description": "دسته بازی بی‌سیم چندمنظوره با طراحی کاربردی و امکانات متناسب با استفاده روزمره ارائه می‌شود. پیش از انتخاب، مشخصات فنی و سازگاری دستگاه خود را بررسی کنید.\nاین کالا بخشی از کاتالوگ نمونه موبایل هشتگ است. قیمت‌ها، موجودی و شرایط گارانتی نمایشی هستند و پیشنهاد فروش واقعی نیستند. تصاویر، رندر تبلیغاتی یا تصویرسازی محصول هستند؛ برخی محصولات تکمیلی تصویر نماینده خانواده محصول دارند.",
+      "specs": "{\"اتصال\":\"بلوتوث و USB\",\"سازگاری\":\"ویندوز و اندروید\",\"گارانتی\":\"نمونه نمایشی؛ بدون تعهد تجاری\"}",
+      "colors": "[\"سفید\"]",
+      "rating": 4.8999999999999995,
+      "sales": 107,
+      "featured": 0,
+      "created_at": "2026-11-09 19:08:16"
+    }
+  ],
+  "product_categories": [
+    {
+      "product_id": 1,
+      "category_id": 4
+    },
+    {
+      "product_id": 1,
+      "category_id": 11
+    },
+    {
+      "product_id": 1,
+      "category_id": 1
+    },
+    {
+      "product_id": 1,
+      "category_id": 2
+    },
+    {
+      "product_id": 2,
+      "category_id": 3
+    },
+    {
+      "product_id": 2,
+      "category_id": 11
+    },
+    {
+      "product_id": 2,
+      "category_id": 12
+    },
+    {
+      "product_id": 2,
+      "category_id": 1
+    },
+    {
+      "product_id": 2,
+      "category_id": 2
+    },
+    {
+      "product_id": 3,
+      "category_id": 5
+    },
+    {
+      "product_id": 3,
+      "category_id": 6
+    },
+    {
+      "product_id": 3,
+      "category_id": 10
+    },
+    {
+      "product_id": 3,
+      "category_id": 1
+    },
+    {
+      "product_id": 3,
+      "category_id": 2
+    },
+    {
+      "product_id": 4,
+      "category_id": 24
+    },
+    {
+      "product_id": 4,
+      "category_id": 25
+    },
+    {
+      "product_id": 4,
+      "category_id": 34
+    },
+    {
+      "product_id": 4,
+      "category_id": 13
+    },
+    {
+      "product_id": 5,
+      "category_id": 26
+    },
+    {
+      "product_id": 5,
+      "category_id": 27
+    },
+    {
+      "product_id": 5,
+      "category_id": 13
+    },
+    {
+      "product_id": 6,
+      "category_id": 22
+    },
+    {
+      "product_id": 6,
+      "category_id": 13
+    },
+    {
+      "product_id": 7,
+      "category_id": 17
+    },
+    {
+      "product_id": 7,
+      "category_id": 18
+    },
+    {
+      "product_id": 7,
+      "category_id": 35
+    },
+    {
+      "product_id": 7,
+      "category_id": 13
+    },
+    {
+      "product_id": 8,
+      "category_id": 14
+    },
+    {
+      "product_id": 8,
+      "category_id": 34
+    },
+    {
+      "product_id": 8,
+      "category_id": 13
+    },
+    {
+      "product_id": 9,
+      "category_id": 37
+    },
+    {
+      "product_id": 9,
+      "category_id": 36
+    },
+    {
+      "product_id": 10,
+      "category_id": 28
+    },
+    {
+      "product_id": 10,
+      "category_id": 13
+    },
+    {
+      "product_id": 11,
+      "category_id": 7
+    },
+    {
+      "product_id": 11,
+      "category_id": 10
+    },
+    {
+      "product_id": 11,
+      "category_id": 12
+    },
+    {
+      "product_id": 11,
+      "category_id": 1
+    },
+    {
+      "product_id": 11,
+      "category_id": 2
+    },
+    {
+      "product_id": 12,
+      "category_id": 8
+    },
+    {
+      "product_id": 12,
+      "category_id": 9
+    },
+    {
+      "product_id": 12,
+      "category_id": 1
+    },
+    {
+      "product_id": 12,
+      "category_id": 2
+    },
+    {
+      "product_id": 13,
+      "category_id": 5
+    },
+    {
+      "product_id": 13,
+      "category_id": 6
+    },
+    {
+      "product_id": 13,
+      "category_id": 9
+    },
+    {
+      "product_id": 13,
+      "category_id": 1
+    },
+    {
+      "product_id": 13,
+      "category_id": 2
+    },
+    {
+      "product_id": 14,
+      "category_id": 15
+    },
+    {
+      "product_id": 14,
+      "category_id": 35
+    },
+    {
+      "product_id": 14,
+      "category_id": 13
+    },
+    {
+      "product_id": 15,
+      "category_id": 16
+    },
+    {
+      "product_id": 15,
+      "category_id": 34
+    },
+    {
+      "product_id": 15,
+      "category_id": 13
+    },
+    {
+      "product_id": 16,
+      "category_id": 19
+    },
+    {
+      "product_id": 16,
+      "category_id": 20
+    },
+    {
+      "product_id": 16,
+      "category_id": 35
+    },
+    {
+      "product_id": 16,
+      "category_id": 13
+    },
+    {
+      "product_id": 17,
+      "category_id": 19
+    },
+    {
+      "product_id": 17,
+      "category_id": 21
+    },
+    {
+      "product_id": 17,
+      "category_id": 34
+    },
+    {
+      "product_id": 17,
+      "category_id": 13
+    },
+    {
+      "product_id": 18,
+      "category_id": 23
+    },
+    {
+      "product_id": 18,
+      "category_id": 13
+    },
+    {
+      "product_id": 19,
+      "category_id": 29
+    },
+    {
+      "product_id": 19,
+      "category_id": 30
+    },
+    {
+      "product_id": 19,
+      "category_id": 45
+    },
+    {
+      "product_id": 19,
+      "category_id": 13
+    },
+    {
+      "product_id": 19,
+      "category_id": 42
+    },
+    {
+      "product_id": 20,
+      "category_id": 31
+    },
+    {
+      "product_id": 20,
+      "category_id": 47
+    },
+    {
+      "product_id": 20,
+      "category_id": 13
+    },
+    {
+      "product_id": 20,
+      "category_id": 42
+    },
+    {
+      "product_id": 21,
+      "category_id": 32
+    },
+    {
+      "product_id": 21,
+      "category_id": 13
+    },
+    {
+      "product_id": 22,
+      "category_id": 33
+    },
+    {
+      "product_id": 22,
+      "category_id": 13
+    },
+    {
+      "product_id": 23,
+      "category_id": 38
+    },
+    {
+      "product_id": 23,
+      "category_id": 36
+    },
+    {
+      "product_id": 24,
+      "category_id": 39
+    },
+    {
+      "product_id": 24,
+      "category_id": 40
+    },
+    {
+      "product_id": 24,
+      "category_id": 36
+    },
+    {
+      "product_id": 25,
+      "category_id": 41
+    },
+    {
+      "product_id": 25,
+      "category_id": 36
+    },
+    {
+      "product_id": 26,
+      "category_id": 43
+    },
+    {
+      "product_id": 26,
+      "category_id": 42
+    },
+    {
+      "product_id": 27,
+      "category_id": 44
+    },
+    {
+      "product_id": 27,
+      "category_id": 45
+    },
+    {
+      "product_id": 27,
+      "category_id": 42
+    },
+    {
+      "product_id": 28,
+      "category_id": 46
+    },
+    {
+      "product_id": 28,
+      "category_id": 42
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "slug": "phone-buying-guide",
+      "title": "راهنمای خرید گوشی؛ انتخابی که به شما می‌آید",
+      "excerpt": "از نمایشگر تا دوربین؛ قبل از خرید گوشی جدید، این نکته‌ها را بدانید.",
+      "body": "از نیاز واقعی خود شروع کنید\nپیش از مقایسه مدل‌ها، بودجه و کاربرد اصلی را مشخص کنید. برای تماس و شبکه‌های اجتماعی، لزوماً به گران‌ترین پردازنده احتیاج ندارید.\nنمایشگر و باتری را کنار هم بسنجید\nنرخ نوسازی بالاتر تجربه روان‌تری دارد، اما ظرفیت باتری به تنهایی معادل شارژدهی بیشتر نیست. روشنایی و بهینه‌سازی نرم‌افزار هم اهمیت دارند.\nحافظه کافی برای آینده\nاگر زیاد عکس و ویدئو می‌گیرید، حافظه ۲۵۶ گیگابایت انتخاب مطمئن‌تری است. پشتیبانی نرم‌افزاری سازنده و شرایط رجیستری را پیش از خرید بررسی کنید.",
+      "image": "/assets/images/blog/phone-guide.webp",
+      "read_minutes": 7,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 2,
+      "slug": "headphone-guide",
+      "title": "هدفون یا هندزفری؛ کدام برای شما مناسب‌تر است؟",
+      "excerpt": "یک راهنمای ساده برای پیدا کردن همراه موسیقی روزمره شما.",
+      "body": "راحتی، مهم‌تر از ظاهر\nبرای استفاده طولانی، وزن و شکل گوشی‌ها را در نظر بگیرید. مدل‌های روگوشی معمولاً برای محیط کار و مدل‌های کوچک برای رفت‌وآمد مناسب‌اند.\nحذف نویز چگونه کمک می‌کند؟\nحذف نویز فعال صدای یکنواخت محیط را کاهش می‌دهد، اما جایگزین محافظ شنوایی نیست. در خیابان حالت شفافیت را فعال کنید.\nشارژدهی واقعی\nاعداد اعلام‌شده به حجم صدا و فعال بودن حذف نویز وابسته‌اند. سازگاری با گوشی، کیفیت میکروفون و امکان تعویض سری‌ها را نیز بررسی کنید.",
+      "image": "/assets/images/blog/audio-guide.webp",
+      "read_minutes": 5,
+      "created_at": "2026-11-09 19:08:16"
+    },
+    {
+      "id": 3,
+      "slug": "battery-care",
+      "title": "۵ نکته ساده برای عمر بیشتر باتری گوشی",
+      "excerpt": "عادت‌های کوچک، تأثیر بزرگ؛ با باتری گوشی مهربان‌تر باشید.",
+      "body": "از گرمای زیاد دوری کنید\nگوشی را زیر آفتاب مستقیم یا در خودرو داغ رها نکنید. دما یکی از مهم‌ترین عوامل فرسودگی باتری است.\nشارژر سازگار انتخاب کنید\nاز شارژر و کابل سالم و استاندارد استفاده کنید. توان بالاتر همیشه به معنای سرعت بیشتر نیست و باید توسط دستگاه پشتیبانی شود.\nشارژ بهینه را فعال کنید\nگزینه محافظت از باتری یا شارژ بهینه در تنظیمات بسیاری از گوشی‌ها وجود دارد.\nباتری را خالی نگه ندارید\nبرای نگهداری طولانی، شارژ متوسط مناسب‌تر است.\nکابل آسیب‌دیده را کنار بگذارید\nدر صورت پارگی روکش یا داغ شدن غیرعادی، استفاده را متوقف کنید.",
+      "image": "/assets/images/blog/battery-guide.webp",
+      "read_minutes": 4,
+      "created_at": "2026-11-09 19:08:16"
+    }
+  ],
+  "format_version": 1,
+  "source_commit": "44e0ff3",
+  "currency": "IRT"
+}
