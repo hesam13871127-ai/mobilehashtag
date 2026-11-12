@@ -1,7 +1,7 @@
 === Mobile Hashtag Core ===
 Requires at least: 6.5
 Requires PHP: 8.1
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPL-2.0-or-later
 
 Installable release; see docs/KNOWN-LIMITATIONS.md and the accompanying QA reports.

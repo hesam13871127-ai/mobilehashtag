@@ -168,6 +168,44 @@ function mhc_setup_screen() {
     wp_enqueue_script('mhc-setup',plugins_url('assets/setup.js',MHC_PATH.'mobile-hashtag-core.php'),[],MHC_VERSION,true);
     wp_localize_script('mhc-setup','mhcSetup',['url'=>admin_url('admin-ajax.php')]);
 }
+/**
+ * Status screen: shows real import/page status from database (not simulated).
+ */
+function mhc_status_screen() {
+    if (!current_user_can('manage_options')) { return; }
+    $wc_active = class_exists('WooCommerce');
+    $currency = $wc_active ? get_woocommerce_currency() : 'N/A';
+    $report = get_option('mhc_import_report', []);
+    $summary = mhc_import_summary($report);
+    $products_expected = 28;
+    $categories_expected = 47;
+    $pages_expected = 16;
+    $products_real = $wc_active ? (int) get_posts(['post_type'=>'product','post_status'=>'publish','numberposts'=>1,'fields'=>'ids']) : 0;
+    // Count real products properly
+    $products_real = $wc_active ? (int) wp_count_posts('product')->publish : 0;
+    $categories_real = $wc_active ? (int) wp_count_terms('product_cat') : 0;
+    $pages_real = (int) wp_count_posts('page')->publish;
+    $import_complete = (bool) get_option('mhc_import_complete', false);
+    $pages_ready = get_option('mhc_pages_ready', '');
+    $failed_count = $summary['products']['failed'] ?? 0;
+    $failed_count += $summary['categories']['failed'] ?? 0;
+    $failed_count += $summary['pages']['failed'] ?? 0;
+    ?><div class="wrap" dir="rtl"><h1>وضعیت فروشگاه موبایل هشتگ</h1>
+    <table class="form-table"><tr><th>وضعیت WooCommerce</th><td><?php echo $wc_active ? '<span style="color:green">فعال</span>' : '<span style="color:red">غیرفعال — نصب و فعال کنید</span>'; ?></td></tr>
+    <tr><th>واحد پول</th><td><?php echo esc_html($currency); ?></td></tr>
+    <tr><th>واردسازی کامل</th><td><?php echo $import_complete ? 'بله' : 'خیر'; ?></td></tr>
+    <tr><th>صفحات آماده</th><td><?php echo esc_html($pages_ready); ?></td></tr>
+    <tr><th>محصولات مورد انتظار</th><td><?php echo $products_expected; ?></td></tr>
+    <tr><th>محصولات ثبت‌شده</th><td><?php echo $products_real; ?></td></tr>
+    <tr><th>دسته‌بندی‌های مورد انتظار</th><td><?php echo $categories_expected; ?></td></tr>
+    <tr><th>دسته‌بندی‌های ثبت‌شده</th><td><?php echo $categories_real; ?></td></tr>
+    <tr><th>صفحات منتشرشده</th><td><?php echo $pages_real; ?></td></tr>
+    <tr><th>خطاهای واردسازی</th><td><?php echo $failed_count; ?></td></tr>
+    </table>
+    <p><a class="button button-primary" href="<?php echo esc_url(admin_url('admin.php?page=mhc-setup')); ?>">راه‌اندازی / ادامه واردسازی</a></p>
+    <p>وضعیت بر اساس داده‌های واقعی دیتابیس وردپرس محاسبه شده است، نه داده‌های نمایشی.</p>
+    </div><?php
+}
 function mhc_setup_request($input) {
     if (!current_user_can('manage_options') || (mhc_scalar($input,'mode')!=='pages' && !current_user_can('manage_woocommerce'))) { return new WP_Error('permission','دسترسی مدیر فروشگاه لازم است.'); }
     $mode=mhc_scalar($input,'mode');$offset=absint(mhc_scalar($input,'offset'));

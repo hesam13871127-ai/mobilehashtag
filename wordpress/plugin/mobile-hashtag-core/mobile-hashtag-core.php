@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Mobile Hashtag Core
  * Description: تنظیمات فروشگاه، پیام‌های مشتریان، خبرنامه، علاقه‌مندی‌ها و مهاجرت ایمن کاتالوگ هشتگ؛ مستقل از پوسته.
- * Version: 1.0.5
+ * Version: 1.0.6
  * Requires at least: 6.5
  * Requires PHP: 8.1
  * Author: Mobile Hashtag
@@ -10,7 +10,7 @@
  * Text Domain: mobile-hashtag-core
  */
 if (!defined('ABSPATH')) { exit; }
-define('MHC_VERSION', '1.0.5');
+define('MHC_VERSION', '1.0.6');
 define('MHC_PATH', plugin_dir_path(__FILE__));
 require_once MHC_PATH . 'includes/settings.php';
 require_once MHC_PATH . 'includes/submissions.php';
@@ -43,16 +43,24 @@ function mhc_install() {
         KEY created_at (created_at)
     ) $charset;");
     add_option('mhc_settings', mhc_defaults());
-    update_option('mhc_db_version', MHC_VERSION, false);
 }
+/**
+ * Version upgrade handler: runs once per activation/plugins_loaded.
+ * Saves previous DB version BEFORE mhc_install() updates it, so flag reset works correctly.
+ */
 add_action('plugins_loaded', function () {
-    if (get_option('mhc_db_version') !== MHC_VERSION) { mhc_install(); }
-    // On version upgrade, reset initialization flags so pages and catalog are (re)processed idempotently.
-    if (get_option('mhc_db_version') !== MHC_VERSION) {
-        delete_option('mhc_pages_ready');
-        delete_option('mhc_import_complete');
-        delete_option('mhc_setup_report');
-        delete_option('mhc_import_report');
+    $previous_version = get_option('mhc_db_version', '');
+    if ($previous_version !== MHC_VERSION) {
+        mhc_install();
+        update_option('mhc_db_version', MHC_VERSION, false);
+        // Reset initialization flags on upgrade so pages and catalog are reprocessed idempotently.
+        if ($previous_version !== '') {
+            delete_option('mhc_pages_ready');
+            delete_option('mhc_import_complete');
+            delete_option('mhc_setup_report');
+            delete_option('mhc_import_report');
+            delete_option('mhc_import_offset');
+        }
     }
 });
 /**
@@ -69,7 +77,7 @@ add_action('init', function () {
             mhc_setup_pages(true); // $connect=true ensures WooCommerce page IDs are stored
         }
     }
-    // Import catalog once WooCommerce is active
+    // Import catalog once WooCommerce is active — only if import not fully completed.
     if (function_exists('mhc_auto_import') && class_exists('WooCommerce') && !get_option('mhc_import_complete')) {
         mhc_auto_import();
     }
@@ -94,6 +102,7 @@ add_action('admin_menu', function () {
     add_submenu_page('mhc-settings', 'پیام‌ها و خبرنامه', 'پیام‌ها و خبرنامه', 'manage_options', 'mhc-submissions', 'mhc_submissions_page');
     add_submenu_page('mhc-settings', 'راه‌اندازی فروشگاه', 'راه‌اندازی فروشگاه', 'manage_options', 'mhc-setup', 'mhc_setup_screen');
     add_submenu_page('mhc-settings', 'مهاجرت کاتالوگ', 'مهاجرت کاتالوگ', 'manage_options', 'mhc-import', 'mhc_import_page');
+    add_submenu_page('mhc-settings', 'وضعیت فروشگاه', 'وضعیت فروشگاه', 'manage_options', 'mhc-status', 'mhc_status_screen');
 });
 // Guest nonces and wishlist buttons are personalized; do not cache rendered HTML across guests.
 add_action('template_redirect',function(){

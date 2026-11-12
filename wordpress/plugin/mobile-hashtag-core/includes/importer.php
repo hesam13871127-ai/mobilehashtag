@@ -6,7 +6,7 @@ function mhc_catalog() {
     return $data;
 }
 function mhc_import_media($path) {
-    if (!preg_match('~^/assets/images/[a-z0-9/_-]+\.(webp|png|jpg|jpeg)$~i', $path)) { throw new RuntimeException('مسیر تصویر مجاز نیست: '.$path); }
+    if (!preg_match('~^/assets/images/[a-z0-9/_-]+\\.(webp|png|jpg|jpeg)$~i', $path)) { throw new RuntimeException('مسیر تصویر مجاز نیست: '.$path); }
     $source=MHC_PATH.'data/media/'.substr($path,strlen('/assets/images/'));
     if (!is_file($source)) { throw new RuntimeException('تصویر پیدا نشد: '.$path); }
     $key=hash_file('sha256',$source);
@@ -98,12 +98,17 @@ function mhc_import_page_item($slug,$def) {
     $existing=$mapped?get_post($mapped):null;
     if (!$existing || $existing->post_type!=='page' || $existing->post_status==='trash') { $existing=get_page_by_path($slug); }
     if ($existing) {
-        if ($existing->post_status !== 'publish') { throw new RuntimeException('برگهٔ موجود منتشر نشده است؛ بدون تغییر باقی ماند: '.$slug); }
+        // If page exists but is not published, publish it safely instead of throwing error.
+        if ($existing->post_status !== 'publish') {
+            wp_update_post(['ID'=>$existing->ID,'post_status'=>'publish']);
+            update_option('mhc_page_'.$slug,(int)$existing->ID,false);
+            return ['id'=>$existing->ID,'status'=>'published-existing-page'];
+        }
         update_option('mhc_page_'.$slug,(int)$existing->ID,false);
         return ['id'=>$existing->ID,'status'=>'skipped-existing-page'];
     }
     $file=MHC_PATH.'data/pages/'.$slug.'.html'; $content=is_file($file)?file_get_contents($file):$def[1];
-    $content=preg_replace_callback('~src="/?(assets/images/[a-z0-9/_-]+\.(?:webp|png|jpg|jpeg))"~i',function($match){$media=mhc_import_media('/'.$match[1]);return 'src="'.esc_url(wp_get_attachment_url($media)).'"';},$content);
+    $content=preg_replace_callback('~src="/?(assets/images/[a-z0-9/_-]+\\.(?:webp|png|jpg|jpeg))"~i',function($match){$media=mhc_import_media('/'.$match[1]);return 'src="'.esc_url(wp_get_attachment_url($media)).'"';},$content);
     $content=preg_replace_callback('~href="/([a-z-]+)/"~',function($match){return 'href="'.esc_url(home_url('/'.$match[1].'/')).'"';},$content);
     $id=wp_insert_post(['post_type'=>'page','post_status'=>'publish','post_name'=>$slug,'post_title'=>$def[0],'post_content'=>wp_kses_post($content)],true);
     if (is_wp_error($id)) { throw new RuntimeException($id->get_error_message()); }
@@ -143,6 +148,7 @@ function mhc_import_batch($offset=0,$limit=5) {
 /**
  * One-time server-side import of the complete reference catalog: categories, products, posts, pages.
  * Automatically sets WooCommerce currency to IRT on an empty store. Idempotent: re-running never creates duplicates.
+ * IMPORTANT: mhc_import_complete is set to true ONLY if zero failures occurred.
  */
 function mhc_auto_import() {
     if (!class_exists('WooCommerce')) { return new WP_Error('woocommerce','ابتدا ووکامرس رسمی را نصب و فعال کنید.'); }
@@ -187,9 +193,14 @@ function mhc_auto_import() {
             $report[]=array_merge(['type'=>'pages','source'=>$slug],$r);
         }
         update_option('mhc_import_report',$report,false);
-        update_option('mhc_import_complete',true,false);
+        // CRITICAL: Only mark complete if ZERO failures. Otherwise import remains incomplete.
+        if ($failed === 0) {
+            update_option('mhc_import_complete',true,false);
+        } else {
+            update_option('mhc_import_complete',false,false);
+        }
         flush_rewrite_rules(true);
-        return ['report'=>$report,'failed'=>$failed,'done'=>true];
+        return ['report'=>$report,'failed'=>$failed,'done'=>($failed===0)];
     } finally { delete_option('mhc_auto_import_lock'); }
 }
 function mhc_import_page() { mhc_setup_screen(); }
