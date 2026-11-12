@@ -87,7 +87,7 @@ function mhc_page_definitions() {
         'login'=>['ورود به حساب','[woocommerce_my_account]'], 'register'=>['ثبت‌نام','[woocommerce_my_account]'],
         'tracking'=>['پیگیری سفارش','[woocommerce_order_tracking]'], 'wishlist'=>['علاقه‌مندی‌ها','[mh_wishlist]'],
         'contact'=>['تماس با ما','[mh_contact_details]<div class="contact-layout"><section class="panel"><h2>برایمان بنویسید</h2>[mh_contact_form]</section><aside class="contact-aside"><h2>همراه یک انتخاب بهتر</h2><p>سؤال، پیشنهاد یا تجربه‌ای دارید؟ برایمان بنویسید.</p></aside></div>'],
-        'about'=>['درباره هشتگ',''], 'faq'=>['پرسش‌های متداول',''], 'privacy'=>['حریم خصوصی',''], 'terms'=>['شرایط خرید و بازگشت',''], 'blog'=>['مجله هشتگ',''],
+        'about'=>['درباره ما',''], 'faq'=>['پرسش‌های متداول',''], 'privacy'=>['حریم خصوصی',''], 'terms'=>['شرایط خرید و بازگشت',''], 'blog'=>['مجله هشتگ',''],
     ];
 }
 function mhc_import_page_item($slug,$def) {
@@ -136,6 +136,51 @@ function mhc_import_batch($offset=0,$limit=5) {
         return ['next'=>$next,'total'=>count($jobs),'report'=>$report];
     } catch (Throwable $error) { return new WP_Error('import',$error->getMessage()); }
     finally { delete_option('mhc_import_lock'); }
+}
+/** One-time server-side import of the complete reference catalog: categories, products, posts, pages. */
+function mhc_auto_import() {
+    if (!class_exists('WooCommerce')) { return new WP_Error('woocommerce','ابتدا ووکامرس رسمی را نصب و فعال کنید.'); }
+    if (get_woocommerce_currency()!=='IRT') {
+        $products=get_posts(['post_type'=>'product','post_status'=>'publish','numberposts'=>1,'fields'=>'ids']);
+        $orders=wc_get_orders(['limit'=>1,'return'=>'ids']);
+        if ($products || $orders) { return new WP_Error('currency','دادهٔ منبع تومان است و فروشگاه دارای محصول/سفارش است؛ واحد خودکار تغییر نکرد.'); }
+        update_option('woocommerce_currency','IRT'); update_option('woocommerce_price_num_decimals',0);
+    }
+    $lock=get_option('mhc_auto_import_lock');
+    if ($lock && (int)$lock<time()-600) { delete_option('mhc_auto_import_lock'); }
+    if (!add_option('mhc_auto_import_lock',time(),'','no')) { return new WP_Error('locked','ورود قبلی در حال اجراست.'); }
+    $report=[]; $failed=0;
+    try {
+        $data=mhc_catalog();
+        // 1) Categories first (products depend on them)
+        foreach ($data['categories'] as $row) {
+            try { $r=mhc_import_category($row); }
+            catch (Throwable $e) { $r=['status'=>'failed','error'=>$e->getMessage()]; $failed++; }
+            $report[]=array_merge(['type'=>'categories','source'=>$row['slug']],$r);
+        }
+        // 2) Products
+        foreach ($data['products'] as $row) {
+            try { $r=mhc_import_product($row,$data); }
+            catch (Throwable $e) { $r=['status'=>'failed','error'=>$e->getMessage()]; $failed++; }
+            $report[]=array_merge(['type'=>'products','source'=>$row['slug']],$r);
+        }
+        // 3) Posts
+        foreach ($data['posts'] as $row) {
+            try { $r=mhc_import_post($row); }
+            catch (Throwable $e) { $r=['status'=>'failed','error'=>$e->getMessage()]; $failed++; }
+            $report[]=array_merge(['type'=>'posts','source'=>$row['slug']],$r);
+        }
+        // 4) Pages
+        foreach (mhc_page_definitions() as $slug=>$def) {
+            try { $r=mhc_import_page_item($slug,$def); }
+            catch (Throwable $e) { $r=['status'=>'failed','error'=>$e->getMessage()]; $failed++; }
+            $report[]=array_merge(['type'=>'pages','source'=>$slug],$r);
+        }
+        update_option('mhc_import_report',$report,false);
+        update_option('mhc_import_complete',true,false);
+        flush_rewrite_rules(true);
+        return ['report'=>$report,'failed'=>$failed,'done'=>true];
+    } finally { delete_option('mhc_auto_import_lock'); }
 }
 function mhc_import_page() { mhc_setup_screen(); }
 add_action('admin_post_mhc_import',function(){

@@ -59,6 +59,9 @@ function mhc_setup_pages($connect=false) {
         $result=['pages'=>$rows,'connections'=>$connections,'time'=>current_time('mysql',true),'failed'=>count(array_filter($rows,fn($r)=>$r['status']==='failed'))];
         update_option('mhc_setup_report',$result,false);
         if (!$result['failed']) { update_option('mhc_pages_ready',MHC_VERSION.(class_exists('WooCommerce')?'-wc':'-no-wc'),false); }
+        if (!$result['failed'] && class_exists('WooCommerce') && !get_option('mhc_import_complete')) {
+            mhc_auto_import();
+        }
         return $result;
     } finally { delete_option('mhc_setup_lock'); }
 }

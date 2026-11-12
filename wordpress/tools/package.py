@@ -25,8 +25,8 @@ for source,name,entry in [
   names=z.namelist();assert z.testzip() is None;assert {n.split('/')[0] for n in names}=={source.name};assert source.name+'/'+entry in names
   assert all(not n.startswith('/') and '..' not in n.split('/') and not any(b in n for b in ['wp-config.php','admin.json','node_modules/','vendor/','woocommerce.php','database/']) for n in names)
   assert len(set(names))==len(names)
-  assert 'Version: 1.0.2' in z.read(source.name+'/'+entry).decode()
+  assert 'Version: 1.0.3' in z.read(source.name+'/'+entry).decode()
   for p in files:assert z.read(source.name+'/'+p.relative_to(source).as_posix())==p.read_bytes()
-  report.append({'file':str(zip_path.relative_to(root)),'version':'1.0.2','root':source.name+'/','entry_point':source.name+'/'+entry,'bytes':zip_path.stat().st_size,'sha256':hashlib.sha256(zip_path.read_bytes()).hexdigest(),'files':len(names),'crc_check':'PASS','single_root':'PASS','source_byte_match':'PASS','no_runtime_core_or_secrets':'PASS','installation_test':'See reports/v1.0.2/release-install.txt and dashboard-install.json; exact final artifacts are installed and hashed after packaging.'})
+  report.append({'file':str(zip_path.relative_to(root)),'version':'1.0.3','root':source.name+'/','entry_point':source.name+'/'+entry,'bytes':zip_path.stat().st_size,'sha256':hashlib.sha256(zip_path.read_bytes()).hexdigest(),'files':len(names),'crc_check':'PASS','single_root':'PASS','source_byte_match':'PASS','no_runtime_core_or_secrets':'PASS','installation_test':'See reports/v1.0.3/release-install.txt and dashboard-install.json; exact final artifacts are installed and hashed after packaging.'})
 (root/'docs/reports/package-verification.json').write_text(json.dumps({'packages':report},indent=2)+'\n')
 print(json.dumps(report,indent=2))
