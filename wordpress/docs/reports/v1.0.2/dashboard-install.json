@@ -1,0 +1,37 @@
+{
+  "scope": "Actual browser WordPress upload/install screens for the ZIP packages; same-version replacement on isolated installation; WooCommerce absence notice and reactivation",
+  "passed": 6,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Dashboard ZIP upload and install: plugin",
+      "pass": true,
+      "detail": "Skip to main content\nSkip to toolbar\n\n\nDashboard\nHome\nUpdates\n\n\nPosts\nAll Posts\nAdd Post\nCategories\nTags\n\n\nMedia\nLibrary\nAdd Media File\n\n\nPages\nAll Pages\nAdd Page\n\n\nComments\n\n\nووکامرس\nخانه\nسفارشات 1\nمشتریان\nکوپن‌ها\nگزارشات\nپیکربندی\nوضعیت\nافزونه ها\n\n\nمحصولات\nهمه محصولات\nافزودن محصول جدید\nBrands\nدسته‌بندی‌ها\nبرچسب ها\nویژگی‌ها\nدیدگاهها\n\n\nپرداخت ها\n\n\nتجزیه و تحلیل\nبررسی اجمالی\nمحصولات\nدرآمد\nسفارش ها\nمتغیرها\nدسته‌ها\nکوپن‌ها\nمالیات\nدانلود ها\nانبار\nپیکربندی\n\n\nبازاریابی\nبررسی اجمالی\nکوپن ها\n\n\nAppearance\nThemes\nPatterns\nCustomize\nFonts\nMenus\nTheme File Editor\n\n\nPlugins\nInstalled Plugins\nAdd Plugin\nPlugin File Editor\n\n\nUsers\nAll Users\nAdd User\nProfile\n\n\nTools\nAvailable Tools\nImport\nExport\nSite Health\nExport Personal Data\nErase Personal Data\nScheduled Actions\n\n\nSettings\nGeneral\nConnectors\nWriting\nReading\nDiscussion\nMedia\nPermalinks\nPrivacy\n\n\nMobile Hashtag\nStore Settings\nپیام‌ها و خبرنامه\nراه‌اندازی فروشگاه\nمهاجرت کاتالوگ\nCollapse Menu\nAbout WordPress\nموبایل هشتگ\nLive\nCtrl+K\nOpen command palette\n0\n0 Comments in moderation\nNew\nHowdy, admin\nInstalling plugin from uploaded file: mobile-hashtag-core-plugin.zip\n\nUnpacking the package…\n\nUpdating the plugin…\n\nRemoving the current plugin…\n\nPlugin updated successfully.\n\nGo to Plugin Installer\n\nThank you for creating with WordPress.\n\nVersion 7.1.4"
+    },
+    {
+      "name": "Dashboard ZIP upload and install: theme",
+      "pass": true,
+      "detail": "Skip to main content\nSkip to toolbar\n\n\nDashboard\nHome\nUpdates\n\n\nPosts\nAll Posts\nAdd Post\nCategories\nTags\n\n\nMedia\nLibrary\nAdd Media File\n\n\nPages\nAll Pages\nAdd Page\n\n\nComments\n\n\nووکامرس\nخانه\nسفارشات 1\nمشتریان\nکوپن‌ها\nگزارشات\nپیکربندی\nوضعیت\nافزونه ها\n\n\nمحصولات\nهمه محصولات\nافزودن محصول جدید\nBrands\nدسته‌بندی‌ها\nبرچسب ها\nویژگی‌ها\nدیدگاهها\n\n\nپرداخت ها\n\n\nتجزیه و تحلیل\nبررسی اجمالی\nمحصولات\nدرآمد\nسفارش ها\nمتغیرها\nدسته‌ها\nکوپن‌ها\nمالیات\nدانلود ها\nانبار\nپیکربندی\n\n\nبازاریابی\nبررسی اجمالی\nکوپن ها\n\n\nAppearance\nThemes\nPatterns\nCustomize\nFonts\nMenus\nTheme File Editor\n\n\nPlugins\nInstalled Plugins\nAdd Plugin\nPlugin File Editor\n\n\nUsers\nAll Users\nAdd User\nProfile\n\n\nTools\nAvailable Tools\nImport\nExport\nSite Health\nExport Personal Data\nErase Personal Data\nScheduled Actions\n\n\nSettings\nGeneral\nConnectors\nWriting\nReading\nDiscussion\nMedia\nPermalinks\nPrivacy\n\n\nMobile Hashtag\nStore Settings\nپیام‌ها و خبرنامه\nراه‌اندازی فروشگاه\nمهاجرت کاتالوگ\nCollapse Menu\nAbout WordPress\nموبایل هشتگ\nLive\nCtrl+K\nOpen command palette\n0\n0 Comments in moderation\nNew\nHowdy, admin\nInstalling theme from uploaded file: mobile-hashtag-wordpress-theme.zip\n\nUnpacking the package…\n\nUpdating the theme…\n\nRemoving the old version of the theme…\n\nTheme updated successfully.\n\nLive Preview\nLive Preview “Mobile Hashtag”\n | Go to Themes page\n\nThank you for creating with WordPress.\n\nVersion 7.1.4"
+    },
+    {
+      "name": "Core remains active after dashboard ZIP installation",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Persian missing-WooCommerce admin notice",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Theme degrades without WooCommerce, no fatal",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Official WooCommerce reactivated",
+      "pass": true,
+      "detail": null
+    }
+  ]
+}

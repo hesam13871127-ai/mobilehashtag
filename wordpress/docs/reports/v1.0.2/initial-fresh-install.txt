@@ -1,0 +1,41 @@
+Creating PHP runtime
+Mounting WordPress files
+Defining WordPress constants
+Starting PHP
+Installing SQLite integration
+Checking database prerequisites
+Checking existing WordPress installation
+Running WordPress installer
+Validating database connection
+WordPress boot complete
+BOOT {"wordpress":"7.1.4","php":"8.3.36","plugins":["woocommerce\/woocommerce.php"]} 
+{
+    "passed": 6,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "Install actual Core ZIP",
+            "pass": true
+        },
+        {
+            "name": "Install actual theme ZIP",
+            "pass": true
+        },
+        {
+            "name": "Activate Core",
+            "pass": true
+        },
+        {
+            "name": "Theme 1.0.2",
+            "pass": true
+        },
+        {
+            "name": "Core 1.0.2",
+            "pass": true
+        },
+        {
+            "name": "No products before dashboard onboarding",
+            "pass": true
+        }
+    ]
+}

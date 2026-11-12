@@ -1,0 +1,130 @@
+Creating PHP runtime
+Mounting WordPress files
+Defining WordPress constants
+Starting PHP
+Installing SQLite integration
+Checking database prerequisites
+Checking existing WordPress installation
+Validating database connection
+WordPress boot complete
+BOOT {"wordpress":"7.1.4","php":"8.3.36","plugins":["mobile-hashtag-core\/mobile-hashtag-core.php","woocommerce\/woocommerce.php"]} 
+{
+    "passed": 19,
+    "failed": 0,
+    "tests": [
+        {
+            "name": "Native product CRUD \/ stock \/ sale",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Client price ignored; WC authoritative total",
+            "pass": true,
+            "detail": "160000"
+        },
+        {
+            "name": "Insufficient stock blocked",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Native coupon calculates 10 percent",
+            "pass": true,
+            "detail": {
+                "subtotal": "160000",
+                "subtotal_tax": 0,
+                "shipping_total": "0",
+                "shipping_tax": 0,
+                "shipping_taxes": [],
+                "discount_total": 16000,
+                "discount_tax": 0,
+                "cart_contents_total": "144000",
+                "cart_contents_tax": 0,
+                "cart_contents_taxes": [],
+                "fee_total": "0",
+                "fee_tax": 0,
+                "fee_taxes": [],
+                "total": "144000",
+                "total_tax": 0
+            }
+        },
+        {
+            "name": "Native order stores same Toman amount",
+            "pass": true,
+            "detail": [
+                "IRT",
+                "144000"
+            ]
+        },
+        {
+            "name": "Native order stock reduction",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Cancellation stock restoration",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Changing currency never silently converts prices",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Historical order currency remains Toman",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Actual native variable product and stock",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Imported simple product requires valid color",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Original color accepted",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Color stored server-side",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Color retained in order line",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Official COD gateway enabled",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Native shipping zone and methods",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "User wishlist deduplicates and persists",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Signed guest wishlist persists",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Forged guest cookie rejected",
+            "pass": true,
+            "detail": null
+        }
+    ]
+}

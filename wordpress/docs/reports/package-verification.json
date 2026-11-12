@@ -2,29 +2,31 @@
   "packages": [
     {
       "file": "packages/mobile-hashtag-wordpress-theme.zip",
+      "version": "1.0.2",
       "root": "mobile-hashtag/",
       "entry_point": "mobile-hashtag/style.css",
-      "bytes": 15712881,
-      "sha256": "708bc57fa1a5b53cb1eaac10f62311546ed95df46179aba0704dadb2cd814995",
-      "files": 178,
+      "bytes": 15721979,
+      "sha256": "f4f63d324555a7fc701d81208b6f360ac3444a04789b4a5d159ff0085e005487",
+      "files": 184,
       "crc_check": "PASS",
       "single_root": "PASS",
       "source_byte_match": "PASS",
       "no_runtime_core_or_secrets": "PASS",
-      "installation_test": "See final-release-install.txt and final-dashboard-install.json; archive structure and actual installation are verified separately."
+      "installation_test": "See reports/v1.0.2/release-install.txt and dashboard-install.json; exact final artifacts are installed and hashed after packaging."
     },
     {
       "file": "packages/mobile-hashtag-core-plugin.zip",
+      "version": "1.0.2",
       "root": "mobile-hashtag-core/",
       "entry_point": "mobile-hashtag-core/mobile-hashtag-core.php",
-      "bytes": 665496,
-      "sha256": "ea1012f702a833f6a76663062f6fa699ac77cb12a835d9ee362d75454a96d495",
-      "files": 92,
+      "bytes": 681815,
+      "sha256": "0f3a65c1e62197277e7a050b37209dc4b02e3fb408e50efe0597257b2acdb7ff",
+      "files": 100,
       "crc_check": "PASS",
       "single_root": "PASS",
       "source_byte_match": "PASS",
       "no_runtime_core_or_secrets": "PASS",
-      "installation_test": "See final-release-install.txt and final-dashboard-install.json; archive structure and actual installation are verified separately."
+      "installation_test": "See reports/v1.0.2/release-install.txt and dashboard-install.json; exact final artifacts are installed and hashed after packaging."
     }
   ]
 }

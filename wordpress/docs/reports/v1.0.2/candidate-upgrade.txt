@@ -1,0 +1,46 @@
+Creating PHP runtime
+Mounting WordPress files
+Defining WordPress constants
+Starting PHP
+Installing SQLite integration
+Checking database prerequisites
+Checking existing WordPress installation
+Validating database connection
+WordPress boot complete
+BOOT {"wordpress":"7.1.4","php":"8.3.36","plugins":["mobile-hashtag-core\/mobile-hashtag-core.php","woocommerce\/woocommerce.php"]} 
+{
+    "scope": "Final ZIPs installed by actual WP upgraders on the isolated site previously installed from the initial ZIPs; no source directory mount for theme or Core",
+    "passed": 5,
+    "failed": 0,
+    "packages": {
+        "theme_sha256": "a604874f500b0013640899da1d8759396c9705c2e3e221387bd9cb4079c7cdb7",
+        "plugin_sha256": "7fea100301a6eaee53b7a349fd4c85040ecd93274a6bfb16457dab9bad39c41b"
+    },
+    "tests": [
+        {
+            "name": "Final plugin ZIP installs through WordPress overwrite installer",
+            "pass": true,
+            "detail": true
+        },
+        {
+            "name": "Final theme ZIP installs through WordPress overwrite installer",
+            "pass": true,
+            "detail": true
+        },
+        {
+            "name": "Core remains active",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Theme remains active",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Catalog preserved during ZIP update",
+            "pass": true,
+            "detail": null
+        }
+    ]
+}

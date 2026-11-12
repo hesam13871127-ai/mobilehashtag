@@ -25,19 +25,22 @@ function mhc_import_category($row) {
     if ($id && !term_exists($id,'product_cat')) { $id=0; }
     if (!$id) {
         $existing=get_term_by('slug',$row['slug'],'product_cat');
-        if ($existing) { throw new RuntimeException('تداخل دستهٔ موجود؛ بدون تغییر: '.$row['slug']); }
+        if ($existing) { update_option($key,(int)$existing->term_id,false); return ['id'=>(int)$existing->term_id,'status'=>'linked-existing-category']; }
         $parent=$row['parent_id'] ? (int)get_option('mhc_category_'.$row['parent_id']) : 0;
         if ($row['parent_id'] && !$parent) { throw new RuntimeException('ابتدا دستهٔ والد را وارد کنید.'); }
         $result=wp_insert_term($row['name'],'product_cat',['slug'=>$row['slug'],'parent'=>$parent]);
         if (is_wp_error($result)) { throw new RuntimeException($result->get_error_message()); }
         $id=(int)$result['term_id']; update_option($key,$id,false); update_term_meta($id,'_mhc_source_id',$row['id']);
     }
+    if ((int)get_term_meta($id,'_mhc_source_id',true)!==(int)$row['id']) { return ['id'=>$id,'status'=>'linked-existing-category']; }
     if (get_term_meta($id,'_mhc_import_complete',true)) { return ['id'=>$id,'status'=>'skipped']; }
     update_term_meta($id,'thumbnail_id',mhc_import_media($row['image']));
     update_term_meta($id,'_mhc_import_complete',1);
     return ['id'=>$id,'status'=>'imported'];
 }
 function mhc_import_product($row,$data) {
+    if (empty($row['name']) || empty($row['sku']) || !isset($row['price']) || !is_numeric($row['price']) || $row['price'] < 0 || empty($row['image'])) { throw new RuntimeException('اطلاعات ضروری محصول ناقص است؛ منتشر نشد.'); }
+    if (($row['type'] ?? 'simple') !== 'simple') { throw new RuntimeException('نوع محصول در کاتالوگ فعلی پشتیبانی نمی‌شود؛ به محصول ساده تبدیل نشد. محصول متغیر را با ابزار بومی WooCommerce وارد کنید.'); }
     $key='mhc_product_'.$row['id']; $id=(int)get_option($key); $p=$id?wc_get_product($id):false;
     if ($p && get_post_meta($id,'_mhc_import_complete',true)) { return ['id'=>$id,'status'=>'skipped']; }
     if (!$p) {
@@ -80,7 +83,7 @@ function mhc_import_post($row) {
 function mhc_page_definitions() {
     return [
         'home'=>['خانه',''], 'shop'=>['فروشگاه',''], 'cart'=>['سبد خرید','[woocommerce_cart]'],
-        'checkout'=>['تکمیل سفارش','[woocommerce_checkout]'], 'account'=>['حساب کاربری','[woocommerce_my_account]'],
+        'checkout'=>['تکمیل سفارش','[woocommerce_checkout]'], 'my-account'=>['حساب کاربری من','[woocommerce_my_account]'], 'account'=>['حساب کاربری','[woocommerce_my_account]'],
         'login'=>['ورود به حساب','[woocommerce_my_account]'], 'register'=>['ثبت‌نام','[woocommerce_my_account]'],
         'tracking'=>['پیگیری سفارش','[woocommerce_order_tracking]'], 'wishlist'=>['علاقه‌مندی‌ها','[mh_wishlist]'],
         'contact'=>['تماس با ما','[mh_contact_details]<div class="contact-layout"><section class="panel"><h2>برایمان بنویسید</h2>[mh_contact_form]</section><aside class="contact-aside"><h2>همراه یک انتخاب بهتر</h2><p>سؤال، پیشنهاد یا تجربه‌ای دارید؟ برایمان بنویسید.</p></aside></div>'],
@@ -88,8 +91,14 @@ function mhc_page_definitions() {
     ];
 }
 function mhc_import_page_item($slug,$def) {
-    $existing=get_page_by_path($slug);
-    if ($existing) { return ['id'=>$existing->ID,'status'=>'skipped-existing-page']; }
+    $mapped=(int)get_option('mhc_page_'.$slug);
+    $existing=$mapped?get_post($mapped):null;
+    if (!$existing || $existing->post_type!=='page' || $existing->post_status==='trash') { $existing=get_page_by_path($slug); }
+    if ($existing) {
+        if ($existing->post_status !== 'publish') { throw new RuntimeException('برگهٔ موجود منتشر نشده است؛ بدون تغییر باقی ماند: '.$slug); }
+        update_option('mhc_page_'.$slug,(int)$existing->ID,false);
+        return ['id'=>$existing->ID,'status'=>'skipped-existing-page'];
+    }
     $file=MHC_PATH.'data/pages/'.$slug.'.html'; $content=is_file($file)?file_get_contents($file):$def[1];
     $content=preg_replace_callback('~src="/?(assets/images/[a-z0-9/_-]+\.(?:webp|png|jpg|jpeg))"~i',function($match){$media=mhc_import_media('/'.$match[1]);return 'src="'.esc_url(wp_get_attachment_url($media)).'"';},$content);
     $content=preg_replace_callback('~href="/([a-z-]+)/"~',function($match){return 'href="'.esc_url(home_url('/'.$match[1].'/')).'"';},$content);
@@ -128,15 +137,7 @@ function mhc_import_batch($offset=0,$limit=5) {
     } catch (Throwable $error) { return new WP_Error('import',$error->getMessage()); }
     finally { delete_option('mhc_import_lock'); }
 }
-function mhc_import_page() {
-    if (!current_user_can('manage_options')) { return; }
-    $offset=(int)get_option('mhc_import_offset',0); $report=get_option('mhc_import_report',[]);
-    ?><div class="wrap" dir="rtl"><h1>مهاجرت ایمن کاتالوگ هشتگ</h1><p>قبل از شروع، پشتیبان کامل تهیه کنید. ۲۸ محصول ساده، ۴۷ دسته و ۳ مقالهٔ عمومی وارد می‌شوند. هیچ حساب، رمز، سفارش، پیام خصوصی یا دیدگاه فرضی وارد نمی‌شود. قیمت‌ها تومان هستند. تغییر داده‌های واردشده در اجرای مجدد بازنویسی نمی‌شود. هر مرحله حداکثر ۵ مورد است.</p>
-    <p>توقف، خطا یا بسته‌شدن مرورگر قابل‌بازیابی است؛ اجرای دوباره از ابتدا موارد کامل را رد می‌کند و موارد ناقص را تکمیل می‌کند. محصولات ناقص تا تکمیل تصاویر/دسته‌ها پیش‌نویس می‌مانند. همهٔ تصاویر وارد کتابخانهٔ رسانه می‌شوند.</p>
-    <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>"><input type="hidden" name="action" value="mhc_import"><?php wp_nonce_field('mhc_import'); ?><p>موقعیت فعلی: <?php echo esc_html($offset); ?> از ۹۳</p><button name="offset" value="<?php echo esc_attr($offset); ?>" class="button button-primary">اجرای مرحلهٔ بعدی</button> <button name="offset" value="0" class="button">بازآزمایی از ابتدا (بدون تکرار)</button></form>
-    <h2>اتصال صفحات</h2><p>پس از مهاجرت، صفحهٔ اصلی/نوشته‌ها را در تنظیمات ← خواندن و سبد/تسویه/حساب را در ووکامرس ← پیکربندی ← پیشرفته انتخاب کنید. این ابزار برای حفاظت از سایت موجود، آن تنظیمات را خودکار تغییر نمی‌دهد.</p>
-    <pre style="white-space:pre-wrap;direction:ltr"><?php echo esc_html(wp_json_encode($report,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)); ?></pre></div><?php
-}
+function mhc_import_page() { mhc_setup_screen(); }
 add_action('admin_post_mhc_import',function(){
     if (!current_user_can('manage_options') || !current_user_can('manage_woocommerce')) { wp_die('دسترسی مجاز نیست.','',['response'=>403]); }
     check_admin_referer('mhc_import'); $result=mhc_import_batch(absint($_POST['offset']??0));

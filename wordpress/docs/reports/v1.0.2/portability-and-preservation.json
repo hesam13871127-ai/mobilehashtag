@@ -1,0 +1,10 @@
+{
+  "version": "1.0.2",
+  "original_reference_files_unchanged": 174,
+  "theme_assets_byte_identical_to_1_0_1": 131,
+  "changed_reference_files": [],
+  "changed_theme_assets": [],
+  "code_files_checked": 31,
+  "runtime_dependencies_or_missing_guards": [],
+  "note": "No native PHP/MySQL executable found; no MySQL/MariaDB execution certification. Code uses WordPress/WooCommerce APIs. Site DB/order/test fixtures are not shipped."
+}

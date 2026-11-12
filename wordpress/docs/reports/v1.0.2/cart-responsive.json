@@ -1,0 +1,87 @@
+{
+  "scope": "Native cart with an actual imported product and checkout at five widths; final ZIP site",
+  "passed": 10,
+  "failed": 0,
+  "results": [
+    {
+      "name": "cart populated at 1920",
+      "pass": true,
+      "detail": {
+        "viewport": 1920,
+        "document": 1920
+      }
+    },
+    {
+      "name": "checkout populated at 1920",
+      "pass": true,
+      "detail": {
+        "viewport": 1920,
+        "document": 1920
+      }
+    },
+    {
+      "name": "cart populated at 1366",
+      "pass": true,
+      "detail": {
+        "viewport": 1366,
+        "document": 1366
+      }
+    },
+    {
+      "name": "checkout populated at 1366",
+      "pass": true,
+      "detail": {
+        "viewport": 1366,
+        "document": 1366
+      }
+    },
+    {
+      "name": "cart populated at 768",
+      "pass": true,
+      "detail": {
+        "viewport": 768,
+        "document": 768
+      }
+    },
+    {
+      "name": "checkout populated at 768",
+      "pass": true,
+      "detail": {
+        "viewport": 768,
+        "document": 768
+      }
+    },
+    {
+      "name": "cart populated at 390",
+      "pass": true,
+      "detail": {
+        "viewport": 390,
+        "document": 390
+      }
+    },
+    {
+      "name": "checkout populated at 390",
+      "pass": true,
+      "detail": {
+        "viewport": 390,
+        "document": 390
+      }
+    },
+    {
+      "name": "cart populated at 360",
+      "pass": true,
+      "detail": {
+        "viewport": 360,
+        "document": 360
+      }
+    },
+    {
+      "name": "checkout populated at 360",
+      "pass": true,
+      "detail": {
+        "viewport": 360,
+        "document": 360
+      }
+    }
+  ]
+}

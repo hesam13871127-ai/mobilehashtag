@@ -1,0 +1,120 @@
+{
+  "scope": "Installed 1.0.2 release: actual contact/inquiry with subject/timestamp/status in admin, native COD admin record, final mobile/desktop contact/about and CSRF",
+  "passed": 19,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "contact actual HTTP form stores before success",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "contact appears in filtered admin list",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "contact subject visible in persistent detail",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "contact creation date and time visible",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "contact status update persists",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "inquiry actual HTTP form stores before success",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "inquiry appears in filtered admin list",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "inquiry subject visible in persistent detail",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "inquiry creation date and time visible",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "inquiry status update persists",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Actual COD order visible in native admin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Final /contact/ width 1366",
+      "pass": true,
+      "detail": {
+        "viewport": 1366,
+        "document": 1366
+      }
+    },
+    {
+      "name": "Final /about/ width 1366",
+      "pass": true,
+      "detail": {
+        "viewport": 1366,
+        "document": 1366
+      }
+    },
+    {
+      "name": "Final /contact/ width 390",
+      "pass": true,
+      "detail": {
+        "viewport": 390,
+        "document": 390
+      }
+    },
+    {
+      "name": "Final /about/ width 390",
+      "pass": true,
+      "detail": {
+        "viewport": 390,
+        "document": 390
+      }
+    },
+    {
+      "name": "Final /contact/ width 360",
+      "pass": true,
+      "detail": {
+        "viewport": 360,
+        "document": 360
+      }
+    },
+    {
+      "name": "Final /about/ width 360",
+      "pass": true,
+      "detail": {
+        "viewport": 360,
+        "document": 360
+      }
+    },
+    {
+      "name": "Guest contact rejects forged nonce",
+      "pass": true,
+      "detail": 403
+    },
+    {
+      "name": "No final-page JavaScript errors",
+      "pass": true,
+      "detail": []
+    }
+  ]
+}

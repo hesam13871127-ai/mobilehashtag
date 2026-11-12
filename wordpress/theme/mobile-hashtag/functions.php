@@ -13,9 +13,9 @@ add_action('after_setup_theme',function(){
     register_nav_menus(['primary'=>'منوی اصلی','footer_shop'=>'دسترسی سریع پابرگ','footer_help'=>'راهنمای مشتری پابرگ']);
 });
 add_action('wp_enqueue_scripts',function(){
-    wp_enqueue_style('mht-source',get_template_directory_uri().'/assets/css/style.css',[],'1.0.1');
-    wp_enqueue_style('mht-wp',get_template_directory_uri().'/assets/css/wordpress.css',['mht-source'],'1.0.1');
-    wp_enqueue_script('mht-interface',get_template_directory_uri().'/assets/js/interface.js',[],'1.0.1',['in_footer'=>true,'strategy'=>'defer']);
+    wp_enqueue_style('mht-source',get_template_directory_uri().'/assets/css/style.css',[],'1.0.2');
+    wp_enqueue_style('mht-wp',get_template_directory_uri().'/assets/css/wordpress.css',['mht-source'],'1.0.2');
+    wp_enqueue_script('mht-interface',get_template_directory_uri().'/assets/js/interface.js',[],'1.0.2',['in_footer'=>true,'strategy'=>'defer']);
     $gold=sanitize_hex_color(get_theme_mod('mht_gold','#c9a44c')) ?: '#c9a44c';
     wp_add_inline_style('mht-wp',':root{--gold:'.$gold.'}');
     if (is_singular() && comments_open() && get_option('thread_comments')) { wp_enqueue_script('comment-reply'); }
@@ -30,7 +30,7 @@ function mht_url($legacy) {
     if ($name==='product') { $product=get_page_by_path(sanitize_title($q['slug']??''),OBJECT,'product'); return $product?get_permalink($product):mht_url('shop.html'); }
     if ($name==='article') { $post=get_page_by_path(sanitize_title($q['slug']??''),OBJECT,'post');return $post?get_permalink($post):mht_url('blog.html'); }
     if (function_exists('wc_get_page_permalink') && in_array($name,['shop','cart','checkout','account'],true)) { $base=wc_get_page_permalink($name==='account'?'myaccount':$name); }
-    else { $page=get_page_by_path($name);$base=$page?get_permalink($page):home_url('/'.$name.'/'); }
+    else { $page=get_page_by_path($name);$base=function_exists('mhc_page_url')?mhc_page_url($name):($page?get_permalink($page):home_url('/'.$name.'/')); }
     if ($name==='search') { return add_query_arg(['s'=>$q['q']??'','post_type'=>'product'],home_url('/')); }
     if (isset($q['sort'])) { $q['orderby']=['newest'=>'date','bestselling'=>'popularity','price_asc'=>'price','price_desc'=>'price-desc','popular'=>'rating'][$q['sort']]??'menu_order';unset($q['sort']); }
     return $q?add_query_arg($q,$base):$base;

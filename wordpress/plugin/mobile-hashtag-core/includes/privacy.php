@@ -11,6 +11,7 @@ function mhc_privacy_export($email,$page=1){
     $data=[];
     foreach($rows as $row){
         $values=[];foreach(['uuid'=>'شناسه','created_at'=>'زمان ثبت (UTC)','name'=>'نام','email'=>'ایمیل','phone'=>'تلفن','message'=>'پیام','type'=>'نوع','status'=>'وضعیت','source_url'=>'صفحهٔ مبدأ','mail_status'=>'وضعیت ارسال اعلان'] as $key=>$label){$values[]=['name'=>$label,'value'=>$row[$key]];}
+        $fields=json_decode($row['fields'],true)?:[];$values[]=['name'=>'موضوع','value'=>$fields['subject']??''];
         $data[]=['group_id'=>'mhc-submissions','group_label'=>'پیام‌های موبایل هشتگ','item_id'=>'mhc-'.$row['id'],'data'=>$values];
     }
     if($page===1){$user=get_user_by('email',$email);if($user){$ids=get_user_meta($user->ID,'_mhc_wishlist',true);if(is_array($ids)&&$ids){$data[]=['group_id'=>'mhc-wishlist','group_label'=>'علاقه‌مندی‌های موبایل هشتگ','item_id'=>'mhc-user-'.$user->ID,'data'=>[['name'=>'شناسهٔ محصولات','value'=>implode(', ',array_map('absint',$ids))]]];}}}

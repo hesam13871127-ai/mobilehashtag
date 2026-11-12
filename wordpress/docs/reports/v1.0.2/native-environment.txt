@@ -1,0 +1,10 @@
+Native test prerequisites
+php: unavailable
+php-fpm: unavailable
+mysqld: unavailable
+mariadbd: unavailable
+mysql: unavailable
+mariadb: unavailable
+docker: unavailable
+podman: unavailable
+Native PHP/MySQL/MariaDB execution: NOT RUN

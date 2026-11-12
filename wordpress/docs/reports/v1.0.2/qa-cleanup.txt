@@ -1,0 +1,16 @@
+Creating PHP runtime
+Mounting WordPress files
+Defining WordPress constants
+Starting PHP
+Installing SQLite integration
+Checking database prerequisites
+Checking existing WordPress installation
+Validating database connection
+WordPress boot complete
+BOOT {"wordpress":"7.1.4","php":"8.3.36","plugins":["mobile-hashtag-core\/mobile-hashtag-core.php","woocommerce\/woocommerce.php"]} 
+{
+    "removed_only_hidden_test_fixture": true,
+    "published_reference_products": 28,
+    "catalog_retained": true,
+    "note": "QA orders and submitted form evidence remain only in the isolated test DB. No DB is shipped."
+}

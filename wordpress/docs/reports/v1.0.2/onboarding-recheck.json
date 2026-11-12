@@ -1,0 +1,193 @@
+{
+  "scope": "Final Core update: dashboard setup recheck, preserved catalog, real links",
+  "passed": 24,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Setup screen served with authenticated automatic-page setup",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "16 published real pages before catalog import",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Setup rejects forged nonce",
+      "pass": true,
+      "detail": 403
+    },
+    {
+      "name": "One click completes continuous real AJAX import",
+      "pass": true,
+      "detail": "راه‌اندازی با موفقیت پایان یافت. محصولات واقعی در محصولات ← همه محصولات و فروشگاه در دسترس‌اند. برای به‌روزرسانی جدول صفحات، صفحه را تازه کنید."
+    },
+    {
+      "name": "28 native products imported",
+      "pass": true,
+      "detail": {
+        "categories": {
+          "imported": 0,
+          "skipped": 47,
+          "failed": 0
+        },
+        "products": {
+          "imported": 0,
+          "skipped": 28,
+          "failed": 0
+        },
+        "posts": {
+          "imported": 0,
+          "skipped": 3,
+          "failed": 0
+        },
+        "pages": {
+          "imported": 0,
+          "skipped": 16,
+          "failed": 0
+        }
+      }
+    },
+    {
+      "name": "47 categories imported",
+      "pass": true,
+      "detail": {
+        "categories": {
+          "imported": 0,
+          "skipped": 47,
+          "failed": 0
+        },
+        "products": {
+          "imported": 0,
+          "skipped": 28,
+          "failed": 0
+        },
+        "posts": {
+          "imported": 0,
+          "skipped": 3,
+          "failed": 0
+        },
+        "pages": {
+          "imported": 0,
+          "skipped": 16,
+          "failed": 0
+        }
+      }
+    },
+    {
+      "name": "One click retry skips 28 products and 47 categories",
+      "pass": true,
+      "detail": {
+        "categories": {
+          "imported": 0,
+          "skipped": 47,
+          "failed": 0
+        },
+        "products": {
+          "imported": 0,
+          "skipped": 28,
+          "failed": 0
+        },
+        "posts": {
+          "imported": 0,
+          "skipped": 3,
+          "failed": 0
+        },
+        "pages": {
+          "imported": 0,
+          "skipped": 16,
+          "failed": 0
+        }
+      }
+    },
+    {
+      "name": "Native WooCommerce products admin lists 28 published products",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Home displays imported products",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Managed primary menu installed",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "All unique header/footer links resolve without 404",
+      "pass": true,
+      "detail": {
+        "checked": 61,
+        "broken": []
+      }
+    },
+    {
+      "name": "Real route /shop/",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Real route /contact/",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Real route /about/",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Real route /cart/",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Real route /checkout/",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Real route /my-account/",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Real route /tracking/",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Real route /privacy/",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Real route /terms/",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Real route /blog/",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "About includes preserved professional layout and image",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Contact contains name phone email subject message",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "No JavaScript errors",
+      "pass": true,
+      "detail": []
+    }
+  ]
+}

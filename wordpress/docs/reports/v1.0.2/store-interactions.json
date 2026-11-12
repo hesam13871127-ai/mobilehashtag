@@ -1,0 +1,85 @@
+{
+  "scope": "Final ZIP installation: native variable product, gallery, cart quantity/removal, pagination/sorting/Persian search, actual review creation/admin; QA fixture only, no imported fictional review",
+  "passed": 13,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Native variable select available",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "First variation price displayed",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Changing option selects different native variation",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Second variation price displayed",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Variation appears in native cart",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Cart quantity update persists through reload",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Native remove empties cart",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Native pagination advances to distinct products",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Native price sorting ascending",
+      "pass": true,
+      "detail": [
+        190000,
+        290000,
+        390000,
+        390000,
+        450000,
+        490000,
+        490000,
+        590000,
+        690000,
+        790000,
+        890000,
+        1290000
+      ]
+    },
+    {
+      "name": "Native Persian product search returns matching title",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Native gallery thumbnail changes active image",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Real WooCommerce review appears after submit",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Review is manageable in native WordPress dashboard",
+      "pass": true,
+      "detail": null
+    }
+  ]
+}

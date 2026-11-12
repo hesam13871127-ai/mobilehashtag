@@ -1,0 +1,236 @@
+Creating PHP runtime
+Mounting WordPress files
+Defining WordPress constants
+Starting PHP
+Installing SQLite integration
+Checking database prerequisites
+Checking existing WordPress installation
+Validating database connection
+WordPress boot complete
+BOOT {"wordpress":"7.1.4","php":"8.3.36","plugins":["mobile-hashtag-core\/mobile-hashtag-core.php","woocommerce\/woocommerce.php"]} 
+{
+    "passed": 23,
+    "failed": 0,
+    "checks": [
+        {
+            "name": "16 required and compatibility pages published",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Connected page_on_front",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Connected page_for_posts",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Connected woocommerce_shop_page_id",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Connected woocommerce_cart_page_id",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Connected woocommerce_checkout_page_id",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Connected woocommerce_myaccount_page_id",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Connected woocommerce_terms_page_id",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Connected wp_page_for_privacy_policy",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Fresh setup uses native classic WooCommerce shortcodes",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Converted WC block content has preserved original backup",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Classic conversion preserves neighboring custom content",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "58 distinct imported reference media attachments",
+            "pass": true,
+            "detail": 58
+        },
+        {
+            "name": "Retry preserves custom content and renamed page without duplication",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Page URL resolves stored identity after slug edit",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Does not replace existing assigned menu",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Existing category is linked without rename or duplicate",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Populated store currency never silently changes",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Page setup works independently of catalog currency",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Unauthenticated setup rejected",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "Missing price not published",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "contact subject, timestamp and pending management persisted",
+            "pass": true,
+            "detail": null
+        },
+        {
+            "name": "inquiry subject, timestamp and pending management persisted",
+            "pass": true,
+            "detail": null
+        }
+    ],
+    "pages": {
+        "home": {
+            "id": 10,
+            "status": "publish",
+            "url": "https:\/\/9402-i2tgs5if2mxd7r62q3t32.e2b.app\/",
+            "title": "خانه"
+        },
+        "shop": {
+            "id": 5,
+            "status": "publish",
+            "url": "https:\/\/9402-i2tgs5if2mxd7r62q3t32.e2b.app\/shop\/",
+            "title": "فروشگاه"
+        },
+        "cart": {
+            "id": 6,
+            "status": "publish",
+            "url": "https:\/\/9402-i2tgs5if2mxd7r62q3t32.e2b.app\/cart\/",
+            "title": "سبد خرید"
+        },
+        "checkout": {
+            "id": 7,
+            "status": "publish",
+            "url": "https:\/\/9402-i2tgs5if2mxd7r62q3t32.e2b.app\/checkout\/",
+            "title": "تسویه حساب"
+        },
+        "my-account": {
+            "id": 8,
+            "status": "publish",
+            "url": "https:\/\/9402-i2tgs5if2mxd7r62q3t32.e2b.app\/my-account\/",
+            "title": "حساب کاربری"
+        },
+        "account": {
+            "id": 11,
+            "status": "publish",
+            "url": "https:\/\/9402-i2tgs5if2mxd7r62q3t32.e2b.app\/account\/",
+            "title": "حساب کاربری"
+        },
+        "login": {
+            "id": 12,
+            "status": "publish",
+            "url": "https:\/\/9402-i2tgs5if2mxd7r62q3t32.e2b.app\/login\/",
+            "title": "ورود به حساب"
+        },
+        "register": {
+            "id": 13,
+            "status": "publish",
+            "url": "https:\/\/9402-i2tgs5if2mxd7r62q3t32.e2b.app\/register\/",
+            "title": "ثبت‌نام"
+        },
+        "tracking": {
+            "id": 14,
+            "status": "publish",
+            "url": "https:\/\/9402-i2tgs5if2mxd7r62q3t32.e2b.app\/tracking\/",
+            "title": "پیگیری سفارش"
+        },
+        "wishlist": {
+            "id": 15,
+            "status": "publish",
+            "url": "https:\/\/9402-i2tgs5if2mxd7r62q3t32.e2b.app\/wishlist\/",
+            "title": "علاقه‌مندی‌ها"
+        },
+        "contact": {
+            "id": 16,
+            "status": "publish",
+            "url": "https:\/\/9402-i2tgs5if2mxd7r62q3t32.e2b.app\/contact\/",
+            "title": "تماس با ما"
+        },
+        "about": {
+            "id": 18,
+            "status": "publish",
+            "url": "https:\/\/9402-i2tgs5if2mxd7r62q3t32.e2b.app\/about\/",
+            "title": "درباره هشتگ"
+        },
+        "faq": {
+            "id": 19,
+            "status": "publish",
+            "url": "https:\/\/9402-i2tgs5if2mxd7r62q3t32.e2b.app\/faq\/",
+            "title": "پرسش‌های متداول"
+        },
+        "privacy": {
+            "id": 20,
+            "status": "publish",
+            "url": "https:\/\/9402-i2tgs5if2mxd7r62q3t32.e2b.app\/privacy\/",
+            "title": "حریم خصوصی"
+        },
+        "terms": {
+            "id": 21,
+            "status": "publish",
+            "url": "https:\/\/9402-i2tgs5if2mxd7r62q3t32.e2b.app\/terms\/",
+            "title": "شرایط خرید و بازگشت"
+        },
+        "blog": {
+            "id": 22,
+            "status": "publish",
+            "url": "https:\/\/9402-i2tgs5if2mxd7r62q3t32.e2b.app\/blog\/",
+            "title": "مجله هشتگ"
+        }
+    },
+    "source_catalog": {
+        "products": 28,
+        "categories": 47,
+        "relationships": 91,
+        "posts": 3,
+        "variable_source_records": 0
+    }
+}

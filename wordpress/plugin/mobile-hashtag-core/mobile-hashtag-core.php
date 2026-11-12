@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Mobile Hashtag Core
  * Description: تنظیمات فروشگاه، پیام‌های مشتریان، خبرنامه، علاقه‌مندی‌ها و مهاجرت ایمن کاتالوگ هشتگ؛ مستقل از پوسته.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Requires at least: 6.5
  * Requires PHP: 8.1
  * Author: Mobile Hashtag
@@ -10,12 +10,13 @@
  * Text Domain: mobile-hashtag-core
  */
 if (!defined('ABSPATH')) { exit; }
-define('MHC_VERSION', '1.0.1');
+define('MHC_VERSION', '1.0.2');
 define('MHC_PATH', plugin_dir_path(__FILE__));
 require_once MHC_PATH . 'includes/settings.php';
 require_once MHC_PATH . 'includes/submissions.php';
 require_once MHC_PATH . 'includes/wishlist.php';
 require_once MHC_PATH . 'includes/importer.php';
+require_once MHC_PATH . 'includes/setup.php';
 require_once MHC_PATH . 'includes/privacy.php';
 register_activation_hook(__FILE__, 'mhc_install');
 function mhc_install() {
@@ -65,6 +66,7 @@ add_action('admin_menu', function () {
     add_menu_page('موبایل هشتگ', 'Mobile Hashtag', 'manage_options', 'mhc-settings', 'mhc_settings_page', 'dashicons-smartphone');
     add_submenu_page('mhc-settings', 'تنظیمات فروشگاه', 'Store Settings', 'manage_options', 'mhc-settings', 'mhc_settings_page');
     add_submenu_page('mhc-settings', 'پیام‌ها و خبرنامه', 'پیام‌ها و خبرنامه', 'manage_options', 'mhc-submissions', 'mhc_submissions_page');
+    add_submenu_page('mhc-settings', 'راه‌اندازی فروشگاه', 'راه‌اندازی فروشگاه', 'manage_options', 'mhc-setup', 'mhc_setup_screen');
     add_submenu_page('mhc-settings', 'مهاجرت کاتالوگ', 'مهاجرت کاتالوگ', 'manage_options', 'mhc-import', 'mhc_import_page');
 });
 // Guest nonces and wishlist buttons are personalized; do not cache rendered HTML across guests.

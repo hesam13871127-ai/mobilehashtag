@@ -1,0 +1,71 @@
+{
+  "scope": "Native Customizer UI on isolated WordPress with installed 1.0.2 ZIPs, not mounted theme/plugin source; PHP-WASM/SQLite QA transport, not MySQL hosting certification",
+  "original": {
+    "title": "",
+    "visible": true,
+    "heading": "گوشی‌های محبوب هشتگ",
+    "categoryCount": 1
+  },
+  "modified": true,
+  "restored": true,
+  "passed": 10,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "Appearance > Customize link exists",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Original control values recorded before edits",
+      "pass": true,
+      "detail": {
+        "title": "",
+        "visible": true,
+        "heading": "گوشی‌های محبوب هشتگ",
+        "categoryCount": 1
+      }
+    },
+    {
+      "name": "Publish completed through native Customizer",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Public homepage after publish: title",
+      "pass": true,
+      "detail": "آزمون نهایی هشتگ — CUSTOMIZER QA 101"
+    },
+    {
+      "name": "Public homepage after publish: section visibility",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "name": "Public homepage after refresh: title",
+      "pass": true,
+      "detail": "آزمون نهایی هشتگ — CUSTOMIZER QA 101"
+    },
+    {
+      "name": "Public homepage after refresh: section visibility",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "name": "Exact original control values republished",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Original public title restored",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Original section visibility restored",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "errors": []
+}

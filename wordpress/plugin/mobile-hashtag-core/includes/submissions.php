@@ -18,11 +18,13 @@ function mhc_form($atts = []) {
     <label for="<?php echo esc_attr($id); ?>phone">تلفن (اختیاری)<input id="<?php echo esc_attr($id); ?>phone" name="phone" type="tel" maxlength="32" dir="ltr" autocomplete="tel"></label>
     <?php endif; ?>
     <label for="<?php echo esc_attr($id); ?>email">ایمیل<?php echo $type === 'newsletter' ? '' : ' (یا تلفن برای پاسخ‌گویی)'; ?><input id="<?php echo esc_attr($id); ?>email" name="email" type="email" <?php echo $type === 'newsletter' ? 'required' : ''; ?> maxlength="254" autocomplete="email" dir="ltr"></label>
-    <?php if ($type !== 'newsletter') : ?><label for="<?php echo esc_attr($id); ?>message">پیام شما<textarea id="<?php echo esc_attr($id); ?>message" name="message" required minlength="10" maxlength="5000" rows="6"></textarea></label><?php endif; ?>
+    <?php if ($type !== 'newsletter') : ?><label>موضوع<input name="subject" maxlength="160" placeholder="موضوع پیام یا نام کالای مورد نظر"></label><label for="<?php echo esc_attr($id); ?>message">پیام شما<textarea id="<?php echo esc_attr($id); ?>message" name="message" required minlength="10" maxlength="5000" rows="6"></textarea></label><?php endif; ?>
     <label class="check-label"><input type="checkbox" name="consent" value="1" required> با ذخیرهٔ اطلاعات برای <?php echo $type === 'newsletter' ? 'عضویت در خبرنامه' : 'رسیدگی به پیام'; ?> موافقم.</label>
-    <button type="submit" class="button dark"><?php echo $type === 'newsletter' ? 'عضویت در خبرنامه' : 'ثبت پیام'; ?></button>
+    <button type="submit" class="button dark"><?php echo $type === 'newsletter' ? 'عضویت در خبرنامه' : ($type === 'inquiry' ? 'ثبت درخواست پیش‌خرید / مشاوره' : 'ثبت پیام'); ?></button>
     <p class="small muted">اطلاعات در وردپرس ذخیره می‌شود. از ارسال اطلاعات حساس خودداری کنید. ثبت پیام به معنی تحویل ایمیل یا تضمین پاسخ‌گویی نیست.</p>
-    </form><?php return ob_get_clean();
+    </form><?php $html=ob_get_clean();
+    if ($type==='contact') { $html.='<details class="mhc-inquiry" id="preorder"><summary>درخواست پیش‌خرید یا مشاورهٔ محصول</summary><p>نام کالای موردنظر را در موضوع بنویسید. این درخواست سفارش قطعی یا پرداخت نیست.</p>'.mhc_form(['type'=>'inquiry']).'</details>'; }
+    return $html;
 }
 add_shortcode('mh_contact_form', 'mhc_form');
 add_shortcode('mh_newsletter', function () { return mhc_form(['type'=>'newsletter']); });
@@ -35,6 +37,8 @@ function mhc_save_submission($data) {
     $name = sanitize_text_field(mhc_scalar($data, 'name'));
     $phone = sanitize_text_field(mhc_scalar($data, 'phone'));
     $email = sanitize_email(mhc_scalar($data, 'email'));
+    $subject = sanitize_text_field(mhc_scalar($data, 'subject'));
+    if (mb_strlen($subject) > 160) { return new WP_Error('subject', 'موضوع حداکثر ۱۶۰ نویسه است.'); }
     $message = sanitize_textarea_field(mhc_scalar($data, 'message'));
     if (($type === 'newsletter' && !$email) || ($email && !is_email($email)) || strlen($email) > 254 || $email !== trim(mhc_scalar($data, 'email'))) { return new WP_Error('email', 'ایمیل معتبر وارد کنید.'); }
     if ($type !== 'newsletter' && (mb_strlen($name) < 2 || mb_strlen($name) > 100 || mb_strlen($message) < 10 || mb_strlen($message) > 5000)) { return new WP_Error('validation', 'نام باید ۲ تا ۱۰۰ و پیام ۱۰ تا ۵۰۰۰ نویسه باشد.'); }
@@ -49,7 +53,7 @@ function mhc_save_submission($data) {
     if (wp_parse_url($source, PHP_URL_HOST) !== wp_parse_url(home_url(), PHP_URL_HOST)) { $source = home_url('/'); }
     // Queries may contain account/order keys; keep only path, never private query parameters.
     $source = strtok($source, '?');
-    $row = ['uuid'=>wp_generate_uuid4(), 'created_at'=>current_time('mysql', true), 'type'=>$type, 'status'=>'new', 'name'=>$name, 'phone'=>$phone, 'email'=>$email, 'message'=>$message, 'source_url'=>$source, 'fields'=>wp_json_encode(['consent'=>true,'type'=>$type,'name'=>$name,'phone'=>$phone,'email'=>$email,'message'=>$message,'source_url'=>$source], JSON_UNESCAPED_UNICODE), 'mail_status'=>'pending', 'mail_error'=>''];
+    $row = ['uuid'=>wp_generate_uuid4(), 'created_at'=>current_time('mysql', true), 'type'=>$type, 'status'=>'new', 'name'=>$name, 'phone'=>$phone, 'email'=>$email, 'message'=>$message, 'source_url'=>$source, 'fields'=>wp_json_encode(['subject'=>$subject,'consent'=>true,'type'=>$type,'name'=>$name,'phone'=>$phone,'email'=>$email,'message'=>$message,'source_url'=>$source], JSON_UNESCAPED_UNICODE), 'mail_status'=>'pending', 'mail_error'=>''];
     $ok = $wpdb->insert($wpdb->prefix . 'mh_submissions', $row);
     if ($ok === false) { return new WP_Error('database', 'ذخیرهٔ پیام انجام نشد؛ دوباره تلاش کنید.'); }
     $id = (int) $wpdb->insert_id;
@@ -58,7 +62,7 @@ function mhc_save_submission($data) {
     add_action('wp_mail_failed', $capture);
     if (mhc_real_email($s['recipient'])) {
         try {
-            $sent = wp_mail($s['recipient'], 'پیام تازه موبایل هشتگ — ' . $row['uuid'], "نوع: $type\nنام: $name\nایمیل: $email\nتلفن: $phone\n\n$message\n\nمدیریت: " . admin_url('admin.php?page=mhc-submissions&view=' . $id));
+            $sent = wp_mail($s['recipient'], 'پیام تازه موبایل هشتگ — ' . $row['uuid'], "نوع: $type\nموضوع: $subject\nنام: $name\nایمیل: $email\nتلفن: $phone\n\n$message\n\nمدیریت: " . admin_url('admin.php?page=mhc-submissions&view=' . $id));
         } catch (Throwable $error) { $mail_error = mb_substr(sanitize_text_field($error->getMessage()), 0, 1000); }
         $mail_status = $sent ? 'accepted' : 'failed';
         if (!$sent && !$mail_error) { $mail_error = 'wp_mail returned false'; }
@@ -74,7 +78,7 @@ function mhc_submit() {
     nocache_headers();
     if (is_wp_error($saved)) { wp_die(esc_html($saved->get_error_message()), 'پیام ذخیره نشد', ['response'=>$saved->get_error_code() === 'rate' ? 429 : 422, 'back_link'=>true]); }
     // A rendered success response only occurs after a successful insert; never a GET flag.
-    wp_die('<div dir="rtl"><h1>پیام شما ذخیره شد.</h1><p>شناسه: <bdi>' . esc_html($saved['uuid']) . '</bdi></p><p>این تأیید صرفاً ذخیرهٔ پیام است؛ تحویل ایمیل تأیید نشده است.</p><a href="' . esc_url(home_url('/contact/')) . '">بازگشت به فروشگاه</a></div>', 'ثبت پیام', ['response'=>200]);
+    wp_die('<div dir="rtl"><h1>پیام شما ذخیره شد.</h1><p>شناسه: <bdi>' . esc_html($saved['uuid']) . '</bdi></p><p>این تأیید صرفاً ذخیرهٔ پیام است؛ تحویل ایمیل تأیید نشده است.</p><a href="' . esc_url(function_exists('mhc_page_url')?mhc_page_url('contact'):home_url('/contact/')) . '">بازگشت به فروشگاه</a></div>', 'ثبت پیام', ['response'=>200]);
 }
 add_action('admin_post_mhc_submit', 'mhc_submit');
 add_action('admin_post_nopriv_mhc_submit', 'mhc_submit');
@@ -104,6 +108,7 @@ function mhc_submissions_page() {
     if (!empty($q['view'])) {
         $row = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table WHERE id=%d", absint($q['view'])), ARRAY_A);
         if (!$row) { echo '<p>پیامی پیدا نشد.</p></div>'; return; }
+        $fields=json_decode($row['fields'],true)?:[]; echo '<p>موضوع: '.esc_html($fields['subject']??'').'</p>';
         echo '<h2>' . esc_html($row['uuid']) . '</h2><table class="widefat">';
         foreach ($row as $key=>$value) { echo '<tr><th>' . esc_html($key) . '</th><td style="white-space:pre-wrap;overflow-wrap:anywhere">' . esc_html($key === 'created_at' ? get_date_from_gmt($value) : $value) . '</td></tr>'; }
         echo '</table>'; mhc_status_form($row); echo '</div>'; return;
