@@ -1,4 +1,4 @@
-Mobile Hashtag — WordPress Theme 1.0.3 (installable release)
+Mobile Hashtag — WordPress Theme 1.0.4 (installable release)
 ===================================================
 Install this theme alongside the separate Mobile Hashtag Core plugin and official WooCommerce.
 See docs/INSTALL-FA.md for Persian dashboard setup, currency, page assignments and migration.

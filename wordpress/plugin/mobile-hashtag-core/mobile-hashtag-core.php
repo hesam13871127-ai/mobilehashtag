@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Mobile Hashtag Core
  * Description: تنظیمات فروشگاه، پیام‌های مشتریان، خبرنامه، علاقه‌مندی‌ها و مهاجرت ایمن کاتالوگ هشتگ؛ مستقل از پوسته.
- * Version: 1.0.3
+ * Version: 1.0.4
  * Requires at least: 6.5
  * Requires PHP: 8.1
  * Author: Mobile Hashtag
@@ -10,7 +10,7 @@
  * Text Domain: mobile-hashtag-core
  */
 if (!defined('ABSPATH')) { exit; }
-define('MHC_VERSION', '1.0.3');
+define('MHC_VERSION', '1.0.4');
 define('MHC_PATH', plugin_dir_path(__FILE__));
 require_once MHC_PATH . 'includes/settings.php';
 require_once MHC_PATH . 'includes/submissions.php';
@@ -55,11 +55,21 @@ add_action('plugins_loaded', function () {
         delete_option('mhc_import_report');
     }
 });
+/**
+ * Automatic initialization: creates required WordPress pages and imports the reference catalog
+ * without requiring the user to visit the setup screen. Runs once per version.
+ */
 add_action('init', function () {
-    if (!current_user_can('manage_options') || wp_doing_ajax() || get_stylesheet()!=='mobile-hashtag') { return; }
-    if (function_exists('mhc_setup_pages') && get_option('mhc_pages_ready')!==MHC_VERSION.(class_exists('WooCommerce')?'-wc':'-no-wc')) {
-        mhc_setup_pages(false);
+    if (!current_user_can('manage_options') || wp_doing_ajax()) { return; }
+    // Create/connect all required pages (about, contact, shop, cart, etc.)
+    if (function_exists('mhc_setup_pages')) {
+        $ready_key = 'mhc_pages_ready';
+        $ready_val = MHC_VERSION . (class_exists('WooCommerce') ? '-wc' : '-no-wc');
+        if (get_option($ready_key) !== $ready_val) {
+            mhc_setup_pages(true); // $connect=true ensures WooCommerce page IDs are stored
+        }
     }
+    // Import catalog once WooCommerce is active
     if (function_exists('mhc_auto_import') && class_exists('WooCommerce') && !get_option('mhc_import_complete')) {
         mhc_auto_import();
     }

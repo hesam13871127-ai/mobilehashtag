@@ -42,8 +42,10 @@ function mhc_import_product($row,$data) {
     if (empty($row['name']) || empty($row['sku']) || !isset($row['price']) || !is_numeric($row['price']) || $row['price'] < 0 || empty($row['image'])) { throw new RuntimeException('اطلاعات ضروری محصول ناقص است؛ منتشر نشد.'); }
     if (($row['type'] ?? 'simple') !== 'simple') { throw new RuntimeException('نوع محصول در کاتالوگ فعلی پشتیبانی نمی‌شود؛ به محصول ساده تبدیل نشد. محصول متغیر را با ابزار بومی WooCommerce وارد کنید.'); }
     $key='mhc_product_'.$row['id']; $id=(int)get_option($key); $p=$id?wc_get_product($id):false;
+    // Idempotent: if already imported and marked complete, skip without changes.
     if ($p && get_post_meta($id,'_mhc_import_complete',true)) { return ['id'=>$id,'status'=>'skipped']; }
     if (!$p) {
+        // Check for conflicts only when creating a new product.
         if (wc_get_product_id_by_sku($row['sku']) || get_page_by_path($row['slug'],OBJECT,'product')) { throw new RuntimeException('تداخل SKU یا slug موجود؛ بدون تغییر: '.$row['sku']); }
         $p=new WC_Product_Simple(); $p->set_name($row['name']); $p->set_slug($row['slug']); $p->set_sku($row['sku']);
         $p->set_status('draft'); $p->set_description($row['description']); $p->set_short_description($row['short_description']);
@@ -58,6 +60,7 @@ function mhc_import_product($row,$data) {
         $p->update_meta_data('_mhc_brand',$row['brand']); $p->update_meta_data('_mhc_colors',$colors); $p->update_meta_data('_mhc_source_currency','IRT');
         $id=$p->save(); update_option($key,$id,false);
     }
+    // Always re-apply categories, images, and status on re-run to ensure consistency.
     $cats=[];
     foreach ($data['product_categories'] as $rel) { if ((int)$rel['product_id']===(int)$row['id']) { $cat=(int)get_option('mhc_category_'.$rel['category_id']); if (!$cat) { throw new RuntimeException('دستهٔ محصول هنوز وارد نشده است.'); } $cats[]=$cat; } }
     $p->set_category_ids(array_unique($cats)); $p->set_image_id(mhc_import_media($row['image']));
@@ -107,7 +110,7 @@ function mhc_import_page_item($slug,$def) {
     update_post_meta($id,'_mhc_created',1); update_option('mhc_page_'.$slug,(int)$id,false);
     return ['id'=>(int)$id,'status'=>'imported'];
 }
-/** Small, resumable batches. Completed objects are never overwritten on retry. */
+/** Resumable batches. Completed objects are never overwritten on retry. */
 function mhc_import_batch($offset=0,$limit=5) {
     if (!current_user_can('manage_options') || !current_user_can('manage_woocommerce')) { return new WP_Error('permission','اجازهٔ مهاجرت ندارید.'); }
     if (!class_exists('WooCommerce')) { return new WP_Error('woocommerce','ابتدا ووکامرس رسمی را نصب و فعال کنید.'); }
@@ -137,14 +140,21 @@ function mhc_import_batch($offset=0,$limit=5) {
     } catch (Throwable $error) { return new WP_Error('import',$error->getMessage()); }
     finally { delete_option('mhc_import_lock'); }
 }
-/** One-time server-side import of the complete reference catalog: categories, products, posts, pages. */
+/**
+ * One-time server-side import of the complete reference catalog: categories, products, posts, pages.
+ * Automatically sets WooCommerce currency to IRT on an empty store. Idempotent: re-running never creates duplicates.
+ */
 function mhc_auto_import() {
     if (!class_exists('WooCommerce')) { return new WP_Error('woocommerce','ابتدا ووکامرس رسمی را نصب و فعال کنید.'); }
+    // Auto-switch currency to IRT on an empty store without requiring consent.
     if (get_woocommerce_currency()!=='IRT') {
         $products=get_posts(['post_type'=>'product','post_status'=>'publish','numberposts'=>1,'fields'=>'ids']);
         $orders=wc_get_orders(['limit'=>1,'return'=>'ids']);
-        if ($products || $orders) { return new WP_Error('currency','دادهٔ منبع تومان است و فروشگاه دارای محصول/سفارش است؛ واحد خودکار تغییر نکرد.'); }
-        update_option('woocommerce_currency','IRT'); update_option('woocommerce_price_num_decimals',0);
+        if (!$products && !$orders) {
+            update_option('woocommerce_currency','IRT'); update_option('woocommerce_price_num_decimals',0);
+        } else {
+            return new WP_Error('currency','دادهٔ منبع تومان است و فروشگاه دارای محصول/سفارش است؛ واحد خودکار تغییر نکرد.');
+        }
     }
     $lock=get_option('mhc_auto_import_lock');
     if ($lock && (int)$lock<time()-600) { delete_option('mhc_auto_import_lock'); }

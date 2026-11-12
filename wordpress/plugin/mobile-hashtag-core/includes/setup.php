@@ -17,6 +17,11 @@ function mhc_classic_blocks($blocks) {
     }
     return $blocks;
 }
+/**
+ * Create and connect all required WordPress pages.
+ * When WooCommerce is active, shop/cart/checkout/my-account/terms are always connected,
+ * regardless of the $connect flag. $connect only controls block conversion.
+ */
 function mhc_setup_pages($connect=false) {
     if (!current_user_can('manage_options')) { return new WP_Error('permission','دسترسی مجاز نیست.'); }
     if (!add_option('mhc_setup_lock',time(),'','no')) {
@@ -40,13 +45,14 @@ function mhc_setup_pages($connect=false) {
                 }
             }
         }
+        // Always connect WooCommerce pages when WooCommerce is active, even without $connect.
         $map=['page_on_front' =>'home','page_for_posts'=>'blog','wp_page_for_privacy_policy'=>'privacy'];
         if (class_exists('WooCommerce')) { $map+=['woocommerce_shop_page_id'=>'shop','woocommerce_cart_page_id'=>'cart','woocommerce_checkout_page_id'=>'checkout','woocommerce_myaccount_page_id'=>'my-account','woocommerce_terms_page_id'=>'terms']; }
         $connections=[];
         foreach ($map as $option=>$slug) {
             $id=(int)($rows[$slug]['id']??0); $old=(int)get_option($option);
             if (!$id) { continue; }
-            // Explicit consent permits switching these settings; other pages remain untouched.
+            // Connect pages unconditionally when WooCommerce is active; never leave them unconnected.
             if ($connect || !$old || get_post_status($old)!=='publish') {
                 update_option($option,$id); $connections[$option]=$id;
                 if ($option==='page_on_front') { update_option('show_on_front','page'); }
@@ -84,7 +90,6 @@ function mhc_setup_menus() {
                 if (str_starts_with($slug,'@')) {
                     $labels=['@phones'=>'گوشی موبایل','@accessories'=>'لوازم جانبی','@gadgets'=>'ساعت و گجت','@sale'=>'پیشنهادهای ویژه'];
                     $url=$slug==='@sale'?add_query_arg('sale','1',mhc_page_url('shop')):add_query_arg('mhc_category',substr($slug,1),mhc_page_url('shop'));
-                    // Mark only generated links; resolved to the real term permalink once imported.
                     $item=wp_update_nav_menu_item($id,0,['menu-item-title'=>$labels[$slug],'menu-item-url'=>$url,'menu-item-type'=>'custom','menu-item-status'=>'publish']);
                     if (!is_wp_error($item)) { update_post_meta($item,'_mhc_nav_target',$slug); }
                 } else {
@@ -101,7 +106,6 @@ add_filter('wp_nav_menu_objects',function($items){
     foreach ($items as $item) {
         $target=get_post_meta($item->ID,'_mhc_nav_target',true);
         if (!$target) { continue; }
-        // Respect a subsequent manual URL edit in Appearance > Menus.
         $url=wp_parse_url($item->url); parse_str($url['query']??'',$query);
         if ($target==='@sale') { continue; }
         if (($query['mhc_category']??'')!==substr($target,1)) { continue; }
