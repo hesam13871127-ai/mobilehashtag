@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Mobile Hashtag Core
  * Description: تنظیمات فروشگاه، پیام‌های مشتریان، خبرنامه، علاقه‌مندی‌ها و مهاجرت ایمن کاتالوگ هشتگ؛ مستقل از پوسته.
- * Version: 1.0.6
+ * Version: 1.0.7
  * Requires at least: 6.5
  * Requires PHP: 8.1
  * Author: Mobile Hashtag
@@ -10,7 +10,7 @@
  * Text Domain: mobile-hashtag-core
  */
 if (!defined('ABSPATH')) { exit; }
-define('MHC_VERSION', '1.0.6');
+define('MHC_VERSION', '1.0.7');
 define('MHC_PATH', plugin_dir_path(__FILE__));
 require_once MHC_PATH . 'includes/settings.php';
 require_once MHC_PATH . 'includes/submissions.php';

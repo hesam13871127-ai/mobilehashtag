@@ -1,0 +1,22 @@
+{
+  "packages": [
+    {
+      "file": "mobile-hashtag-wordpress-theme-v1.0.7.zip",
+      "version": "1.0.7",
+      "root": "mobile-hashtag/",
+      "entry_point": "mobile-hashtag/style.css",
+      "bytes": 15678840,
+      "sha256": "6ba2342dc009e00500ce55c1cf3ca623019999664d4a65ab61d1e48ae4d803b6",
+      "files": 158
+    },
+    {
+      "file": "mobile-hashtag-core-plugin-v1.0.7.zip",
+      "version": "1.0.7",
+      "root": "mobile-hashtag-core/",
+      "entry_point": "mobile-hashtag-core/mobile-hashtag-core.php",
+      "bytes": 642255,
+      "sha256": "a74742d5ea4014f378fb1484b9d1b79cbda709e04130fbf01d21158f037d9570",
+      "files": 75
+    }
+  ]
+}

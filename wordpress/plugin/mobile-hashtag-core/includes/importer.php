@@ -93,20 +93,43 @@ function mhc_page_definitions() {
         'about'=>['درباره ما',''], 'faq'=>['پرسش‌های متداول',''], 'privacy'=>['حریم خصوصی',''], 'terms'=>['شرایط خرید و بازگشت',''], 'blog'=>['مجله هشتگ',''],
     ];
 }
+/**
+ * Import or verify a WordPress page.
+ * - If page does not exist: create from source with _mhc_created metadata.
+ * - If page exists and is unpublished: publish it.
+ * - If page exists and is empty (or plugin-owned and needs publishing): fill from source content.
+ * - If page exists with user content: never overwrite (respect user edits).
+ * - Plugin-owned pages are identified via _mhc_created metadata.
+ */
 function mhc_import_page_item($slug,$def) {
     $mapped=(int)get_option('mhc_page_'.$slug);
     $existing=$mapped?get_post($mapped):null;
     if (!$existing || $existing->post_type!=='page' || $existing->post_status==='trash') { $existing=get_page_by_path($slug); }
     if ($existing) {
-        // If page exists but is not published, publish it safely instead of throwing error.
-        if ($existing->post_status !== 'publish') {
+        $needs_publish = ($existing->post_status !== 'publish');
+        if ($needs_publish) {
             wp_update_post(['ID'=>$existing->ID,'post_status'=>'publish']);
-            update_option('mhc_page_'.$slug,(int)$existing->ID,false);
-            return ['id'=>$existing->ID,'status'=>'published-existing-page'];
         }
+
+        // Detect plugin-owned pages via _mhc_created metadata to avoid overwriting user edits.
+        $is_plugin_owned = (bool) get_post_meta($existing->ID, '_mhc_created', true);
+        $content = trim($existing->post_content);
+        $is_empty = ($content === '');
+
+        // If page is empty OR plugin-owned and needs publishing, fill it from source.
+        // Never overwrite a page that has real user content and is not plugin-owned.
+        if ($is_empty || ($is_plugin_owned && $needs_publish)) {
+            $file = MHC_PATH.'data/pages/'.$slug.'.html';
+            $new_content = is_file($file) ? file_get_contents($file) : $def[1];
+            $new_content = preg_replace_callback('~src="/?(assets/images/[a-z0-9/_-]+\\.(?:webp|png|jpg|jpeg))"~i',function($match){$media=mhc_import_media('/'.$match[1]);return 'src="'.esc_url(wp_get_attachment_url($media)).'"';},$new_content);
+            $new_content = preg_replace_callback('~href="/([a-z-]+)/"~',function($match){return 'href="'.esc_url(home_url('/'.$match[1].'/')).'"';},$new_content);
+            wp_update_post(['ID'=>$existing->ID,'post_content'=>wp_kses_post($new_content)]);
+        }
+
         update_option('mhc_page_'.$slug,(int)$existing->ID,false);
-        return ['id'=>$existing->ID,'status'=>'skipped-existing-page'];
+        return ['id'=>$existing->ID,'status'=>'verified-existing-page'];
     }
+    // Page does not exist at all — create it from source.
     $file=MHC_PATH.'data/pages/'.$slug.'.html'; $content=is_file($file)?file_get_contents($file):$def[1];
     $content=preg_replace_callback('~src="/?(assets/images/[a-z0-9/_-]+\\.(?:webp|png|jpg|jpeg))"~i',function($match){$media=mhc_import_media('/'.$match[1]);return 'src="'.esc_url(wp_get_attachment_url($media)).'"';},$content);
     $content=preg_replace_callback('~href="/([a-z-]+)/"~',function($match){return 'href="'.esc_url(home_url('/'.$match[1].'/')).'"';},$content);
@@ -114,6 +137,43 @@ function mhc_import_page_item($slug,$def) {
     if (is_wp_error($id)) { throw new RuntimeException($id->get_error_message()); }
     update_post_meta($id,'_mhc_created',1); update_option('mhc_page_'.$slug,(int)$id,false);
     return ['id'=>(int)$id,'status'=>'imported'];
+}
+/**
+ * Verify that the import has actually completed by checking real database counts.
+ * Only returns true if all expected products, categories, and pages exist and are published.
+ */
+function mhc_verify_import_complete($data) {
+    $expected_products = count($data['products']);
+    $expected_categories = count($data['categories']);
+    $expected_pages = count(mhc_page_definitions());
+
+    if (!class_exists('WooCommerce')) { return false; }
+
+    // Verify products: count published products that have our source metadata
+    $product_ids = get_posts(['post_type'=>'product','post_status'=>'publish','numberposts'=>-1,'fields'=>'ids']);
+    $imported_products = 0;
+    foreach ($product_ids as $pid) {
+        if (get_post_meta($pid, '_mhc_import_complete', true)) { $imported_products++; }
+    }
+
+    // Verify categories: count product_cat terms with our source metadata
+    $imported_categories = 0;
+    foreach ($data['categories'] as $row) {
+        $key='mhc_category_'.$row['id'];
+        $cat_id=(int)get_option($key);
+        if ($cat_id && term_exists($cat_id,'product_cat') && get_term_meta($cat_id,'_mhc_import_complete',true)) { $imported_categories++; }
+    }
+
+    // Verify pages: count published pages with our source metadata
+    $page_ids = get_posts(['post_type'=>'page','post_status'=>'publish','numberposts'=>-1,'fields'=>'ids']);
+    $imported_pages = 0;
+    foreach ($page_ids as $pid) {
+        if (get_post_meta($pid, '_mhc_created', true)) { $imported_pages++; }
+    }
+
+    return ($imported_products >= $expected_products
+        && $imported_categories >= $expected_categories
+        && $imported_pages >= $expected_pages);
 }
 /** Resumable batches. Completed objects are never overwritten on retry. */
 function mhc_import_batch($offset=0,$limit=5) {
@@ -148,7 +208,7 @@ function mhc_import_batch($offset=0,$limit=5) {
 /**
  * One-time server-side import of the complete reference catalog: categories, products, posts, pages.
  * Automatically sets WooCommerce currency to IRT on an empty store. Idempotent: re-running never creates duplicates.
- * IMPORTANT: mhc_import_complete is set to true ONLY if zero failures occurred.
+ * IMPORTANT: mhc_import_complete is set to true ONLY after verifying real database counts match expectations.
  */
 function mhc_auto_import() {
     if (!class_exists('WooCommerce')) { return new WP_Error('woocommerce','ابتدا ووکامرس رسمی را نصب و فعال کنید.'); }
@@ -193,14 +253,12 @@ function mhc_auto_import() {
             $report[]=array_merge(['type'=>'pages','source'=>$slug],$r);
         }
         update_option('mhc_import_report',$report,false);
-        // CRITICAL: Only mark complete if ZERO failures. Otherwise import remains incomplete.
-        if ($failed === 0) {
-            update_option('mhc_import_complete',true,false);
-        } else {
-            update_option('mhc_import_complete',false,false);
-        }
+        // CRITICAL: Verify real database state before marking complete.
+        // Only mark complete if ZERO failures AND real counts match expectations.
+        $verified = ($failed === 0) && mhc_verify_import_complete($data);
+        update_option('mhc_import_complete', $verified, false);
         flush_rewrite_rules(true);
-        return ['report'=>$report,'failed'=>$failed,'done'=>($failed===0)];
+        return ['report'=>$report,'failed'=>$failed,'done'=>$verified,'verified'=>$verified];
     } finally { delete_option('mhc_auto_import_lock'); }
 }
 function mhc_import_page() { mhc_setup_screen(); }
