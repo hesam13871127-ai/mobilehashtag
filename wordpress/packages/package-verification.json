@@ -1,0 +1,37 @@
+{
+  "version": "1.0.6",
+  "packages": [
+    {
+      "file": "mobile-hashtag-wordpress-theme.zip",
+      "version": "1.0.6",
+      "root": "mobile-hashtag/",
+      "entry_point": "mobile-hashtag/style.css",
+      "bytes": 3234711,
+      "sha256": "c1056120108b7b8a0240540e4f6dc428376f3d3f2ab4dcd8b0da843ab7fe3e31",
+      "entries": 85,
+      "source_files": 79,
+      "docs": 6,
+      "crc_check": "PASS",
+      "single_root": "PASS",
+      "version_marker": "PASS",
+      "source_byte_match": "PASS",
+      "no_core_or_secrets": "PASS"
+    },
+    {
+      "file": "mobile-hashtag-core-plugin.zip",
+      "version": "1.0.6",
+      "root": "mobile-hashtag-core/",
+      "entry_point": "mobile-hashtag-core/mobile-hashtag-core.php",
+      "bytes": 672639,
+      "sha256": "38de3de4bcf2f41347468ecfbfba6e73f3afb14facbc28da24de40d172fd0956",
+      "entries": 84,
+      "source_files": 78,
+      "docs": 6,
+      "crc_check": "PASS",
+      "single_root": "PASS",
+      "version_marker": "PASS",
+      "source_byte_match": "PASS",
+      "no_core_or_secrets": "PASS"
+    }
+  ]
+}

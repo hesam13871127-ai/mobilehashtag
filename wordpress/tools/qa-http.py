@@ -184,9 +184,20 @@ def main():
     # ---------- add to cart (real WooCommerce form) ----------
     # The first imported product has limited stock and every QA run decrements it, so the
     # flow uses a product that is still comfortably in stock (real data, no fixtures).
-    for candidate in ("sony-wh-1000xm5", "airpods-pro-2", "anker-powerbank-20k"):
+    # Pick the first product that genuinely has >= 2 units in stock: stock is real and
+    # is decremented by every previous order, so a fixed slug eventually runs out and the
+    # failure would be correct WooCommerce behaviour, not a theme defect.
+    def enough_stock(html):
+        m_stock = re.search(r'(\d[\d,]*)\s+in stock', html)
+        if m_stock:
+            return int(re.sub(r"\D", "", m_stock.group(1))) >= 2
+        return True  # no managed stock shown => unlimited
+
+    for candidate in ("sony-wh-1000xm5", "airpods-pro-2", "anker-powerbank-20k",
+                      "galaxy-s24-ultra", "redmi-note-13-pro", "jbl-flip-6", "poco-x6"):
         page = s.get(BASE + "/product/" + candidate + "/", timeout=120)
-        if page.status_code == 200 and 'name="add-to-cart"' in page.text and "single_add_to_cart_button" in page.text:
+        if (page.status_code == 200 and 'name="add-to-cart"' in page.text
+                and "single_add_to_cart_button" in page.text and enough_stock(page.text)):
             bodies["product"] = page.text
             break
     m = re.search(r'<form[^>]+class="[^"]*cart[^"]*"[^>]*>.*?</form>', bodies["product"], re.S)
@@ -237,7 +248,11 @@ def main():
             cfields["update_cart"] = "1"
             s.post(to_local(caction), data=cfields, allow_redirects=True)
     checkout = s.get(BASE + "/checkout/", timeout=180).text
-    check("checkout renders form", 'name="billing_first_name"' in checkout or 'checkout' in checkout)
+    # Require the real checkout form; an empty cart redirects to /cart/ and would
+    # otherwise pass on the word "checkout" appearing anywhere in the page.
+    check("checkout renders the real form",
+          'name="billing_first_name"' in checkout and 'name="woocommerce-process-checkout-nonce"' in checkout,
+          "checkout form fields" if 'name="billing_first_name"' in checkout else "no billing fields")
     cform = parse_form(checkout, form_id="checkout") or parse_form(checkout, action_contains="checkout")
     if not cform:
         check("checkout form parsed", False, "no form")
@@ -282,10 +297,17 @@ def main():
                        "subject": "سؤال درباره محصول", "message": "این یک پیام آزمایشی است که از فرم واقعی سایت ارسال می‌شود.",
                        "consent": "1"})
         r = s.post(BASE + "/wp-admin/admin-post.php", data=fields, timeout=120)
-        # 429 is the documented anti-flood ceiling (8+/hour from one IP); a test run may
-        # hit it after repeated runs. Treat only other statuses as a real failure.
-        check("contact form submits (or rate-limited)", r.status_code in (200, 429), r.status_code)
-        if r.status_code == 200:
+        # The per-IP hourly ceiling is real, so repeated runs can be throttled. That is
+        # reported as its own (skipped) result instead of being counted as a pass.
+        if r.status_code == 429:
+            results.append({"test": "contact form submits", "pass": None, "skipped": True,
+                            "detail": "rate-limited (429) — the ceiling is real"})
+            results.append({"test": "contact form confirms save", "pass": None, "skipped": True,
+                            "detail": "not reached (429)"})
+            print("SKIP contact form submits :: rate-limited (429)")
+            print("SKIP contact form confirms save :: not reached (429)")
+        else:
+            check("contact form submits", r.status_code == 200, r.status_code)
             check("contact form confirms save", "ذخیره شد" in r.text, r.text[:160])
     # spam protection
     if cform:
@@ -334,12 +356,17 @@ def main():
         action, method, fields = rform
         # The register form posts back to the My Account URL (empty action attribute).
         action = action or BASE + "/my-account/"
-        fields.update({"email": email, "password": "QaPass!23456", "mhc_name": "کاربر واقعی آزمون", "mhc_phone": "09121234567"})
+        # A unique phone per run: the plugin correctly rejects a phone that is already
+        # registered to another account, so reusing one would fail for the right reason.
+        phone = "0912" + str(int(time.time()))[-7:].rjust(7, "0")
+        fields.update({"email": email, "password": "QaPass!23456", "mhc_name": "کاربر واقعی آزمون", "mhc_phone": phone})
         fields.pop("username", None)
         r = s.post(to_local(action), data=fields, timeout=120)
         err = re.search(r'class="woocommerce-error"[^>]*>(.*?)</ul>', r.text, re.S)
+        # Must be a genuine success: no WooCommerce error AND a logged-in account view.
         check("registration accepted",
-              r.status_code == 200 and ("logout" in r.text or "خروج" in r.text or "dashboard" in r.text),
+              r.status_code == 200 and err is None
+              and ("logout" in r.text or "خروج" in r.text or "dashboard" in r.text),
               (re.sub(r"\s+", " ", err.group(1))[:160] if err else r.url))
 
     # ---------- account page after login ----------
@@ -413,10 +440,14 @@ def main():
     r = s.get(BASE + "/this-page-does-not-exist/", timeout=120)
     check("404 page returns 404", r.status_code == 404, r.status_code)
 
-    passed = sum(1 for r_ in results if r_["pass"])
-    print(f"\n=== {passed}/{len(results)} checks passed ===")
-    json.dump(results, open("/tmp/qa/http-results.json", "w"), ensure_ascii=False, indent=1)
-    return 0 if passed == len(results) else 1
+    passed = sum(1 for r_ in results if r_.get("pass") is True)
+    failed = sum(1 for r_ in results if r_.get("pass") is False)
+    skipped = sum(1 for r_ in results if r_.get("skipped"))
+    summary = f"{passed} passed, {failed} failed, {skipped} skipped, {len(results)} total"
+    print(f"\n=== {passed}/{len(results)} checks passed ({failed} failed, {skipped} skipped) ===")
+    json.dump({"summary": summary, "results": results}, open("/tmp/qa/http-results.json", "w"),
+              ensure_ascii=False, indent=1)
+    return 0 if failed == 0 else 1
 
 
 if __name__ == "__main__":
