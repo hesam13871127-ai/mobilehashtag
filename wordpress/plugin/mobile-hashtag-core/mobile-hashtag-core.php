@@ -16,6 +16,7 @@ require_once MHC_PATH . 'includes/settings.php';
 require_once MHC_PATH . 'includes/accounts.php';
 require_once MHC_PATH . 'includes/submissions.php';
 require_once MHC_PATH . 'includes/wishlist.php';
+require_once MHC_PATH . 'includes/tracking.php';
 require_once MHC_PATH . 'includes/importer.php';
 require_once MHC_PATH . 'includes/setup.php';
 require_once MHC_PATH . 'includes/privacy.php';

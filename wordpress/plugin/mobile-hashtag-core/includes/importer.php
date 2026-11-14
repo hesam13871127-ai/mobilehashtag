@@ -91,7 +91,7 @@ function mhc_page_definitions() {
     return [
         'home'=>['خانه',''], 'shop'=>['فروشگاه',''], 'cart'=>['سبد خرید','[woocommerce_cart]'],
         'checkout'=>['تکمیل سفارش','[woocommerce_checkout]'], 'my-account'=>['حساب کاربری من','[woocommerce_my_account]'],
-        'tracking'=>['پیگیری سفارش','[woocommerce_order_tracking]'], 'wishlist'=>['علاقه‌مندی‌ها','[mh_wishlist]'],
+        'tracking'=>['پیگیری سفارش','[mh_tracking]'], 'wishlist'=>['علاقه‌مندی‌ها','[mh_wishlist]'],
         'contact-us'=>['تماس با ما',''], 'about-us'=>['درباره ما',''],
         'faq'=>['پرسش‌های متداول',''], 'privacy'=>['حریم خصوصی',''], 'terms'=>['شرایط خرید و بازگشت',''], 'blog'=>['مجله هشتگ',''],
     ];

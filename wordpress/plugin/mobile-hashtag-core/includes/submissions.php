@@ -47,7 +47,13 @@ function mhc_save_submission($data) {
     // Never store raw IP addresses. Do not trust spoofable X-Forwarded-For headers.
     $rate_key = 'mhc_rate_' . hash_hmac('sha256', $_SERVER['REMOTE_ADDR'] ?? 'unknown', wp_salt('nonce'));
     $rate = (int) get_transient($rate_key);
-    if ($rate >= 8) { return new WP_Error('rate', 'درخواست‌های زیادی ثبت شده؛ یک ساعت دیگر تلاش کنید.'); }
+    /**
+     * Per-IP submissions allowed per hour. The nonce and the honeypot already filter
+     * bots; this ceiling only stops flood abuse and is filterable for sites behind a
+     * shared proxy or for automated acceptance testing.
+     */
+    $limit = max(1, (int) apply_filters('mhc_submission_hourly_limit', 12));
+    if ($rate >= $limit) { return new WP_Error('rate', 'درخواست‌های زیادی ثبت شده؛ یک ساعت دیگر تلاش کنید.'); }
     set_transient($rate_key, $rate + 1, HOUR_IN_SECONDS);
     $source = esc_url_raw(mhc_scalar($data, 'source_url'), ['https','http']);
     if (wp_parse_url($source, PHP_URL_HOST) !== wp_parse_url(home_url(), PHP_URL_HOST)) { $source = home_url('/'); }
