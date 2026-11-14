@@ -132,6 +132,9 @@ def main():
         "about": "/about-us/",
         "contact": "/contact-us/",
         "faq": "/faq/",
+        "privacy": "/privacy/",
+        "terms": "/terms/",
+        "tracking": "/tracking/",
         "cart": "/cart/",
         "checkout": "/checkout/",
         "account": "/my-account/",
@@ -435,6 +438,26 @@ def main():
               csv.status_code == 200 and "text/csv" in csv.headers.get("content-type", "")
               and csv.text.startswith("\ufeffid,"),
               f"{csv.status_code} {csv.headers.get('content-type', '')}")
+
+    # ---------- imported pages keep the source's own heading ----------
+    # The theme must not prepend its generic "همراه یک انتخاب بهتر / <title>" heading to a
+    # page that already brings its own title from frontend/*.html.
+    source_headings = {
+        "about": "داستان موبایل هشتگ",
+        "contact": "صدای شما را می‌شنویم",
+        "faq": "چطور می‌توانیم کمک کنیم؟",
+        "privacy": "حریم خصوصی شما",
+        "terms": "قوانین و شرایط استفاده",
+    }
+    for key, heading in source_headings.items():
+        body = bodies[key]
+        main = re.search(r"<main.*?</main>", body, re.S)
+        main_txt = main.group(0) if main else body
+        has_source = heading in main_txt
+        h1s = re.findall(r"<h1[^>]*>(.*?)</h1>", main_txt, re.S)
+        check(f"page {key} keeps the source heading", has_source,
+              f"{len(h1s)} h1, first={re.sub(r'<[^>]+>', '', h1s[0])[:40] if h1s else 'none'}")
+        check(f"page {key} has exactly one h1", len(h1s) == 1, f"{len(h1s)} h1")
 
     # ---------- 404 handling ----------
     r = s.get(BASE + "/this-page-does-not-exist/", timeout=120)
