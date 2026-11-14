@@ -2,6 +2,7 @@
 if (!defined('ABSPATH')) { exit; }
 /** Setup is independent of catalog currency/media jobs. Existing content is never overwritten. */
 function mhc_page_url($slug) {
+    if (function_exists('mhc_page_slug')) { $slug=mhc_page_slug($slug); }
     $id=(int)get_option('mhc_page_'.$slug);
     if (!$id || get_post_status($id)!=='publish') { $p=get_page_by_path($slug); $id=$p && $p->post_status==='publish'?$p->ID:0; }
     return $id ? get_permalink($id) : home_url('/'.$slug.'/');
@@ -30,11 +31,14 @@ function mhc_setup_pages($connect=false) {
     }
     $rows=[];
     try {
+        mhc_migrate_legacy_pages();
         foreach (mhc_page_definitions() as $slug=>$def) {
             try { $rows[$slug]=mhc_import_page_item($slug,$def); }
             catch (Throwable $e) { $rows[$slug]=['status'=>'failed','error'=>$e->getMessage()]; }
         }
-        if ($connect) {
+        // Cart/checkout must always be the classic shortcode form: the block versions render an
+        // empty JS shell on the server (no <form>, no totals), which breaks real checkout.
+        if (class_exists('WooCommerce')) {
             foreach (['cart'=>'woocommerce/cart','checkout'=>'woocommerce/checkout'] as $slug=>$block) {
                 $id=(int)($rows[$slug]['id']??0);$post=$id?get_post($id):null;
                 if ($post && has_block($block,$post)) {
@@ -52,6 +56,11 @@ function mhc_setup_pages($connect=false) {
         foreach ($map as $option=>$slug) {
             $id=(int)($rows[$slug]['id']??0); $old=(int)get_option($option);
             if (!$id) { continue; }
+            // Required WooCommerce pages must never point at an outdated/sample page.
+            if (str_starts_with($option,'woocommerce_') && $old && $old!==$id && get_post_status($old)==='publish') {
+                $old_post=get_post($old);
+                if ($old_post && get_post_meta($old,'_mhc_sample_placeholder',true)) { $old=0; }
+            }
             // Connect pages unconditionally when WooCommerce is active; never leave them unconnected.
             if ($connect || !$old || get_post_status($old)!=='publish') {
                 update_option($option,$id); $connections[$option]=$id;
@@ -60,6 +69,15 @@ function mhc_setup_pages($connect=false) {
         }
         // Flush once during setup, never on every frontend request.
         if (!get_option('permalink_structure')) { update_option('permalink_structure','/%postname%/'); }
+        // A freshly installed WooCommerce 9.6+ ships with "Coming soon" mode enabled, which
+        // replaces the whole storefront with a launch placeholder. The delivered store must be
+        // publicly browsable, so it is switched to live once (never forced again afterwards).
+        if (class_exists('WooCommerce') && !get_option('mhc_coming_soon_handled')) {
+            if (get_option('woocommerce_coming_soon') === 'yes') {
+                update_option('woocommerce_coming_soon', 'no');
+            }
+            update_option('mhc_coming_soon_handled', 1, false);
+        }
         flush_rewrite_rules(true);
         mhc_setup_menus();
         $result=['pages'=>$rows,'connections'=>$connections,'time'=>current_time('mysql',true),'failed'=>count(array_filter($rows,fn($r)=>$r['status']==='failed'))];

@@ -1,5 +1,23 @@
 <?php
 if (!defined('ABSPATH')) { exit; }
+/**
+ * Prices are rendered exactly like the approved storefront: struck-through regular price
+ * above, bold current price below, "تومان" as a small currency suffix.
+ */
+function mht_price_block($p) {
+    if(!$p || !$p->is_in_stock()) { return '<strong>ناموجود</strong>'; }
+    $current = (float) $p->get_price();
+    $regular = (float) $p->get_regular_price();
+    $sale = $p->is_on_sale() && $regular > $current;
+    $money = function ($amount) {
+        $formatted = wc_price($amount, ['decimals'=>0, 'price_format'=>'%2$s %1$s']);
+        $formatted = wp_strip_all_tags($formatted);
+        $formatted = str_replace(['&nbsp;','&#8236;','تومان'], [' ','',''], $formatted);
+        $formatted = trim(str_replace('IRT','', $formatted));
+        return '<span class="amount">'.esc_html(mht_num((float) preg_replace('/[^0-9.]/','',$formatted))).'</span> <span class="currency">تومان</span>';
+    };
+    return ($sale ? '<del>'.$money($regular).'</del>' : '<span class="price-spacer"></span>').'<strong>'.$money($current).'</strong>';
+}
 function mht_product_card($p=null) {
     if(!function_exists('wc_get_product')){return;} if(!$p){global $product;$p=$product;}if(!$p||!$p->is_visible()){return;}
     $id=$p->get_id();$colors=$p->get_meta('_mhc_colors');$select=$p->is_type('variable')||(is_array($colors)&&$colors);
@@ -13,7 +31,7 @@ function mht_product_card($p=null) {
     <template><div class="quick-view"><?php echo $p->get_image('woocommerce_single'); ?><div><span class="overline"><?php echo esc_html($brand); ?></span><h2><?php echo esc_html($p->get_name()); ?></h2><p><?php echo esc_html(wp_strip_all_tags($p->get_short_description())); ?></p><div class="detail-price"><?php echo wp_kses_post($p->get_price_html()); ?></div><a class="button dark" href="<?php echo esc_url($p->get_permalink()); ?>">مشاهده و انتخاب محصول</a></div></div></template>
     </div><div class="product-info"><div class="product-meta"><span><?php echo esc_html($brand); ?></span><?php if($p->get_rating_count()): ?><span class="rating"><?php echo mht_icon('star'); ?> <?php echo esc_html(mht_num($rating)); ?></span><?php endif; ?></div>
     <h3><a href="<?php echo esc_url($p->get_permalink()); ?>"><?php echo esc_html($p->get_name()); ?></a></h3><div class="product-bottom">
-    <a class="add-button" href="<?php echo esc_url($select?$p->get_permalink():$p->add_to_cart_url()); ?>" aria-label="<?php echo esc_attr(($select?'انتخاب محصول: ':'افزودن به سبد: ').$p->get_name()); ?>"><?php echo mht_icon('cart'); ?></a><div class="price"><strong><?php echo $p->is_in_stock()?wp_kses_post($p->get_price_html()):'ناموجود'; ?></strong></div></div></div></article>
+    <a class="add-button" href="<?php echo esc_url($select?$p->get_permalink():$p->add_to_cart_url()); ?>" aria-label="<?php echo esc_attr(($select?'انتخاب محصول: ':'افزودن به سبد: ').$p->get_name()); ?>"><?php echo mht_icon('cart'); ?></a><div class="price"><?php echo mht_price_block($p); ?></div></div></div></article>
     <?php
 }
 function mht_product_brand_list($id) {

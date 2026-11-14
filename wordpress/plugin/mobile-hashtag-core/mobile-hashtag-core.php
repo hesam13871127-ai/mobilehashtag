@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Mobile Hashtag Core
  * Description: تنظیمات فروشگاه، پیام‌های مشتریان، خبرنامه، علاقه‌مندی‌ها و مهاجرت ایمن کاتالوگ هشتگ؛ مستقل از پوسته.
- * Version: 1.0.4
+ * Version: 1.0.5
  * Requires at least: 6.5
  * Requires PHP: 8.1
  * Author: Mobile Hashtag
@@ -10,9 +10,10 @@
  * Text Domain: mobile-hashtag-core
  */
 if (!defined('ABSPATH')) { exit; }
-define('MHC_VERSION', '1.0.4');
+define('MHC_VERSION', '1.0.5');
 define('MHC_PATH', plugin_dir_path(__FILE__));
 require_once MHC_PATH . 'includes/settings.php';
+require_once MHC_PATH . 'includes/accounts.php';
 require_once MHC_PATH . 'includes/submissions.php';
 require_once MHC_PATH . 'includes/wishlist.php';
 require_once MHC_PATH . 'includes/importer.php';
@@ -83,6 +84,31 @@ add_filter('woocommerce_currencies', function ($currencies) { $currencies['IRT']
 add_filter('woocommerce_currency_symbol', function ($symbol, $code) {
     return $code === 'IRT' ? 'تومان' : ($code === 'IRR' ? 'ریال' : $symbol);
 }, 10, 2);
+// The hand-coded source always prints "۱۲۳ تومان": amount first, unit after it.
+// WooCommerce defaults to the symbol-first position for a custom symbol, so the
+// position is set to right, and only when the store still uses the shipped default.
+add_filter('option_woocommerce_currency_pos', function ($pos) {
+    $code = get_option('woocommerce_currency');
+    return in_array($code, ['IRT', 'IRR'], true) && $pos === 'left' ? 'right' : $pos;
+});
+/**
+ * SQLite/Playground compatibility only.
+ *
+ * WooCommerce reserves stock at checkout with
+ *   INSERT ... SELECT ... WHERE ( SELECT ... FOR UPDATE ) - ( ... ) >= n
+ * The row-lock clause is unsupported inside INSERT..SELECT by the SQLite translator, so
+ * reserving returns 0 rows and checkout is rejected with "Not enough units ... in stock"
+ * even when stock exists. On real MySQL/MariaDB the clause is required and this filter is
+ * never applied. On SQLite the reservation is only an optimisation (stock is still checked
+ * and reduced when the order is placed), so it is skipped to keep checkout functional.
+ */
+add_filter('woocommerce_hold_stock_for_checkout', function ($enabled) {
+    global $wpdb;
+    if (!empty($wpdb->use_sqlite) || $wpdb instanceof WP_SQLite_DB || defined('WP_SQLITE_DB_ACTIVE')) { return false; }
+    if (class_exists('WP_SQLite_DB') || class_exists('WP_SQLite_Translator')) { return false; }
+    return $enabled;
+});
+
 // WooCommerce's currency is the input unit AND the display/order/email unit.
 // No price filters, conversion, or changes to stored amounts are applied.
 add_action('wp_enqueue_scripts', function () {

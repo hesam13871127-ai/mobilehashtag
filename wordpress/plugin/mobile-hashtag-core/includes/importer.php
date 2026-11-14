@@ -83,32 +83,121 @@ function mhc_import_post($row) {
     set_post_thumbnail($id,mhc_import_media($row['image'])); wp_update_post(['ID'=>$id,'post_status'=>'publish']); update_post_meta($id,'_mhc_import_complete',1);
     return ['id'=>$id,'status'=>'imported'];
 }
+/**
+ * Required pages. Slugs follow the project specification: about-us and contact-us.
+ * Legacy slugs (about/contact) are kept as 301 redirects in mhc_page_aliases().
+ */
 function mhc_page_definitions() {
     return [
         'home'=>['خانه',''], 'shop'=>['فروشگاه',''], 'cart'=>['سبد خرید','[woocommerce_cart]'],
-        'checkout'=>['تکمیل سفارش','[woocommerce_checkout]'], 'my-account'=>['حساب کاربری من','[woocommerce_my_account]'], 'account'=>['حساب کاربری','[woocommerce_my_account]'],
-        'login'=>['ورود به حساب','[woocommerce_my_account]'], 'register'=>['ثبت‌نام','[woocommerce_my_account]'],
+        'checkout'=>['تکمیل سفارش','[woocommerce_checkout]'], 'my-account'=>['حساب کاربری من','[woocommerce_my_account]'],
         'tracking'=>['پیگیری سفارش','[woocommerce_order_tracking]'], 'wishlist'=>['علاقه‌مندی‌ها','[mh_wishlist]'],
-        'contact'=>['تماس با ما','[mh_contact_details]<div class="contact-layout"><section class="panel"><h2>برایمان بنویسید</h2>[mh_contact_form]</section><aside class="contact-aside"><h2>همراه یک انتخاب بهتر</h2><p>سؤال، پیشنهاد یا تجربه‌ای دارید؟ برایمان بنویسید.</p></aside></div>'],
-        'about'=>['درباره ما',''], 'faq'=>['پرسش‌های متداول',''], 'privacy'=>['حریم خصوصی',''], 'terms'=>['شرایط خرید و بازگشت',''], 'blog'=>['مجله هشتگ',''],
+        'contact-us'=>['تماس با ما',''], 'about-us'=>['درباره ما',''],
+        'faq'=>['پرسش‌های متداول',''], 'privacy'=>['حریم خصوصی',''], 'terms'=>['شرایط خرید و بازگشت',''], 'blog'=>['مجله هشتگ',''],
     ];
 }
+/** Legacy → canonical page slug aliases handled with a 301 redirect. */
+function mhc_page_aliases() {
+    return ['about'=>'about-us', 'contact'=>'contact-us', 'account'=>'my-account', 'login'=>'my-account', 'register'=>'my-account'];
+}
+/** Canonical slug for a possibly-legacy page key. */
+function mhc_page_slug($slug) {
+    $aliases = mhc_page_aliases();
+    return $aliases[$slug] ?? $slug;
+}
+/**
+ * Sanitize page markup while keeping the inline SVG arrows/icons used by the approved design.
+ * Plain wp_kses_post() strips <svg>, which breaks the buttons in the imported pages.
+ */
+function mhc_kses_page($html) {
+    $allowed = wp_kses_allowed_html('post');
+    $svg_attr = ['width'=>true,'height'=>true,'viewbox'=>true,'viewBox'=>true,'fill'=>true,'stroke'=>true,'stroke-width'=>true,'stroke-linecap'=>true,'stroke-linejoin'=>true,'class'=>true,'aria-hidden'=>true,'focusable'=>true,'xmlns'=>true];
+    $allowed['svg'] = $svg_attr + ['role'=>true,'data-icon'=>true];
+    $allowed['path'] = ['d'=>true,'fill'=>true,'stroke'=>true,'stroke-width'=>true,'stroke-linecap'=>true,'stroke-linejoin'=>true];
+    $allowed['circle'] = ['cx'=>true,'cy'=>true,'r'=>true,'fill'=>true,'stroke'=>true,'stroke-width'=>true];
+    $allowed['rect'] = ['x'=>true,'y'=>true,'width'=>true,'height'=>true,'rx'=>true,'ry'=>true,'fill'=>true,'stroke'=>true,'stroke-width'=>true];
+    $allowed['line'] = ['x1'=>true,'y1'=>true,'x2'=>true,'y2'=>true,'stroke'=>true,'stroke-width'=>true];
+    $allowed['span'] = ($allowed['span'] ?? []) + ['data-icon'=>true,'class'=>true];
+    $allowed['i'] = ['class'=>true];
+    return wp_kses($html, $allowed);
+}
+
+/**
+ * The current plugin version of a built-in page, used to refresh pages the plugin itself
+ * created when the design source changes. Pages the owner edited are never overwritten.
+ */
+function mhc_page_content($slug, $def) {
+    $file = MHC_PATH . 'data/pages/' . $slug . '.html';
+    if (!is_file($file)) { $legacy = MHC_PATH . 'data/pages/' . str_replace('-us', '', $slug) . '.html'; if (is_file($legacy) && str_ends_with($slug, '-us')) { $file = $legacy; } }
+    $content = is_file($file) ? file_get_contents($file) : $def[1];
+    $content = preg_replace_callback('~src="/?(assets/images/[a-z0-9/_-]+\.(?:webp|png|jpg|jpeg))"~i', function ($match) {
+        $media = mhc_import_media('/' . $match[1]);
+        return 'src="' . esc_url(wp_get_attachment_url($media)) . '"';
+    }, $content);
+    return preg_replace_callback('~href="/([a-z-]+)/"~', function ($match) {
+        return 'href="' . esc_url(home_url('/' . mhc_page_slug($match[1]) . '/')) . '"';
+    }, $content);
+}
+
 function mhc_import_page_item($slug,$def) {
+    $slug=mhc_page_slug($slug);
     $mapped=(int)get_option('mhc_page_'.$slug);
     $existing=$mapped?get_post($mapped):null;
     if (!$existing || $existing->post_type!=='page' || $existing->post_status==='trash') { $existing=get_page_by_path($slug); }
     if ($existing) {
         if ($existing->post_status !== 'publish') { throw new RuntimeException('برگهٔ موجود منتشر نشده است؛ بدون تغییر باقی ماند: '.$slug); }
         update_option('mhc_page_'.$slug,(int)$existing->ID,false);
+        // Only pages created by this plugin and never edited by the owner are refreshed,
+        // so improvements to the approved design reach existing installs without
+        // destroying the owner's own edits.
+        if (($existing->post_title ?? '') !== $def[0] && get_post_meta($existing->ID, '_mhc_created', true)) {
+            wp_update_post(wp_slash(['ID' => $existing->ID, 'post_title' => $def[0]]));
+        }
+        $created = get_post_meta($existing->ID, '_mhc_created', true);
+        $duplicate = get_post_meta($existing->ID, '_mhc_duplicate_of', true);
+        // Content identical to an earlier plugin build is still design-owned content.
+        if (!$created && !get_post_meta($existing->ID, '_mhc_content_hash', true) && !$duplicate) {
+            $known = MHC_PATH . 'data/pages/' . $slug . '.html';
+            $known_content = is_file($known) ? file_get_contents($known) : '';
+            $normalise = fn($html) => trim(preg_replace('/\s+/u', ' ', wp_strip_all_tags($html)));
+            if ($known_content !== '' && $normalise($known_content) === $normalise($existing->post_content)) { $created = 1; }
+        }
+        $edited = (int) get_post_meta($existing->ID, '_mhc_owner_edited', true);
+        $content_file = MHC_PATH . 'data/pages/' . $slug . '.html';
+        if ($created && !$edited && is_file($content_file)) {
+            $content = mhc_page_content($slug, $def);
+            $hash = hash('sha256', $content);
+            if (get_post_meta($existing->ID, '_mhc_content_hash', true) !== $hash) {
+                $saved = wp_update_post(wp_slash(['ID' => $existing->ID, 'post_content' => mhc_kses_page($content)]), true);
+                if (is_wp_error($saved)) { throw new RuntimeException($saved->get_error_message()); }
+                update_post_meta($existing->ID, '_mhc_content_hash', $hash);
+                return ['id' => $existing->ID, 'status' => 'refreshed-from-design-source'];
+            }
+        }
         return ['id'=>$existing->ID,'status'=>'skipped-existing-page'];
     }
-    $file=MHC_PATH.'data/pages/'.$slug.'.html'; $content=is_file($file)?file_get_contents($file):$def[1];
-    $content=preg_replace_callback('~src="/?(assets/images/[a-z0-9/_-]+\.(?:webp|png|jpg|jpeg))"~i',function($match){$media=mhc_import_media('/'.$match[1]);return 'src="'.esc_url(wp_get_attachment_url($media)).'"';},$content);
-    $content=preg_replace_callback('~href="/([a-z-]+)/"~',function($match){return 'href="'.esc_url(home_url('/'.$match[1].'/')).'"';},$content);
-    $id=wp_insert_post(['post_type'=>'page','post_status'=>'publish','post_name'=>$slug,'post_title'=>$def[0],'post_content'=>wp_kses_post($content)],true);
+    $content=mhc_page_content($slug,$def);
+    $id=wp_insert_post(['post_type'=>'page','post_status'=>'publish','post_name'=>$slug,'post_title'=>$def[0],'post_content'=>mhc_kses_page($content)],true);
     if (is_wp_error($id)) { throw new RuntimeException($id->get_error_message()); }
-    update_post_meta($id,'_mhc_created',1); update_option('mhc_page_'.$slug,(int)$id,false);
+    update_post_meta($id,'_mhc_created',1); update_post_meta($id,'_mhc_content_hash',hash('sha256',$content)); update_option('mhc_page_'.$slug,(int)$id,false);
     return ['id'=>(int)$id,'status'=>'imported'];
+}
+/**
+ * Make sure an older install that only has /about/ and /contact/ is upgraded to the
+ * required canonical slugs instead of leaving duplicate or missing pages.
+ */
+function mhc_migrate_legacy_pages() {
+    $report=[];
+    foreach (mhc_page_aliases() as $legacy=>$canonical) {
+        if ($canonical==='my-account') { continue; }
+        $old=get_page_by_path($legacy); $new=get_page_by_path($canonical);
+        if ($new || !$old || $old->post_status!=='publish') { continue; }
+        $updated=wp_update_post(wp_slash(['ID'=>$old->ID,'post_name'=>$canonical]),true);
+        if (is_wp_error($updated)) { $report[$legacy]=$updated->get_error_message(); continue; }
+        delete_option('mhc_page_'.$legacy); update_option('mhc_page_'.$canonical,(int)$old->ID,false);
+        $report[$legacy]=$canonical;
+    }
+    return $report;
 }
 /** Resumable batches. Completed objects are never overwritten on retry. */
 function mhc_import_batch($offset=0,$limit=5) {
