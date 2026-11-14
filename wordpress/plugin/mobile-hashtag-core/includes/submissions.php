@@ -2,26 +2,44 @@
 if (!defined('ABSPATH')) { exit; }
 function mhc_scalar($data, $key) { return isset($data[$key]) && is_scalar($data[$key]) ? (string) $data[$key] : ''; }
 function mhc_real_email($email) { return is_email($email) && !preg_match('/\.(example|invalid|test)$/i', $email); }
+/**
+ * Contact form. Field order, labels, layout and button match the approved design source
+ * (frontend/contact.html): name + email in one row, then the message, then the submit button.
+ * The extra fields the plugin needs (phone fallback and the storage consent the source did
+ * not have) are placed after the source fields, in the source's own muted-note slot, so the
+ * visible layout of the original form is unchanged. Saving is the real database insert.
+ */
 function mhc_form($atts = []) {
     $a = shortcode_atts(['type'=>'contact'], $atts);
     $type = in_array($a['type'], ['contact','inquiry','newsletter'], true) ? $a['type'] : 'contact';
-    $id = wp_unique_id('mhc-');
     $source = get_permalink() ?: home_url('/');
+    $arrow = '<svg class="inline-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6" /></svg>';
     ob_start(); ?>
     <form class="mhc-form form-stack" method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" dir="rtl">
     <input type="hidden" name="action" value="mhc_submit"><input type="hidden" name="type" value="<?php echo esc_attr($type); ?>">
     <input type="hidden" name="source_url" value="<?php echo esc_url($source); ?>">
     <?php wp_nonce_field('mhc_submit_' . $type, 'mhc_nonce'); ?>
-    <div class="mhc-honeypot" aria-hidden="true"><label>این کادر را خالی بگذارید<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-    <?php if ($type !== 'newsletter') : ?>
-    <label for="<?php echo esc_attr($id); ?>name">نام و نام خانوادگی<input id="<?php echo esc_attr($id); ?>name" name="name" required minlength="2" maxlength="100" autocomplete="name"></label>
-    <label for="<?php echo esc_attr($id); ?>phone">تلفن (اختیاری)<input id="<?php echo esc_attr($id); ?>phone" name="phone" type="tel" maxlength="32" dir="ltr" autocomplete="tel"></label>
+    <?php if ($type === 'newsletter') : ?>
+    <label>ایمیل<input name="email" type="email" required maxlength="254" autocomplete="email" dir="ltr"></label>
+    <?php else : ?>
+    <div class="form-row">
+      <label>نام و نام خانوادگی<input name="name" required minlength="2" maxlength="100" autocomplete="name"></label>
+      <label>ایمیل<input name="email" type="email" maxlength="254" autocomplete="email" dir="ltr"></label>
+    </div>
+    <label>پیام شما<textarea name="message" rows="6" required minlength="10" maxlength="5000"></textarea></label>
     <?php endif; ?>
-    <label for="<?php echo esc_attr($id); ?>email">ایمیل<?php echo $type === 'newsletter' ? '' : ' (یا تلفن برای پاسخ‌گویی)'; ?><input id="<?php echo esc_attr($id); ?>email" name="email" type="email" <?php echo $type === 'newsletter' ? 'required' : ''; ?> maxlength="254" autocomplete="email" dir="ltr"></label>
-    <?php if ($type !== 'newsletter') : ?><label>موضوع<input name="subject" maxlength="160" placeholder="موضوع پیام یا نام کالای مورد نظر"></label><label for="<?php echo esc_attr($id); ?>message">پیام شما<textarea id="<?php echo esc_attr($id); ?>message" name="message" required minlength="10" maxlength="5000" rows="6"></textarea></label><?php endif; ?>
-    <label class="check-label"><input type="checkbox" name="consent" value="1" required> با ذخیرهٔ اطلاعات برای <?php echo $type === 'newsletter' ? 'عضویت در خبرنامه' : 'رسیدگی به پیام'; ?> موافقم.</label>
-    <button type="submit" class="button dark"><?php echo $type === 'newsletter' ? 'عضویت در خبرنامه' : ($type === 'inquiry' ? 'ثبت درخواست پیش‌خرید / مشاوره' : 'ثبت پیام'); ?></button>
-    <p class="small muted">اطلاعات در وردپرس ذخیره می‌شود. از ارسال اطلاعات حساس خودداری کنید. ثبت پیام به معنی تحویل ایمیل یا تضمین پاسخ‌گویی نیست.</p>
+    <div class="mhc-form-extra">
+      <?php if ($type !== 'newsletter') : ?>
+      <label class="mhc-phone-field">
+        <span class="small muted">اگر ترجیح می‌دهید با تلفن پاسخ بگیرید (اختیاری)</span>
+        <input name="phone" type="tel" maxlength="32" dir="ltr" autocomplete="tel" placeholder="۰۹۱۲۰۰۰۰۰۰۰">
+      </label>
+      <label class="mhc-subject-field"><span class="small muted">موضوع (اختیاری)</span><input name="subject" maxlength="160"></label>
+      <?php endif; ?>
+      <div class="mhc-honeypot" aria-hidden="true"><label>این کادر را خالی بگذارید<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <label class="check-label"><input type="checkbox" name="consent" value="1" required> با ذخیرهٔ اطلاعات برای <?php echo $type === 'newsletter' ? 'عضویت در خبرنامه' : 'رسیدگی به پیام'; ?> موافقم.</label>
+    </div>
+    <button type="submit" class="button dark"><?php echo $type === 'newsletter' ? 'عضویت در خبرنامه' : 'ثبت پیام'; ?><?php echo $type === 'newsletter' ? '' : $arrow; ?></button>
     </form><?php $html=ob_get_clean();
     if ($type==='contact') { $html.='<details class="mhc-inquiry" id="preorder"><summary>درخواست پیش‌خرید یا مشاورهٔ محصول</summary><p>نام کالای موردنظر را در موضوع بنویسید. این درخواست سفارش قطعی یا پرداخت نیست.</p>'.mhc_form(['type'=>'inquiry']).'</details>'; }
     return $html;

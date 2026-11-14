@@ -19,12 +19,34 @@ get_header(); ?>
 	<?php
 	$mht_content = get_the_content();
 	$mht_wrapped = str_contains($mht_content, 'page-space');
-	// The source titles its pages in more than one shape: a `.page-heading` block, or a
-	// hero/`.prose` section that already opens with its own overline + h1. Any of those
-	// means the page has its own heading and must not get the theme's generic one.
-	$mht_headed = str_contains($mht_content, 'page-heading')
-		|| str_contains($mht_content, 'about-hero')
-		|| (bool) preg_match('/<h1[\s>]/i', $mht_content);
+	/*
+	 * Pages imported from the design source keep that source markup verbatim. They must not go
+	 * through wpautop(): it wraps the standalone text link and the contact form in stray <p>
+	 * tags, which changes the layout and even nests a block-level <form> inside a paragraph.
+	 * The `_mhc_source_markup` flag is set by the importer, so pages the owner writes or edits
+	 * still get the normal WordPress pipeline.
+	 */
+	$mht_source_markup = (bool) get_post_meta(get_the_ID(), '_mhc_source_markup', true);
+	// Render the body exactly once. Probing an earlier copy would run shortcodes twice, and
+	// shortcodes with one-time effects (the order-tracking token) must not be consumed early.
+	ob_start();
+	if (is_page(['login', 'register'])) {
+		get_template_part('template-parts/auth');
+	} elseif ($mht_source_markup) {
+		// The plugin's sanitizer keeps the inline SVG arrows of the design; plain
+		// wp_kses_post() would strip them, so prefer it when the plugin is active.
+		$mht_safe = function_exists('mhc_kses_page') ? mhc_kses_page($mht_content) : wp_kses_post($mht_content);
+		echo do_shortcode($mht_safe);
+	} else {
+		the_content();
+		wp_link_pages();
+	}
+	$mht_body = ob_get_clean();
+	// The source titles its pages in more than one shape: a `.page-heading` block, a hero that
+	// already opens with its own overline + h1, or a shortcode that renders its own heading.
+	$mht_headed = str_contains($mht_body, 'page-heading')
+		|| str_contains($mht_body, 'about-hero')
+		|| (bool) preg_match('/<h1[\s>]/i', $mht_body);
 	?>
 	<?php if (!$mht_wrapped) : ?><div class="container page-space"><?php endif; ?>
 	<?php if (!$mht_headed) : ?>
@@ -33,14 +55,7 @@ get_header(); ?>
 			<h1><?php the_title(); ?></h1>
 		</div>
 	<?php endif; ?>
-	<div class="mht-page-content<?php echo $mht_wrapped ? ' mht-page-nested' : ''; ?>"><?php
-		if (is_page(['login', 'register'])) {
-			get_template_part('template-parts/auth');
-		} else {
-			the_content();
-			wp_link_pages();
-		}
-	?></div>
+	<div class="mht-page-content<?php echo $mht_wrapped ? ' mht-page-nested' : ''; ?>"><?php echo $mht_body; ?></div>
 	<?php if (!$mht_wrapped) : ?></div><?php endif; ?>
 <?php endwhile; ?>
 </main>

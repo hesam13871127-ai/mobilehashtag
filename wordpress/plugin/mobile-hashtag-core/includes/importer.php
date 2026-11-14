@@ -89,7 +89,7 @@ function mhc_import_post($row) {
  */
 function mhc_page_definitions() {
     return [
-        'home'=>['خانه',''], 'shop'=>['فروشگاه',''], 'cart'=>['سبد خرید','[woocommerce_cart]'],
+        'home'=>['خانه',''], 'shop'=>['فروشگاه هشتگ',''], 'cart'=>['سبد خرید','[woocommerce_cart]'],
         'checkout'=>['تکمیل سفارش','[woocommerce_checkout]'], 'my-account'=>['حساب کاربری من','[woocommerce_my_account]'],
         'tracking'=>['پیگیری سفارش','[mh_tracking]'], 'wishlist'=>['علاقه‌مندی‌ها','[mh_wishlist]'],
         'contact-us'=>['تماس با ما',''], 'about-us'=>['درباره ما',''],
@@ -139,6 +139,24 @@ function mhc_page_content($slug, $def) {
     }, $content);
 }
 
+/**
+ * Write page content that has already been sanitized by mhc_kses_page().
+ *
+ * WordPress applies its own kses pass on save (wp_filter_post_kses), and its global allowed
+ * list has no <svg>, so the design's inline arrows would be stripped even though
+ * mhc_kses_page() explicitly allowlists them. The filters are removed only around this single
+ * write and restored immediately; the content passed in has already been through the
+ * allowlist above, so nothing unsanitized can reach the database.
+ */
+function mhc_write_page_content($post_id, $content) {
+    $priority = has_filter('content_save_pre', 'wp_filter_post_kses');
+    if ($priority !== false) { kses_remove_filters(); }
+    try {
+        return wp_update_post(wp_slash(['ID' => (int) $post_id, 'post_content' => $content]), true);
+    } finally {
+        if ($priority !== false) { kses_init_filters(); }
+    }
+}
 function mhc_import_page_item($slug,$def) {
     $slug=mhc_page_slug($slug);
     $mapped=(int)get_option('mhc_page_'.$slug);
@@ -147,6 +165,15 @@ function mhc_import_page_item($slug,$def) {
     if ($existing) {
         if ($existing->post_status !== 'publish') { throw new RuntimeException('برگهٔ موجود منتشر نشده است؛ بدون تغییر باقی ماند: '.$slug); }
         update_option('mhc_page_'.$slug,(int)$existing->ID,false);
+        // Store pages WooCommerce creates arrive with English titles ("Shop", "Cart"…).
+        // Align them with the design source once, and only while the plugin owns the page:
+        // a page the owner edited or renamed afterwards is left alone.
+        $owner_edited = get_post_meta($existing->ID, '_mhc_owner_edited', true);
+        $title_aligned = get_post_meta($existing->ID, '_mhc_title_aligned', true);
+        if (!$owner_edited && !$title_aligned && ($existing->post_title ?? '') !== $def[0]) {
+            wp_update_post(wp_slash(['ID' => $existing->ID, 'post_title' => $def[0]]));
+            update_post_meta($existing->ID, '_mhc_title_aligned', 1);
+        }
         // Only pages created by this plugin and never edited by the owner are refreshed,
         // so improvements to the approved design reach existing installs without
         // destroying the owner's own edits.
@@ -168,18 +195,23 @@ function mhc_import_page_item($slug,$def) {
             $content = mhc_page_content($slug, $def);
             $hash = hash('sha256', $content);
             if (get_post_meta($existing->ID, '_mhc_content_hash', true) !== $hash) {
-                $saved = wp_update_post(wp_slash(['ID' => $existing->ID, 'post_content' => mhc_kses_page($content)]), true);
+                $saved = mhc_write_page_content($existing->ID, mhc_kses_page($content));
                 if (is_wp_error($saved)) { throw new RuntimeException($saved->get_error_message()); }
                 update_post_meta($existing->ID, '_mhc_content_hash', $hash);
+                update_post_meta($existing->ID, '_mhc_source_markup', 1);
                 return ['id' => $existing->ID, 'status' => 'refreshed-from-design-source'];
             }
         }
         return ['id'=>$existing->ID,'status'=>'skipped-existing-page'];
     }
     $content=mhc_page_content($slug,$def);
-    $id=wp_insert_post(['post_type'=>'page','post_status'=>'publish','post_name'=>$slug,'post_title'=>$def[0],'post_content'=>mhc_kses_page($content)],true);
+    $priority=has_filter('content_save_pre','wp_filter_post_kses');
+    if ($priority!==false) { kses_remove_filters(); }
+    try {
+        $id=wp_insert_post(['post_type'=>'page','post_status'=>'publish','post_name'=>$slug,'post_title'=>$def[0],'post_content'=>mhc_kses_page($content)],true);
+    } finally { if ($priority!==false) { kses_init_filters(); } }
     if (is_wp_error($id)) { throw new RuntimeException($id->get_error_message()); }
-    update_post_meta($id,'_mhc_created',1); update_post_meta($id,'_mhc_content_hash',hash('sha256',$content)); update_option('mhc_page_'.$slug,(int)$id,false);
+    update_post_meta($id,'_mhc_created',1); update_post_meta($id,'_mhc_content_hash',hash('sha256',$content)); update_post_meta($id,'_mhc_source_markup',1); update_option('mhc_page_'.$slug,(int)$id,false);
     return ['id'=>(int)$id,'status'=>'imported'];
 }
 /**
@@ -225,7 +257,13 @@ function mhc_import_batch($offset=0,$limit=5) {
             update_option('mhc_import_report',$report,false);
         }
         $next=min(count($jobs),$offset+$limit); update_option('mhc_import_offset',$next,false);
-        return ['next'=>$next,'total'=>count($jobs),'report'=>$report];
+        // Only claim completion when the whole catalog is present and no object failed.
+        $summary=mhc_import_summary($report); $counts=mhc_import_counts($summary);
+        update_option('mhc_import_summary',$counts,false);
+        $complete=($next>=count($jobs)) && mhc_import_is_complete($counts);
+        if ($complete) { update_option('mhc_import_complete',true,false); }
+        elseif ($next>=count($jobs)) { delete_option('mhc_import_complete'); }
+        return ['next'=>$next,'total'=>count($jobs),'report'=>$report,'summary'=>$summary,'counts'=>$counts,'complete'=>$complete];
     } catch (Throwable $error) { return new WP_Error('import',$error->getMessage()); }
     finally { delete_option('mhc_import_lock'); }
 }
@@ -233,6 +271,33 @@ function mhc_import_batch($offset=0,$limit=5) {
  * One-time server-side import of the complete reference catalog: categories, products, posts, pages.
  * Automatically sets WooCommerce currency to IRT on an empty store. Idempotent: re-running never creates duplicates.
  */
+/**
+ * Counts the import outcome per type, separating what this source catalog actually contains
+ * (imported = verified against the source) from what was left untouched (skipped = an existing
+ * object the plugin must not overwrite) and what failed. Also states the expected size of the
+ * shipped catalog so a partial run is visible instead of looking successful.
+ */
+function mhc_import_counts($summary=null) {
+    $summary=$summary??mhc_import_summary();
+    $counts=[];
+    foreach ($summary as $type=>$row) {
+        $counts[$type]=['processed'=>$row['imported']+$row['skipped']+$row['failed'],'verified'=>$row['imported'],'preserved'=>$row['skipped'],'failed'=>$row['failed']];
+    }
+    $expected=['products'=>0,'categories'=>0,'posts'=>0,'pages'=>count(mhc_page_definitions())];
+    try { $data=mhc_catalog(); $expected['products']=count($data['products']); $expected['categories']=count($data['categories']); $expected['posts']=count($data['posts']); } catch (Throwable $e) { /* catalog unreadable: expectation unknown */ }
+    $counts['expected']=$expected;
+    return $counts;
+}
+/** True only when every required object of the shipped catalog is present and nothing failed. */
+function mhc_import_is_complete($counts=null) {
+    $counts=$counts??mhc_import_counts();
+    $expected=$counts['expected'];
+    foreach ($expected as $type=>$total) {
+        $row=$counts[$type]??['processed'=>0,'failed'=>0];
+        if ($row['processed']<$total || $row['failed']>0) { return false; }
+    }
+    return true;
+}
 function mhc_auto_import() {
     if (!class_exists('WooCommerce')) { return new WP_Error('woocommerce','ابتدا ووکامرس رسمی را نصب و فعال کنید.'); }
     // Auto-switch currency to IRT on an empty store without requiring consent.
@@ -251,34 +316,33 @@ function mhc_auto_import() {
     $report=[]; $failed=0;
     try {
         $data=mhc_catalog();
-        // 1) Categories first (products depend on them)
-        foreach ($data['categories'] as $row) {
-            try { $r=mhc_import_category($row); }
-            catch (Throwable $e) { $r=['status'=>'failed','error'=>$e->getMessage()]; $failed++; }
-            $report[]=array_merge(['type'=>'categories','source'=>$row['slug']],$r);
+        // Each batch reports the objects it processed. A previous attempt's rows are kept only
+        // for objects that are not in this run, so a retry continues with the failures alone.
+        $jobs=[];
+        foreach (['categories','products','posts'] as $type) { foreach ($data[$type] as $row) { $jobs[]=[$type,$row['slug'],$row]; } }
+        foreach (mhc_page_definitions() as $slug=>$def) { $jobs[]=['pages',$slug,['slug'=>$slug,'definition'=>$def]]; }
+        foreach ($jobs as [$type,$source,$row]) {
+            try {
+                if ($type==='categories') { $r=mhc_import_category($row); }
+                elseif ($type==='products') { $r=mhc_import_product($row,$data); }
+                elseif ($type==='posts') { $r=mhc_import_post($row); }
+                else { $r=mhc_import_page_item($row['slug'],$row['definition']); }
+            } catch (Throwable $e) { $r=['status'=>'failed','error'=>$e->getMessage()]; }
+            if (($r['status']??'failed')==='failed') { $failed++; }
+            $report[]=array_merge(['type'=>$type,'source'=>$source,'time'=>current_time('mysql',true)],$r);
         }
-        // 2) Products
-        foreach ($data['products'] as $row) {
-            try { $r=mhc_import_product($row,$data); }
-            catch (Throwable $e) { $r=['status'=>'failed','error'=>$e->getMessage()]; $failed++; }
-            $report[]=array_merge(['type'=>'products','source'=>$row['slug']],$r);
-        }
-        // 3) Posts
-        foreach ($data['posts'] as $row) {
-            try { $r=mhc_import_post($row); }
-            catch (Throwable $e) { $r=['status'=>'failed','error'=>$e->getMessage()]; $failed++; }
-            $report[]=array_merge(['type'=>'posts','source'=>$row['slug']],$r);
-        }
-        // 4) Pages
-        foreach (mhc_page_definitions() as $slug=>$def) {
-            try { $r=mhc_import_page_item($slug,$def); }
-            catch (Throwable $e) { $r=['status'=>'failed','error'=>$e->getMessage()]; $failed++; }
-            $report[]=array_merge(['type'=>'pages','source'=>$slug],$r);
-        }
+        $summary=mhc_import_summary($report);
+        $counts=mhc_import_counts($summary);
         update_option('mhc_import_report',$report,false);
-        update_option('mhc_import_complete',true,false);
+        update_option('mhc_import_summary',$counts,false);
+        // "Complete" is a claim about the data, not about the loop finishing. It is only
+        // recorded when every required object was imported or verified as already present,
+        // and nothing failed.
+        $complete = ($failed===0 && mhc_import_is_complete($counts));
+        if ($complete) { update_option('mhc_import_complete',true,false); }
+        else { delete_option('mhc_import_complete'); }
         flush_rewrite_rules(true);
-        return ['report'=>$report,'failed'=>$failed,'done'=>true];
+        return ['report'=>$report,'failed'=>$failed,'summary'=>$summary,'counts'=>$counts,'complete'=>$complete,'done'=>true];
     } finally { delete_option('mhc_auto_import_lock'); }
 }
 function mhc_import_page() { mhc_setup_screen(); }

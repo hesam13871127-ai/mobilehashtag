@@ -175,8 +175,15 @@ function mhc_setup_screen() {
     <p><label><input type="checkbox" name="connect" value="1"> برگه‌های هشتگ را متصل کن و بلوک رسمی سبد/تسویه را با shortcode رسمی جایگزین کن (با نگهداری نسخهٔ پشتیبان محتوا). سایر محتوای قبلی تغییر نمی‌کند.</label></p>
     <p><button class="button button-primary" name="mode" value="continue">راه‌اندازی کامل / ادامهٔ ورود محصولات</button> <button class="button" name="mode" value="retry">بازآزمایی از ابتدا (بدون تکرار)</button> <button class="button" name="mode" value="pages">فقط ساخت و اتصال صفحات</button></p>
     </form><div id="mhc-setup-progress" role="status" aria-live="polite"></div>
-    <h2>نتیجهٔ ورود</h2><pre id="mhc-setup-summary" style="white-space:pre-wrap;direction:ltr"><?php echo esc_html(wp_json_encode($summary,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)); ?></pre>
-    <p>imported = واردشده، skipped = از قبل موجود و حفظ‌شده، failed = ناموفق. موفقیت پایان کار فقط وقتی گزارش می‌شود که خطایی وجود نداشته باشد. محصولات ناقص منتشر نمی‌شوند.</p>
+    <h2>نتیجهٔ ورود</h2>
+    <?php $counts=mhc_import_counts($summary); $complete=(bool)get_option('mhc_import_complete') && mhc_import_is_complete($counts); ?>
+    <table class="widefat" style="max-width:760px"><thead><tr><th>نوع</th><th>موفق</th><th>ردشده (از قبل موجود)</th><th>ناموفق</th><th>انتظار کاتالوگ</th></tr></thead><tbody>
+    <?php foreach (['categories'=>'دسته‌بندی','products'=>'محصول','posts'=>'نوشته','pages'=>'برگه'] as $type=>$label) : $row=$counts[$type]??['processed'=>0,'verified'=>0,'preserved'=>0,'failed'=>0]; ?>
+    <tr><td><?php echo esc_html($label); ?></td><td><?php echo esc_html($row['processed']); ?></td><td><?php echo esc_html($row['preserved']); ?></td><td><?php echo esc_html($row['failed']); ?></td><td><?php echo esc_html($counts['expected'][$type]??0); ?></td></tr>
+    <?php endforeach; ?></tbody></table>
+    <p id="mhc-import-status"><strong><?php echo $complete ? 'وضعیت: کامل' : 'وضعیت: ناقص — اجرای مجدد فقط موارد ناموفق را ادامه می‌دهد'; ?></strong></p>
+    <p>«موفق» = این اجرا وارد یا تأیید کرده، «ردشده» = از قبل موجود بود و بازنویسی نشد، «ناموفق» = با خطا متوقف شد. وضعیت «کامل» فقط وقتی ثبت می‌شود که همهٔ اشیاء ضروری پردازش شده و هیچ خطایی وجود نداشته باشد. اجرای مجدد فقط موارد ناموفق را ادامه می‌دهد و محصولات موفق دوباره ساخته نمی‌شوند.</p>
+    <details><summary>شمارش خام بر اساس وضعیت</summary><pre id="mhc-setup-summary" style="white-space:pre-wrap;direction:ltr"><?php echo esc_html(wp_json_encode($summary,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)); ?></pre></details>
     <h2>برگه‌ها و آدرس واقعی</h2><table class="widefat"><thead><tr><th>برگه</th><th>آدرس</th><th>وضعیت</th></tr></thead><tbody>
     <?php foreach(mhc_page_definitions() as $slug=>$def){$id=(int)get_option('mhc_page_'.$slug);echo '<tr><td>'.esc_html($def[0]).'</td><td><a href="'.esc_url(mhc_page_url($slug)).'">'.esc_html(mhc_page_url($slug)).'</a></td><td>'.esc_html($id?get_post_status($id):'ساخته نشده').'</td></tr>';} ?>
     </tbody></table>

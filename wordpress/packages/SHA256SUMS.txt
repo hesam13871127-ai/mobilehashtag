@@ -1,2 +1,2 @@
-cc3386f6983f5998a70a2eb2042895d2d1b0cf5bb1bec77f4eee8176066d53e0  mobile-hashtag-wordpress-theme.zip
-6bb1454d1c95b9a3fcc991f4d6a209986dc9b3e214258231751a43c2fb1816c0  mobile-hashtag-core-plugin.zip
+a7439a4bfb2f1108f0432b5757d517ee087e28fac727f5a1d5ec763046041756  mobile-hashtag-wordpress-theme.zip
+bc137d80224a5236526788a69b1d84b017f331c7d4e4fe9c4d402b73a222a67d  mobile-hashtag-core-plugin.zip
