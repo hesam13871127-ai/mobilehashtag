@@ -75,3 +75,46 @@ add_action('admin_notices',function(){
     if(!function_exists('mhc_settings')){echo '<div class="notice notice-warning"><p dir="rtl">برای تنظیم اطلاعات تماس، ذخیرهٔ پیام‌ها، علاقه‌مندی و ورود کاتالوگ، افزونهٔ همراه Mobile Hashtag Core را از فایل ZIP جداگانه نصب و فعال کنید.</p></div>';}
     if(!class_exists('WooCommerce')&&!function_exists('mhc_settings')){echo '<div class="notice notice-warning"><p dir="rtl">فروشگاه به افزونهٔ رسمی WooCommerce نیاز دارد. آن را از افزونه‌ها ← افزودن نصب و فعال کنید.</p></div>';}
 });
+
+/**
+ * Graceful degradation when Mobile Hashtag Core is not active.
+ *
+ * Imported page content references Core and WooCommerce shortcodes. WordPress prints an
+ * unknown shortcode as raw text, so the visitor would see "[mh_contact_form]". These
+ * fallbacks only register when the real provider is absent, so they can never override
+ * the plugin or WooCommerce; the shipped pages keep working and say what is missing.
+ */
+add_action('init', function () {
+    if (!shortcode_exists('mh_contact_details')) {
+        add_shortcode('mh_contact_details', function () {
+            return '<div class="notice" dir="rtl">اطلاعات تماس از افزونهٔ Mobile Hashtag Core خوانده می‌شود؛ آن را فعال کنید.</div>';
+        });
+    }
+    if (!shortcode_exists('mh_contact_form')) {
+        add_shortcode('mh_contact_form', function () {
+            return '<div class="notice" dir="rtl">فرم تماس به افزونهٔ Mobile Hashtag Core نیاز دارد. تا فعال‌شدن آن، پیام‌ها ذخیره نمی‌شوند.</div>';
+        });
+    }
+    if (!shortcode_exists('mh_newsletter')) {
+        add_shortcode('mh_newsletter', function () {
+            return '<div class="notice" dir="rtl">ثبت خبرنامه به افزونهٔ Mobile Hashtag Core نیاز دارد.</div>';
+        });
+    }
+    if (!shortcode_exists('mh_wishlist')) {
+        add_shortcode('mh_wishlist', function () {
+            return '<div class="notice" dir="rtl">فهرست علاقه‌مندی‌ها به افزونهٔ Mobile Hashtag Core نیاز دارد.</div>';
+        });
+    }
+    if (!shortcode_exists('mh_tracking')) {
+        // WooCommerce ships its own order-tracking shortcode; prefer it over a notice.
+        if (shortcode_exists('woocommerce_order_tracking')) {
+            add_shortcode('mh_tracking', function () {
+                return do_shortcode('[woocommerce_order_tracking]');
+            });
+        } else {
+            add_shortcode('mh_tracking', function () {
+                return '<div class="notice" dir="rtl">پیگیری سفارش به افزونهٔ Mobile Hashtag Core و WooCommerce نیاز دارد.</div>';
+            });
+        }
+    }
+});
