@@ -379,6 +379,36 @@ def main():
     msgs = admin.get(BASE + "/wp-admin/admin.php?page=mhc-submissions", timeout=180)
     check("admin sees contact message", "فرستنده آزمون" in msgs.text or "شرح" in msgs.text)
 
+    # ---------- admin contact-message actions (real status change) ----------
+    msgs = admin.get(BASE + "/wp-admin/admin.php?page=mhc-submissions", timeout=180).text
+    mform = None
+    for f in re.findall(r'<form\b[^>]*>.*?</form>', msgs, re.S):
+        if 'name="action" value="mhc_status"' in f:
+            mform = parse_form(f)
+            break
+    check("admin message row has a status form", bool(mform))
+    if mform and mform[2].get("id"):
+        target_id = mform[2]["id"]
+        payload = dict(mform[2])
+        payload.update({"operation": "update", "status": "contacted"})
+        changed = admin.post(BASE + "/wp-admin/admin-post.php", data=payload, timeout=180, allow_redirects=False)
+        check("admin can change message status", changed.status_code in (302, 303), changed.status_code)
+        view = admin.get(BASE + f"/wp-admin/admin.php?page=mhc-submissions&view={target_id}", timeout=180).text
+        check("message status persisted", "contacted" in view)
+
+    # CSV export of the filtered list
+    exf = None
+    for f in re.findall(r'<form\b[^>]*>.*?</form>', msgs, re.S):
+        if 'name="action" value="mhc_export"' in f:
+            exf = parse_form(f)
+            break
+    if exf:
+        csv = admin.post(BASE + "/wp-admin/admin-post.php", data=exf[2], timeout=180, allow_redirects=False)
+        check("admin CSV export streams a file",
+              csv.status_code == 200 and "text/csv" in csv.headers.get("content-type", "")
+              and csv.text.startswith("\ufeffid,"),
+              f"{csv.status_code} {csv.headers.get('content-type', '')}")
+
     # ---------- 404 handling ----------
     r = s.get(BASE + "/this-page-does-not-exist/", timeout=120)
     check("404 page returns 404", r.status_code == 404, r.status_code)

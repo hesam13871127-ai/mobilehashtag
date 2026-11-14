@@ -90,7 +90,7 @@ $count      = WC()->cart->get_cart_contents_count();
 
 							<div class="cart-item-end">
 								<strong><?php echo wp_kses_post($line_total); ?></strong>
-								<a class="icon-button mht-remove" href="<?php echo esc_url(WC()->cart->get_remove_url($cart_item_key)); ?>" rel="nofollow" aria-label="<?php echo esc_attr(sprintf('حذف %s', wp_strip_all_tags($item_name))); ?>">
+								<a class="icon-button mht-remove" href="<?php echo esc_url(wc_get_cart_remove_url($cart_item_key)); ?>" rel="nofollow" aria-label="<?php echo esc_attr(sprintf('حذف %s', wp_strip_all_tags($item_name))); ?>">
 									<span aria-hidden="true">×</span>
 								</a>
 							</div>

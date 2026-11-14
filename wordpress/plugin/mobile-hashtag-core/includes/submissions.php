@@ -129,7 +129,9 @@ function mhc_submissions_page() {
         echo '<tr><td><a href="' . esc_url(admin_url('admin.php?page=mhc-submissions&view=' . $r['id'])) . '">' . esc_html($r['uuid']) . '</a><br>' . esc_html(get_date_from_gmt($r['created_at'])) . '</td><td>' . esc_html($r['name']) . '<br>' . esc_html($r['email']) . '</td><td>' . esc_html($r['type'] . ' / ' . $r['status']) . '</td><td>' . esc_html($r['mail_status']) . '</td><td>'; mhc_status_form($r); echo '</td></tr>';
     }
     echo '</tbody></table>';
-    echo wp_kses_post(paginate_links(['base'=>add_query_arg('paged','%#%'), 'format'=>'', 'total'=>(int) ceil($count/25), 'current'=>$page]));
+    // paginate_links() returns null when everything fits on one page.
+    $links = paginate_links(['base'=>add_query_arg('paged','%#%'), 'format'=>'', 'total'=>(int) ceil($count/25), 'current'=>$page]);
+    if (is_string($links) && $links !== '') { echo wp_kses_post($links); }
     ?><form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post"><input type="hidden" name="action" value="mhc_export"><?php wp_nonce_field('mhc_export'); foreach (['s','type','status','from','to'] as $k) { echo '<input type="hidden" name="' . esc_attr($k) . '" value="' . esc_attr(mhc_scalar($q,$k)) . '">'; } ?><button class="button">دریافت CSV همین فیلتر</button></form></div><?php
 }
 function mhc_status_form($r) {

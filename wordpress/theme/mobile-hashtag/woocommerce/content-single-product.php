@@ -1,6 +1,10 @@
 <?php
 /** Approved three-column layout; official WC gallery/forms/tabs/review/related hooks. */
 if(!defined('ABSPATH')){exit;}global $product;
+// WooCommerce's before_product hook prints the sale flash, which needs a real product
+// object. During edge cases (e.g. a non-product loop entry) it is null, so guard here
+// instead of letting sale-flash.php fatal on $product->is_on_sale().
+if(!$product instanceof WC_Product){return;}
 do_action('woocommerce_before_single_product');
 if(post_password_required()){echo get_the_password_form();return;}
 ?>
